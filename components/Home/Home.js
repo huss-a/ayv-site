@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import LiveFlights from "./LiveFlights";
 import Layout from "../Layout/Layout";
+import Head from "next/head";
 
 const Home = () => {
-  useEffect(() => {
-    document.title = "Finnair Virtual";
-  });
   return (
+      <>
+      <Head>
+          <title>Finnair Virtual</title>
+          <meta name="description" content="Finnair Virtual - Fly Finnish"/>
+          <meta name="keywords" content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"/>
+      </Head>
     <Layout>
       <div className="main-banner">
         <h1>Finnair Virtual</h1>
@@ -16,6 +19,7 @@ const Home = () => {
         <LiveFlights />
       </Container>
     </Layout>
+    </>
   );
 };
 
