@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Spinner, Button } from "react-bootstrap";
 
+
 const LiveFlights = () => {
   const {
     REACT_APP_API_KEY_IF: API_KEY_IF,
     REACT_APP_API_KEY_MAPFLIGHT: API_KEY_MAPFLIGHT,
     REACT_APP_SESSION_ID: SESSION_ID,
-  } = process.env;
+  } = process?.env;
 
   const [pilots, setPilots] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,12 +15,12 @@ const LiveFlights = () => {
 
   const getFlights = async () => {
     const res = await fetch(
-      `https://api.infiniteflight.com/public/v2/flights/${SESSION_ID}?apikey=${API_KEY_IF}`
+      `https://api.infiniteflight.com/public/v2/flights/7e5dcd44-1fb5-49cc-bc2c-a9aab1f6a856?apikey=zjgzo15v3x9i1xwnjqxop52eeaxideuj`
     );
 
     let data = await res.json();
 
-    const ayvFlights = data.result.filter(
+    const ayvFlights = await data.result.filter(
       (flight) =>
         flight.callsign.startsWith("Finnair") &&
         flight.callsign.search("VA") > 0
@@ -40,7 +41,7 @@ const LiveFlights = () => {
   }
 
   useEffect(() => {
-    console.log(process.env);
+    console.log("rendered");
     const flightReload = document.querySelector("#flight-reload");
     const fetchFlightInfoOnRender = async () => {
       try {
@@ -69,7 +70,7 @@ const LiveFlights = () => {
     }
 
     if (pilots.length === 0) pilotTable.style.display = "none";
-  }, [loading, pilots.length, getFlights]);
+  }, [loading, pilots.length]);
 
   return (
     <div>
@@ -87,7 +88,7 @@ const LiveFlights = () => {
           height="800px"
           width="100%"
           title="MapFlight Map"
-          src={`https://en.map-flight.com?apikey=${API_KEY_MAPFLIGHT}`}
+          src={`https://en.map-flight.com?apikey=869b136d-9c88-4b72-98d8-ffb9be89bccc`}
         />
       </div>
       <div id="pilot-table-wrapper" className="mt-2">

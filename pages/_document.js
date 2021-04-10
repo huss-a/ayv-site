@@ -12,7 +12,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* google fonts */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet preconnect" /> 
           {/* bootstrap */}
           <link
@@ -28,8 +28,7 @@ class MyDocument extends Document {
             rel="preconnect"
           ></script>
           <meta name="keywords" content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"/>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         </Head>
         <body>
           <Main />
