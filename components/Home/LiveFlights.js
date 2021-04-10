@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Spinner, Button } from "react-bootstrap";
-
 
 const LiveFlights = () => {
   const {
@@ -13,7 +12,7 @@ const LiveFlights = () => {
   const [loading, setLoading] = useState(true);
   const [reloading, setReloading] = useState(false);
 
-  const getFlights = async () => {
+  const getFlights = useCallback(async () => {
     const res = await fetch(
       `https://api.infiniteflight.com/public/v2/flights/7e5dcd44-1fb5-49cc-bc2c-a9aab1f6a856?apikey=zjgzo15v3x9i1xwnjqxop52eeaxideuj`
     );
@@ -31,7 +30,7 @@ const LiveFlights = () => {
     );
 
     return ayvFlights;
-  };
+  }, []);
 
   async function reloadFlights() {
     setReloading(true);
@@ -70,11 +69,11 @@ const LiveFlights = () => {
     }
 
     if (pilots.length === 0) pilotTable.style.display = "none";
-  }, [loading, pilots.length]);
+  }, [loading, pilots.length, getFlights]);
 
   return (
     <div>
-      <h1 style={{fontWeight: "600"}}>VA Live Flights</h1>
+      <h1 style={{ fontWeight: "600" }}>VA Live Flights</h1>
       <div className="map-load">
         <h3 className="loading">
           <Spinner
