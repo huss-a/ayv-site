@@ -9,7 +9,6 @@ const Home = () => {
       <Head>
           <title>Finnair Virtual</title>
           <meta name="description" content="Finnair Virtual - Fly Finnish"/>
-          <meta name="keywords" content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"/>
       </Head>
     <Layout>
       <div className="main-banner">
