@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import FleetCard from "./Card";
 import FleetList from "../../data/FleetList";
