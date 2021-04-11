@@ -8,7 +8,7 @@ From Next.js Docs:
 "
 In order to keep server-only secrets safe, Next.js replaces process.env.* with the correct values at build time. This means that process.env is not a standard JavaScript object, so you’re not able to use object destructuring. Environment variables must be referenced as e.g. process.env.NEXT_PUBLIC_PUBLISHABLE_KEY, not const { NEXT_PUBLIC_PUBLISHABLE_KEY } = process.env
 "
-
+--------
 "
 By default all environment variables loaded through .env.local are only available in the Node.js environment, meaning they won't be exposed to the browser.
 
@@ -142,3 +142,5 @@ const LiveFlights = () => {
 };
 
 export default LiveFlights;
+
+export async function getServerSideProps() {}
