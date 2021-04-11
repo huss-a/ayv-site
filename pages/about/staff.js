@@ -4,4 +4,3 @@ const staff = () => <Staff/>;
 
 export default staff;
 
-// continue here
