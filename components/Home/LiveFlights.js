@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Spinner, Button } from "react-bootstrap";
-
+import useFetch from "../../helpers/useFetch";
 /*
 Enviroment Variables-
 
@@ -22,11 +22,9 @@ const LiveFlights = () => {
   const [reloading, setReloading] = useState(false);
 
   const getFlights = useCallback(async () => {
-    const res = await fetch(
-      `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`
-    );
+    const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
 
-    let data = await res.json();
+    const data = await useFetch(url);
 
     const ayvFlights = await data.result.filter(
       (flight) =>
@@ -34,7 +32,7 @@ const LiveFlights = () => {
         flight.callsign.search("VA") > 0
     );
 
-    ayvFlights.forEach((flight) =>
+    await ayvFlights.forEach((flight) =>
       flight.username === null ? (flight.username = "Username Not Set") : null
     );
 
