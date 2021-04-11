@@ -48,6 +48,12 @@ class MyDocument extends Document {
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         </Head>
         <body>
+          <form name="contact-form" data-netlify="true" hidden>
+            <input type="text" name="bot-field" hidden />
+            <input name="Name" type="text" />
+            <input name="Email" type="text" />
+            <textarea name="Message" type="text"></textarea>
+          </form>
           <Main />
           <NextScript />
         </body>
