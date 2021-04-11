@@ -21,18 +21,16 @@ const StaffCard = ({ staffMember, borderColor }) => {
         <Card.Text>{staffMember.desc}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <Card.Link>
-          <h6>
-            <a
-              className="link"
-              target="_blank"
-              rel="noreferrer"
-              href={`https://community.infiniteflight.com/u/${staffMember.ifcName}`}
-            >
-              Contact me on the IFC!
-            </a>
-          </h6>
-        </Card.Link>
+        <h6>
+          <Card.Link
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+            href={`https://community.infiniteflight.com/u/${staffMember.ifcName}`}
+          >
+            Contact me on the IFC!
+          </Card.Link>
+        </h6>
       </Card.Footer>
     </Card>
   );

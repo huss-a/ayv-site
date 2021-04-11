@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Navbar from "../components/Layout/Navbar";
+import logo from "../images/logo.jpeg";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -41,6 +41,7 @@ class MyDocument extends Document {
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
             crossOrigin="anonymous"
           />
+          <link rel="shortcut icon" href={logo} type="image/x-icon" />
           <meta
             name="keywords"
             content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"
