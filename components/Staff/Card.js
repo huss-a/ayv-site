@@ -1,10 +1,6 @@
 import { Card } from "react-bootstrap";
 
-const StaffCard = ({ staffMember, borderColor }) => {
-  const cardStyles = {
-    borderRadius: "1px 1px 10px 10px",
-    borderTop: `7px solid ${borderColor}`,
-  };
+const StaffCard = ({ staffMember }) => {
 
   const cardTitleStyles = {
     fontSize: "2rem",
@@ -12,7 +8,7 @@ const StaffCard = ({ staffMember, borderColor }) => {
     fontWeight: "700",
   };
   return (
-    <Card className="m-4 p-2" style={cardStyles}>
+    <Card className="m-4 p-2" className="staff-card">
       <Card.Header>
         <Card.Title style={cardTitleStyles}>{staffMember.name}</Card.Title>
         <Card.Subtitle>{staffMember.role}</Card.Subtitle>

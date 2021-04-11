@@ -281,6 +281,19 @@ iframe {
   left: 0;
 }
 
+.staff-card {
+  border-radius: 1px 1px 10px 10px;
+  border-top: 7px solid var(--primary-blue);
+  box-shadow: 0px 10px 20px grey;
+  margin: 15px;
+  transition: 0.1s ease-in;
+}
+
+.staff-card:hover {
+  transition: 0.1s ease-out;
+  margin: 10px;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

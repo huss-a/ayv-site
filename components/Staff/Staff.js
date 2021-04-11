@@ -22,7 +22,6 @@ const Staff = () => {
                   key={member.name}
                   className="mb-4"
                   staffMember={member}
-                  borderColor="#0b1560"
                 />
               ))}
             </div>
@@ -34,7 +33,6 @@ const Staff = () => {
                   key={member.name}
                   className="mb-4"
                   staffMember={member}
-                  borderColor="#3a4ac5"
                 />
               ))}
             </div>

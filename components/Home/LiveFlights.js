@@ -93,6 +93,7 @@ const LiveFlights = () => {
           height="800px"
           width="100%"
           title="MapFlight Map"
+          style={{border: "2px solid grey"}}
           src={`https://en.map-flight.com?apikey=${process.env.NEXT_PUBLIC_API_KEY_MAPFLIGHT}`}
         />
       </div>
