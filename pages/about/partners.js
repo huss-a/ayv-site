@@ -1,6 +1,22 @@
-import Partners from "../../components/Partners/Partners";
+import { Container } from "react-bootstrap";
+import OneWorldCard from "../../components/Partners/OneWorldCard";
+import Layout from "../../components/Layout/Layout";
+import Head from "next/head";
 
-const partners = () => <Partners/>
+const partners = () => {
+  return (
+    <>
+      <Head>
+        <title>Finnair Virtual | Partners</title>
+        <meta name="description" content="Finnair Virtual - Partners" />
+      </Head>
+      <Layout>
+        <Container className="my-4">
+          <OneWorldCard />
+        </Container>
+      </Layout>
+    </>
+  );
+};
 
 export default partners;
-

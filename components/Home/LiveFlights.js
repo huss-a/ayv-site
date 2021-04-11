@@ -61,7 +61,7 @@ const LiveFlights = () => {
     };
     fetchFlightInfoOnRender();
 
-    setTimeout(() => {
+    setTimeout(async() => {
       document.querySelector("iframe").style.display = "block";
       document.querySelector(".map-load").style.backgroundColor = "transparent";
       document.querySelector(".map-load h3").style.display = "none";
