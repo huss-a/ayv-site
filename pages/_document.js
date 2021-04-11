@@ -51,7 +51,6 @@ class MyDocument extends Document {
           <form
             name="contact-form"
             data-netlify="true"
-            data-netlify-recaptcha="true"
             hidden
           >
             <input type="text" name="bot-field" hidden />
