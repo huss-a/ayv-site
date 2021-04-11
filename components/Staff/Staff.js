@@ -1,44 +1,47 @@
-import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import StaffCard from "./Card";
 import staffMembers from "../../data/StaffList";
 import Layout from "../Layout/Layout";
+import Head from "next/head";
 const Staff = () => {
-  useEffect(() => {
-    document.title = "Finnair Virtual | Staff";
-  });
   return (
-    <Layout>
-      <Container>
-        <h1 className="mt-4">The Staff at AYVA</h1>
-        <hr />
-        <div style={centerDivStyle}>
-          <h2>Senior Management</h2>
-          <div className="staff-card-container">
-            {staffMembers.seniorManagement.map((member) => (
-              <StaffCard
-                key={member.name}
-                className="mb-4"
-                staffMember={member}
-                borderColor="#0b1560"
-              />
-            ))}
+    <>
+      <Head>
+        <title>Finnair Virtual | Staff</title>
+        <meta name="description" content="Finnair Virtual - Staff" />
+      </Head>
+      <Layout>
+        <Container>
+          <h1 className="mt-4">The Staff at AYVA</h1>
+          <hr />
+          <div style={centerDivStyle}>
+            <h2>Senior Management</h2>
+            <div className="staff-card-container">
+              {staffMembers.seniorManagement.map((member) => (
+                <StaffCard
+                  key={member.name}
+                  className="mb-4"
+                  staffMember={member}
+                  borderColor="#0b1560"
+                />
+              ))}
+            </div>
+            <hr style={hrStyle} />
+            <h2>Junior Management</h2>
+            <div className="staff-card-container">
+              {staffMembers.juniorManagement.map((member) => (
+                <StaffCard
+                  key={member.name}
+                  className="mb-4"
+                  staffMember={member}
+                  borderColor="#3a4ac5"
+                />
+              ))}
+            </div>
           </div>
-          <hr style={hrStyle} />
-          <h2>Junior Management</h2>
-          <div className="staff-card-container">
-            {staffMembers.juniorManagement.map((member) => (
-              <StaffCard
-                key={member.name}
-                className="mb-4"
-                staffMember={member}
-                borderColor="#3a4ac5"
-              />
-            ))}
-          </div>
-        </div>
-      </Container>
-    </Layout>
+        </Container>
+      </Layout>
+    </>
   );
 };
 

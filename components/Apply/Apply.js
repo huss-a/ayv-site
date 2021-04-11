@@ -2,13 +2,19 @@ import { useEffect } from "react";
 import { Container, Card, ListGroup } from "react-bootstrap";
 import reqs from "../../data/RequirementsList";
 import Layout from "../Layout/Layout";
+import Head from "next/head";
 
 const Apply = () => {
-  useEffect(() => {
-    document.title = "Finnair Virtual | Apply";
-  });
+  // useEffect(() => {
+  //   document.title = "Finnair Virtual | Apply";
+  // });
 
   return (
+    <>
+    <Head>
+      <title>Finnair Virtual | Apply</title>
+      <meta name="description" content="Finnair Virtual - Apply" />
+    </Head>
     <Layout>
       <div className="apply-wrapper">
         <Container className="apply-container my-4">
@@ -97,6 +103,7 @@ const Apply = () => {
         </Container>
       </div>
     </Layout>
+    </>
   );
 };
 
