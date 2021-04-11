@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { OneWorldPartners } from "../../data/Partners";
-import banner from "../../images/OneWorldVirtual.png"
+import banner from "../../images/OneWorldVirtual.jpg"
 
 const OneWorldCard = () => {
   return (

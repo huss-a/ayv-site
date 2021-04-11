@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import logo from "../images/logo.jpeg";
+import logo from "../images/logo.jpg";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {

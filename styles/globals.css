@@ -273,7 +273,6 @@ iframe {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, 400px);
   justify-content: space-around;
-  /* overflow-x: hidden; */
 }
 
 .ow-grid > .card {
