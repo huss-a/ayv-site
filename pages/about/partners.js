@@ -20,3 +20,5 @@ const partners = () => {
 };
 
 export default partners;
+
+// @todo - fix partners in mobile && staff specific route

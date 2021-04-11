@@ -11,7 +11,7 @@ const OneWorldCard = () => {
         <Card.Img alt="OneWorld Banner" src={banner} />
       </Card.Header>
       <Card.Body>
-        <div className="ow-wrapper">
+        <>
           <div className="ow-grid">
             {OneWorldPartners.map((partner) => (
               <Card
@@ -41,7 +41,7 @@ const OneWorldCard = () => {
               </Card>
             ))}
           </div>
-        </div>
+        </>
       </Card.Body>
       <Card.Footer>
         <strong>OneWorld Virtual holds NO affiliation with OneWorld whatsoever.</strong>

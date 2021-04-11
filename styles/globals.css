@@ -178,6 +178,18 @@ nav ul li:hover {
   grid-template-columns: 1fr 1fr;
 }
 
+.staff-card {
+  border-radius: 1px 1px 10px 10px;
+  border-top: 7px solid var(--primary-blue);
+  box-shadow: 0px 10px 20px grey;
+  margin: 15px;
+  transition: 0.1s ease-in;
+}
+
+.staff-card:hover {
+  transition: 0.1s ease-out;
+  margin: 10px;
+}
 .map-load {
   height: 800px;
   width: 100%;
@@ -261,37 +273,11 @@ iframe {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, 400px);
   justify-content: space-around;
+  /* overflow-x: hidden; */
 }
 
-/* .ow-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-} */
-
-.ow-partner-item {
-  background: #fff;
-  padding: 25px;
-  margin: 15px;
-}
-
-.ow-partner-item .btn {
-  position: relative;
-  bottom: 0;
-  left: 0;
-}
-
-.staff-card {
-  border-radius: 1px 1px 10px 10px;
-  border-top: 7px solid var(--primary-blue);
-  box-shadow: 0px 10px 20px grey;
-  margin: 15px;
-  transition: 0.1s ease-in;
-}
-
-.staff-card:hover {
-  transition: 0.1s ease-out;
-  margin: 10px;
+.ow-grid > .card {
+  width: 100% !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -319,6 +305,12 @@ iframe {
 }
 
 @media screen and (max-width: 550px) {
+  .ow-grid {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .list-group-item {
     padding: 0.5rem 0.4rem !important;
     font-size: 0.85rem;
