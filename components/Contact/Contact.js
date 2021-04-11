@@ -61,7 +61,6 @@ const Contact = () => {
                       required
                     />
                   </Form.Group>
-                  <div data-netlify-recaptcha="true"></div>
                   <Button type="submit" className="mt-4">
                     Send
                   </Button>

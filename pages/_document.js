@@ -58,7 +58,6 @@ class MyDocument extends Document {
             <input name="Name" type="text" />
             <input name="Email" type="text" />
             <textarea name="Message" type="text"></textarea>
-            <div data-netlify-recaptcha="true"></div>
           </form>
           <Main />
           <NextScript />
