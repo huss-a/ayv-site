@@ -1,25 +1,6 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
 
 const Navbar = () => {
-  useEffect(() => {
-    const navLogo = document.querySelector(".navbar-brand");
-    // Collapse the navbar after rendering a component
-    const navLinks = document.querySelectorAll(".nav-link");
-    const dropdownLinks = document.querySelectorAll(".dropdown-item");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        document.querySelector(".collapse").classList.toggle("show");
-        navLogo.classList.add("animate__flip");
-      });
-    });
-
-    dropdownLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        document.querySelector(".collapse").classList.toggle("show");
-      });
-    });
-  }, []);
   const router = useRouter();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
@@ -28,7 +9,7 @@ const Navbar = () => {
           className="navbar-brand animate__animated animate__flip"
           style={{ color: "white" }}
           onClick={() => router.push("/")}
-          style={{cursor: "pointer"}}
+          style={{ cursor: "pointer" }}
         >
           <h4>Finnair Virtual</h4>
         </a>
@@ -49,7 +30,11 @@ const Navbar = () => {
         >
           <ul className="navbar-nav ml-auto mb-3 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" onClick={() => router.push("/")}>
+              <a
+                className="nav-link active"
+                aria-current="page"
+                onClick={() => router.push("/")}
+              >
                 Home
               </a>
             </li>
@@ -66,17 +51,26 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" onClick={() => router.push("/about/staff")}>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/about/staff")}
+                  >
                     Staff
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" onClick={() => router.push("/about/partners")}>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/about/partners")}
+                  >
                     Partners
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" onClick={() => router.push("/about/contact")}>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/about/contact")}
+                  >
                     Contact Us
                   </a>
                 </li>
