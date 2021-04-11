@@ -20,6 +20,7 @@ const OneWorldCard = () => {
                   borderRadius: "5px",
                   borderTop: `7px solid ${partner.color}`,
                 }}
+                key={partner.website}
               >
                 <Card.Header style={{ background: "#fff" }}>
                   <Card.Title>

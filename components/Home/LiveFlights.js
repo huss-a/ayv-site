@@ -14,7 +14,7 @@ const LiveFlights = () => {
 
   const getFlights = useCallback(async () => {
     const res = await fetch(
-      `https://api.infiniteflight.com/public/v2/flights/7e5dcd44-1fb5-49cc-bc2c-a9aab1f6a856?apikey=zjgzo15v3x9i1xwnjqxop52eeaxideuj`
+      `https://api.infiniteflight.com/public/v2/flights/${SESSION_ID}?apikey=${API_KEY_IF}`
     );
 
     let data = await res.json();
@@ -40,7 +40,6 @@ const LiveFlights = () => {
   }
 
   useEffect(() => {
-    console.log("rendered");
     const flightReload = document.querySelector("#flight-reload");
     const fetchFlightInfoOnRender = async () => {
       try {
@@ -87,8 +86,9 @@ const LiveFlights = () => {
           height="800px"
           width="100%"
           title="MapFlight Map"
-          src={`https://en.map-flight.com?apikey=869b136d-9c88-4b72-98d8-ffb9be89bccc`}
+          src={`https://en.map-flight.com?apikey=${API_KEY_MAPFLIGHT}`}
         />
+
       </div>
       <div id="pilot-table-wrapper" className="mt-2">
         {pilots.length === 0 && (

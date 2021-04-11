@@ -71,12 +71,12 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" to="/about/partners">
+                  <a className="dropdown-item" onClick={() => router.push("/about/partners")}>
                     Partners
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" to="/about/contact-us">
+                  <a className="dropdown-item" onClick={() => router.push("/about/contact")}>
                     Contact Us
                   </a>
                 </li>
@@ -88,7 +88,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" to="/apply">
+              <a className="nav-link" onClick={() => router.push("/apply")}>
                 Apply
               </a>
             </li>
