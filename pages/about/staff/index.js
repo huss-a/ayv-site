@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
-import StaffCard from "../../components/Staff/Card";
-import staffMembers from "../../data/StaffList";
-import Layout from "../../components/Layout/Layout";
+import StaffCard from "../../../components/Staff/Card";
+import staffMembers from "../../../data/StaffList";
+import Layout from "../../../components/Layout/Layout";
 import Head from "next/head";
 const staff = () => {
   return (
