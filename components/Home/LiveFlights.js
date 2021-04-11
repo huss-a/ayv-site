@@ -2,14 +2,13 @@ import React, { useEffect, useState, useCallback } from "react";
 import { Spinner, Button } from "react-bootstrap";
 
 const LiveFlights = () => {
-
   const [pilots, setPilots] = useState([]);
   const [loading, setLoading] = useState(true);
   const [reloading, setReloading] = useState(false);
 
   const getFlights = useCallback(async () => {
     const res = await fetch(
-      `https://api.infiniteflight.com/public/v2/flights/${process.env.REACT_APP_SESSION_ID}?apikey=${process.env.REACT_APP_API_KEY_IF}`
+      `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`
     );
 
     let data = await res.json();
@@ -81,7 +80,7 @@ const LiveFlights = () => {
           height="800px"
           width="100%"
           title="MapFlight Map"
-          src={`https://en.map-flight.com?apikey=${process.env.REACT_APP_API_KEY_MAPFLIGHTAPI_KEY_MAPFLIGHT}`}
+          src={`https://en.map-flight.com?apikey=${process.env.NEXT_PUBLIC_API_KEY_MAPFLIGHT}`}
         />
       </div>
       <div id="pilot-table-wrapper" className="mt-2">
