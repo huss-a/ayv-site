@@ -1,10 +1,12 @@
 import staffList from "../../../../data/StaffList";
 import Head from "next/head";
 import Layout from "../../../../components/Layout/Layout";
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
+import { useRouter } from "next/router";
 
 const staffMember = ({ member, memberAvatar }) => {
   member = member[0];
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -27,6 +29,53 @@ const staffMember = ({ member, memberAvatar }) => {
                 <i className="fas fa-check" /> {member.role}
               </h6>
               <p className="text-center staff-member-bio my-2">{member.desc}</p>
+              <a
+                href={`https://community.infinitelflight.com/u/${member.ifcName}`}
+                className="link"
+              >
+                <h6>IFC Profile</h6>
+              </a>
+              <div className="social my-4">
+                <h4>Social Links</h4>
+                <div className="social-icons">
+                  {member.social.yt && (
+                    <a
+                      className="link"
+                      href={member.social.yt}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <h4>
+                        <i
+                          className="fab fa-youtube mx-1"
+                          style={{ color: "#0b1560" }}
+                        />
+                      </h4>
+                    </a>
+                  )}
+                  {member.social.ig && (
+                    <a
+                      className="link"
+                      href={member.social.ig}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <h4>
+                        <i
+                          className="fab fa-instagram mx-1"
+                          style={{ color: "#0b1560" }}
+                        />
+                      </h4>
+                    </a>
+                  )}
+                </div>
+              </div>
+              <Button
+                style={{ background: "#0b1560", border: "none" }}
+                onClick={() => router.push("/about/staff")}
+              >
+                Staff Page
+              </Button>
             </div>
           </div>
         </Container>
