@@ -289,6 +289,17 @@ iframe {
   max-width: 600px;
 }
 
+.staff-member-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pfp {
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;
