@@ -306,6 +306,10 @@ iframe {
   align-items: center;
 }
 
+.icon:hover {
+  color: var(--light-blue) !important;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

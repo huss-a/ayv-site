@@ -35,56 +35,58 @@ const staffMember = ({ member, memberAvatar }) => {
               >
                 <h6>IFC Profile</h6>
               </a>
-              <div className="social my-4">
-                <h4>Social Links</h4>
-                <div className="social-icons">
-                  {member.social.yt && (
-                    <a
-                      className="link"
-                      href={member.social.yt}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <h4>
-                        <i
-                          className="fab fa-youtube mx-1"
-                          style={{ color: "#0b1560" }}
-                        />
-                      </h4>
-                    </a>
-                  )}
-                  {member.social.ig && (
-                    <a
-                      className="link"
-                      href={member.social.ig}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <h4>
-                        <i
-                          className="fab fa-instagram mx-1"
-                          style={{ color: "#0b1560" }}
-                        />
-                      </h4>
-                    </a>
-                  )}
-                  {member.social.github && (
-                    <a
-                      className="link"
-                      href={member.social.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <h4>
-                        <i
-                          className="fab fa-github mx-1"
-                          style={{ color: "#0b1560" }}
-                        />
-                      </h4>
-                    </a>
-                  )}
+              {member.social && (
+                <div className="social my-4">
+                  <h4>Social Links</h4>
+                  <div className="social-icons">
+                    {member.social.yt && (
+                      <a
+                        className="link"
+                        href={member.social.yt}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <h4>
+                          <i
+                            className="fab fa-youtube mx-1 icon"
+                            style={{ color: "#0b1560" }}
+                          />
+                        </h4>
+                      </a>
+                    )}
+                    {member.social.ig && (
+                      <a
+                        className="link"
+                        href={member.social.ig}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <h4>
+                          <i
+                            className="fab fa-instagram mx-1 icon"
+                            style={{ color: "#0b1560" }}
+                          />
+                        </h4>
+                      </a>
+                    )}
+                    {member.social.github && (
+                      <a
+                        className="link"
+                        href={member.social.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <h4>
+                          <i
+                            className="fab fa-github mx-1 icon"
+                            style={{ color: "#0b1560" }}
+                          />
+                        </h4>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
               <Button
                 style={{ background: "#0b1560", border: "none" }}
                 onClick={() => router.push("/about/staff")}
