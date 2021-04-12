@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Form } from "react-bootstrap";
 import FleetCard from "../components/Fleet/Card";
 import FleetList from "../data/FleetList";
@@ -66,6 +66,9 @@ const fleet = () => {
         setOrder([1, -1]);
     }
   }
+  useEffect(() => {
+    document.getElementById("nav-fleet").classList.add("active");
+  }, [])
 
   return (
     <>

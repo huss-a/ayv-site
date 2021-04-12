@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const router = useRouter();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">
@@ -31,16 +33,17 @@ const Navbar = () => {
           <ul className="navbar-nav ml-auto mb-3 mb-lg-0">
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className="nav-link"
                 aria-current="page"
                 onClick={() => router.push("/")}
+                id="nav-home"
               >
                 Home
               </a>
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle nav-about"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -77,12 +80,20 @@ const Navbar = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick={() => router.push("/fleet")}>
+              <a
+                className="nav-link"
+                id="nav-fleet"
+                onClick={() => router.push("/fleet")}
+              >
                 Fleet
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick={() => router.push("/apply")}>
+              <a
+                className="nav-link"
+                id="nav-apply"
+                onClick={() => router.push("/apply")}
+              >
                 Apply
               </a>
             </li>

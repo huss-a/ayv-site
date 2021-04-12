@@ -1,8 +1,12 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 import Layout from "../../components/Layout/Layout";
 
 const contact = () => {
+  useEffect(() => {
+    document.querySelector(".nav-about").classList.add("active");
+  }, []);
   return (
     <>
       <Head>

@@ -3,11 +3,14 @@ import Head from "next/head";
 import Layout from "../../../../components/Layout/Layout";
 import { Container, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const staffMember = ({ member, memberAvatar }) => {
   member = member[0];
   const router = useRouter();
-
+  useEffect(() => {
+    document.querySelector(".nav-about").classList.add("active");
+  }, []);
   return (
     <>
       <Head>

@@ -3,7 +3,12 @@ import StaffCard from "../../../components/Staff/Card";
 import staffMembers from "../../../data/StaffList";
 import Layout from "../../../components/Layout/Layout";
 import Head from "next/head";
+import { useEffect } from "react";
+
 const staff = () => {
+  useEffect(() => {
+    document.querySelector(".nav-about").classList.add("active");
+  }, []);
   return (
     <>
       <Head>

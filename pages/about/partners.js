@@ -3,8 +3,12 @@ import OneWorldCard from "../../components/Partners/OneWorldCard";
 import NormalPartnersCard from "../../components/Partners/NormalPartnersCard";
 import Layout from "../../components/Layout/Layout";
 import Head from "next/head";
+import { useEffect } from "react";
 
 const partners = () => {
+  useEffect(() => {
+    document.querySelector(".nav-about").classList.add("active");
+  }, []);
   return (
     <>
       <Head>
