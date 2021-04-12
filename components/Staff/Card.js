@@ -1,12 +1,20 @@
-import { Card } from "react-bootstrap";
+import { useRouter } from "next/router";
+import { Button, Card } from "react-bootstrap";
 
-const StaffCard = ({ staffMember }) => {
-
+const StaffCard = ({ staffMember, status }) => {
   const cardTitleStyles = {
     fontSize: "2rem",
     fontFamily: "'Caveat', cursive",
     fontWeight: "700",
   };
+
+  const btnStyles = {
+    padding: "4px",
+    marginLeft: "10px",
+    backgroundColor: "#0b1560",
+    border: "4px #0b1560",
+  };
+  const router = useRouter();
   return (
     <Card className="m-4 p-2" className="staff-card">
       <Card.Header>
@@ -18,14 +26,22 @@ const StaffCard = ({ staffMember }) => {
       </Card.Body>
       <Card.Footer>
         <h6>
-          <Card.Link
-            className="link"
+          <Button
             target="_blank"
             rel="noreferrer"
             href={`https://community.infiniteflight.com/u/${staffMember.ifcName}`}
+            style={btnStyles}
           >
             Contact me on the IFC!
-          </Card.Link>
+          </Button>
+          <Button
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => router.push(`/about/staff/${status}/${staffMember.id}`)}
+            style={btnStyles}
+          >
+            Go to Profile
+          </Button>
         </h6>
       </Card.Footer>
     </Card>

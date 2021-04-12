@@ -18,11 +18,14 @@ const staff = () => {
             <h2>Senior Management</h2>
             <div className="staff-card-container">
               {staffMembers.seniorManagement.map((member) => (
-                <StaffCard
-                  key={member.name}
-                  className="mb-4"
-                  staffMember={member}
-                />
+                <>
+                  <StaffCard
+                    key={member.name}
+                    className="mb-4"
+                    staffMember={member}
+                    status="senior"
+                  />
+                </>
               ))}
             </div>
             <hr style={hrStyle} />
@@ -33,6 +36,7 @@ const staff = () => {
                   key={member.name}
                   className="mb-4"
                   staffMember={member}
+                  status="junior"
                 />
               ))}
             </div>
