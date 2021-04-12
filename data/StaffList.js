@@ -9,6 +9,7 @@ const staffMembers = {
       location: "Kuwait",
       social: {
         yt: "https://www.youtube.com/channel/UC0gReEDa4RwNAWfDvjtg6sw",
+        github: "https://github.com/huss-a"
       },
     },
     {

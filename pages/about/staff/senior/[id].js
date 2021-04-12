@@ -68,6 +68,21 @@ const staffMember = ({ member, memberAvatar }) => {
                       </h4>
                     </a>
                   )}
+                  {member.social.github && (
+                    <a
+                      className="link"
+                      href={member.social.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <h4>
+                        <i
+                          className="fab fa-github mx-1"
+                          style={{ color: "#0b1560" }}
+                        />
+                      </h4>
+                    </a>
+                  )}
                 </div>
               </div>
               <Button
