@@ -337,6 +337,25 @@ iframe {
   flex-direction: column;
 }
 
+.ceo-msg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  background-image: url("../images/a321-depart.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  width: 100%;
+}
+
+.ceo-msg-container > p {
+  font-size: 1.25rem;
+  line-height: 33px;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import aos from "aos";
 import "aos/dist/aos.css";
 import Stats from "../components/Home/Stats";
+import CEOMessage from "../components/Home/CEOMessage";
 
 const Home = () => {
   useEffect(() => {
@@ -21,8 +22,11 @@ const Home = () => {
       <div className="main-banner">
         <h1>Finnair Virtual</h1>
       </div>
-      <Container style={{ minHeight: "1000px" }}>
-        <Stats/>
+      <Container>
+        <Stats />
+      </Container>
+      <CEOMessage />
+      <Container>
         <LiveFlights />
       </Container>
     </>
