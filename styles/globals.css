@@ -343,18 +343,30 @@ iframe {
   align-items: center;
   flex-direction: column;
   height: 400px;
-  background-image: url("../images/a321-depart.jpg");
+  background-image: /*linear-gradient(rgba(255, 0, 0, 0.25)),*/ url("../images/image\(1\).png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
   width: 100%;
+  z-index: -10;
 }
 
-.ceo-msg-container > p {
+.ceo-msg-container p {
   font-size: 1.25rem;
   line-height: 33px;
 }
+
+/* .overlay {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: inherit;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.7); can be anything, of course
+} */
 
 @media screen and (max-width: 1200px) {
   nav ul {
@@ -383,6 +395,15 @@ iframe {
 @media screen and (max-width: 800px) {
   .stats {
     grid-template-columns: repeat(auto-fit, 200px);
+  }
+
+  .ceo-msg-container > .container > p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .ceo-msg-container {
+    background-position: -250px 0px;
   }
 }
 
