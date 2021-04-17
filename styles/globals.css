@@ -343,7 +343,7 @@ iframe {
   align-items: center;
   flex-direction: column;
   height: 400px;
-  background-image: /*linear-gradient(rgba(255, 0, 0, 0.25)),*/ url("../images/image\(1\).png");
+  background-image: /*linear-gradient(rgba(255, 0, 0, 0.25)),*/ url("../images/a321-depart.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -356,17 +356,6 @@ iframe {
   font-size: 1.25rem;
   line-height: 33px;
 }
-
-/* .overlay {
-  z-index: 10;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  overflow: inherit;
-  top: 0px;
-  left: 0px;
-  background: rgba(0, 0, 0, 0.7); can be anything, of course
-} */
 
 @media screen and (max-width: 1200px) {
   nav ul {
