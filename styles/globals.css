@@ -314,6 +314,28 @@ iframe {
   color: var(--light-blue) !important;
 }
 
+.stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.stats > div {
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;
