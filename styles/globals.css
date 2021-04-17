@@ -322,7 +322,8 @@ iframe {
 }
 
 .stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -345,7 +346,7 @@ iframe {
 @media screen and (max-width: 1000px) {
   .staff-card-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }
@@ -357,6 +358,12 @@ iframe {
   .footer-container {
     flex-direction: column;
     height: 40vh;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .stats {
+    grid-template-columns: repeat(auto-fit, 200px);
   }
 }
 
