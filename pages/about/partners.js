@@ -1,13 +1,14 @@
 import { Container } from "react-bootstrap";
 import OneWorldCard from "../../components/Partners/OneWorldCard";
 import NormalPartnersCard from "../../components/Partners/NormalPartnersCard";
-import Layout from "../../components/Layout/Layout";
 import Head from "next/head";
 import { useEffect } from "react";
 
 const partners = () => {
   useEffect(() => {
     document.querySelector(".nav-about").classList.add("active");
+    return () =>
+      document.querySelector(".nav-about").classList.remove("active");
   }, []);
   return (
     <>
@@ -15,12 +16,11 @@ const partners = () => {
         <title>Finnair Virtual | Partners</title>
         <meta name="description" content="Finnair Virtual - Partners" />
       </Head>
-      <Layout>
-        <Container className="my-4">
-          <OneWorldCard />
-          <NormalPartnersCard />
-        </Container>
-      </Layout>
+
+      <Container className="my-4">
+        <OneWorldCard />
+        <NormalPartnersCard />
+      </Container>
     </>
   );
 };
