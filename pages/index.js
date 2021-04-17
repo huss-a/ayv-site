@@ -19,6 +19,7 @@ const Home = () => {
         </div>
         <Container style={{ minHeight: "1000px" }}>
           <LiveFlights />
+          
         </Container>
     </>
   );
