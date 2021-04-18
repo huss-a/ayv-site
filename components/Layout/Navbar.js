@@ -1,8 +1,28 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const router = useRouter();
+  useEffect(() => {
+    const navLogo = document.querySelector(".navbar-brand");
+    
+    const navLinks = document.querySelectorAll(".nav-link");
 
+    const dropdownLinks = document.querySelectorAll(".dropdown-item");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        document.querySelector(".collapse").classList.toggle("show");
+        navLogo.classList.add("animate__flip");
+      });
+    });
+
+    dropdownLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        document.querySelector(".collapse").classList.toggle("show");
+      });
+    });
+  });
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">

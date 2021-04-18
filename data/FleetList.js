@@ -1,3 +1,13 @@
+import A350 from "../images/fleet-img/A350.jpg";
+import A330 from "../images/fleet-img/A330.jpg";
+import A340 from "../images/fleet-img/A340.jpg";
+import A321 from "../images/fleet-img/A321.jpg";
+import A320 from "../images/fleet-img/A320.jpg";
+import A319 from "../images/fleet-img/A319.jpg";
+import DH8D from "../images/fleet-img/DH8D.jpg";
+import E190 from "../images/fleet-img/E190.jpg";
+import _757 from "../images/fleet-img/757.jpg";
+
 const Fleet = [
   {
     name: "Airbus A350-900",
@@ -8,6 +18,7 @@ const Fleet = [
       maxCargo: 41000,
       range: 8100,
     },
+    img: A350,
   },
   {
     name: "Airbus A330-300",
@@ -18,6 +29,7 @@ const Fleet = [
       maxCargo: 20000,
       range: 6350,
     },
+    img: A330,
   },
   {
     name: "Airbus A340-600",
@@ -28,6 +40,7 @@ const Fleet = [
       maxCargo: 20000,
       range: 7883,
     },
+    img: A340,
   },
   {
     name: "Boeing 757-200",
@@ -38,6 +51,7 @@ const Fleet = [
       maxCargo: 14000,
       range: 3900,
     },
+    img: _757,
   },
   {
     name: "Airbus A321-200",
@@ -48,6 +62,7 @@ const Fleet = [
       maxCargo: 10400,
       range: 3213,
     },
+    img: A321,
   },
   {
     name: "Airbus A320-200",
@@ -58,6 +73,7 @@ const Fleet = [
       maxCargo: 8400,
       range: 3300,
     },
+    img: A320,
   },
   {
     name: "Airbus A319-100",
@@ -68,6 +84,7 @@ const Fleet = [
       maxCargo: 10400,
       range: 3213,
     },
+    img: A319,
   },
   {
     name: "Embraer E190",
@@ -78,6 +95,7 @@ const Fleet = [
       maxCargo: 4000,
       range: 2850,
     },
+    img: E190,
   },
   {
     name: "Bombardier Dash8-Q400",
@@ -88,6 +106,7 @@ const Fleet = [
       maxCargo: 6880,
       range: 1100,
     },
+    img: DH8D,
   },
 ];
 

@@ -366,7 +366,7 @@ iframe {
 @media screen and (max-width: 1000px) {
   .staff-card-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }

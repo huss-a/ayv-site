@@ -3,7 +3,7 @@ import { Card, Accordion, Button, ListGroup } from "react-bootstrap";
 const FleetCard = ({ aircraft }) => {
   return (
     <Card className="my-4 animate__animated animate__fadeInUpBig">
-      <Card.Img variant="top" src="https://bit.ly/3flAwvw" />
+      <Card.Img variant="top" src={aircraft.img} />
       <Card.Header>
         <Card.Title>
           <h3>{aircraft.name}</h3>
