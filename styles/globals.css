@@ -364,6 +364,14 @@ iframe {
 }
 
 @media screen and (max-width: 1000px) {
+  .apply-wrapper {
+    background-image: none;
+  }
+
+  .apply-container .card {
+    box-shadow: 0px 10px 20px grey;
+  }
+
   .staff-card-container {
     display: flex;
     flex-direction: column;
