@@ -22,7 +22,6 @@ const Navbar = () => {
         document.querySelector(".navbar-collapse").classList.remove("show");
       });
     });
-    console.log(dropdownLinks);
   });
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
