@@ -61,8 +61,10 @@ const LiveFlights = () => {
     };
     fetchFlightInfoOnRender();
 
-    setTimeout(async() => {
-      document.querySelector("iframe").style.display = "block";
+    setTimeout(async () => {
+      document.querySelector("iframe")
+        ? (document.querySelector("iframe").style.display = "block")
+        : null;
       document.querySelector(".map-load").style.backgroundColor = "transparent";
       document.querySelector(".map-load h3").style.display = "none";
     }, 5000);
@@ -93,7 +95,7 @@ const LiveFlights = () => {
           height="800px"
           width="100%"
           title="MapFlight Map"
-          style={{border: "2px solid grey"}}
+          style={{ border: "2px solid grey" }}
           src={`https://en.map-flight.com?apikey=${process.env.NEXT_PUBLIC_API_KEY_MAPFLIGHT}`}
         />
       </div>

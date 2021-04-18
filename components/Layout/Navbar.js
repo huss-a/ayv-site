@@ -5,23 +5,24 @@ const Navbar = () => {
   const router = useRouter();
   useEffect(() => {
     const navLogo = document.querySelector(".navbar-brand");
-    
-    const navLinks = document.querySelectorAll(".nav-link");
+
+    const navLinks = document.querySelectorAll(".nav-item");
 
     const dropdownLinks = document.querySelectorAll(".dropdown-item");
 
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        document.querySelector(".collapse").classList.toggle("show");
+        document.querySelector(".navbar-collapse").classList.remove("show");
         navLogo.classList.add("animate__flip");
       });
     });
 
     dropdownLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        document.querySelector(".collapse").classList.toggle("show");
+        document.querySelector(".navbar-collapse").classList.remove("show");
       });
     });
+    console.log(dropdownLinks);
   });
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
@@ -60,7 +61,7 @@ const Navbar = () => {
                 Home
               </a>
             </li>
-            <li className="nav-item dropdown">
+            <li className="dropdown">
               <a
                 className="nav-link dropdown-toggle nav-about"
                 href="#"

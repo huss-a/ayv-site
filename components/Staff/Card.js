@@ -9,7 +9,7 @@ const StaffCard = ({ staffMember, status }) => {
   };
 
   const btnStyles = {
-    padding: "4px",
+    padding: "4px 7px",
     marginLeft: "10px",
     backgroundColor: "#0b1560",
     border: "4px #0b1560",
@@ -37,10 +37,12 @@ const StaffCard = ({ staffMember, status }) => {
           <Button
             target="_blank"
             rel="noreferrer"
-            onClick={() => router.push(`/about/staff/${status}/${staffMember.id}`)}
+            onClick={() =>
+              router.push(`/about/staff/${status}/${staffMember.id}`)
+            }
             style={btnStyles}
           >
-            Go to Profile
+            More Info
           </Button>
         </h6>
       </Card.Footer>
