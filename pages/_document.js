@@ -45,6 +45,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link rel="shortcut icon" href={logo} type="image/x-icon" />
+
           <meta
             name="keywords"
             content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"

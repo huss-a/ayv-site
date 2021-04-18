@@ -398,6 +398,10 @@ iframe {
   .ceo-msg-container {
     background-position: -250px 0px;
   }
+
+  .contact-form-wrapper {
+    background-position: center;
+  }
 }
 
 @media screen and (max-width: 550px) {
