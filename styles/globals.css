@@ -379,6 +379,10 @@ iframe {
     flex-direction: column;
     height: 40vh;
   }
+
+  .main-banner {
+    background-position: center;
+  }
 }
 
 @media screen and (max-width: 800px) {
