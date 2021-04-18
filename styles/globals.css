@@ -342,7 +342,7 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 400px;
+  height: 800px;
   background-image: /*linear-gradient(rgba(255, 0, 0, 0.25)),*/ url("../images/a321-depart.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -355,6 +355,20 @@ iframe {
 .ceo-msg-container p {
   font-size: 1.25rem;
   line-height: 33px;
+}
+
+.ceo-msg-container > .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#sign {
+  stroke-dasharray: 1364.4361572265625;
+  stroke-dashoffset: 1364.4361572265625;
+  animation: sign 6s ease;
+  animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 1200px) {
@@ -461,20 +475,8 @@ iframe {
   }
 }
 
-@keyframes slideFromRight {
-  from {
-    transform: translateX(120%);
-  }
+@keyframes sign {
   to {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes slideFromTop {
-  from {
-    transform: translateY(-150%);
-  }
-  to {
-    transform: translateY(0%);
+    stroke-dashoffset: 0;
   }
 }

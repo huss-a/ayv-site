@@ -6,9 +6,9 @@ const Stats = () => {
       data-aos="zoom-in"
       data-aos-duration="1000"
       data-aos-once="true"
-      className="stats-container"
+      className="stats-container p-4"
     >
-      <h1>VA Stats</h1>
+      <h1>VA Statistics</h1>
       <div className="stats">
         <div className="total-hrs">
           <h4>
