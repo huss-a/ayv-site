@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
           {/* google fonts */}
           <link
             rel="preconnect"
@@ -37,6 +37,7 @@ class MyDocument extends Document {
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
             crossOrigin="anonymous"
             rel="preconnect"
+            defer
           ></script>
           {/* font awesome */}
           <link
