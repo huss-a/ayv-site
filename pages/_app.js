@@ -4,6 +4,7 @@ import "nprogress/nprogress.css"; //styles of nprogress
 import Router from "next/router";
 import Layout from "../components/Layout/Layout";
 
+
 NProgress.configure({ showSpinner: false });
 //Binding events (loader)
 Router.events.on("routeChangeStart", () => NProgress.start());

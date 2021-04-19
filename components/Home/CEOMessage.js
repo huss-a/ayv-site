@@ -1,5 +1,4 @@
 import { Container } from "react-bootstrap";
-import SignSVG from "./SignSVG";
 
 const CEOMessage = () => {
   return (
@@ -15,7 +14,6 @@ const CEOMessage = () => {
           become one of the biggest VAs in Infinite Flight. So what are you
           waiting for? Come Fly Finnish with us!
         </p>
-        {/* <SignSVG /> */}
       </Container>
     </div>
   );

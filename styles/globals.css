@@ -371,6 +371,18 @@ iframe {
   animation-fill-mode: forwards;
 }
 
+#scroll-up-btn {
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 48px;
+  width: 48px;
+  margin: 10px;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

@@ -1,4 +1,11 @@
 const Footer = () => {
+  const scrollUp = () => {
+    const rootElement = document.documentElement;
+    rootElement.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <footer>
       <div className="footer-container">
@@ -80,6 +87,11 @@ const Footer = () => {
         <h6 style={{ margin: "0px" }} className="text-center text-muted">
           &copy; Finnair Virtual 2021
         </h6>
+        <div className="scroll-up">
+          <button id="scroll-up-btn" onClick={() => scrollUp()}>
+            ☝
+          </button>
+        </div>
       </div>
     </footer>
   );
