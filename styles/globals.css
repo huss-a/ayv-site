@@ -502,6 +502,12 @@ iframe {
   }
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+  .main-banner {
+    background-attachment: scroll;
+  }
+}
+
 @keyframes sign {
   to {
     stroke-dashoffset: 0;
