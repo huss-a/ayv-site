@@ -177,6 +177,9 @@ nav ul li:hover {
   background-image: url("../images/a350_depart.jpg");
   background-attachment: fixed;
   background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
