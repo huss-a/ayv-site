@@ -18,8 +18,8 @@ function MyApp({ Component, pageProps }) {
     aos.init();
   });
   return (
-    <Layout>
-      <Component {...pageProps} />
+    <Layout style={{ width: "100%" }}>
+      <Component style={{ width: "100%" }} {...pageProps} />
     </Layout>
   );
 }
