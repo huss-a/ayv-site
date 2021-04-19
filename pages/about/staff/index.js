@@ -23,13 +23,14 @@ const staff = () => {
         <div style={centerDivStyle}>
           <h2>Senior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.seniorManagement.map((member) => (
+            {staffMembers.seniorManagement.map((member, idx) => (
               <>
                 <StaffCard
                   key={member.name}
                   className="mb-4"
                   staffMember={member}
                   status="senior"
+                  idx={idx}
                 />
               </>
             ))}
@@ -37,12 +38,13 @@ const staff = () => {
           <hr style={hrStyle} />
           <h2>Junior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.juniorManagement.map((member) => (
+            {staffMembers.juniorManagement.map((member, idx) => (
               <StaffCard
                 key={member.name}
                 className="mb-4"
                 staffMember={member}
                 status="junior"
+                idx={idx}
               />
             ))}
           </div>

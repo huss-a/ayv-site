@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Button, Card } from "react-bootstrap";
 
-const StaffCard = ({ staffMember, status }) => {
+const StaffCard = ({ staffMember, status, idx }) => {
   const cardTitleStyles = {
     fontSize: "2rem",
     fontFamily: "'Caveat', cursive",
@@ -16,7 +16,12 @@ const StaffCard = ({ staffMember, status }) => {
   };
   const router = useRouter();
   return (
-    <Card className="m-4 p-2" className="staff-card">
+    <Card
+      data-aos="zoom-in"
+      data-aos-delay={`${idx * 100}`}
+      data-aos-once="true"
+      className="staff-card"
+    >
       <Card.Header>
         <Card.Title style={cardTitleStyles}>{staffMember.name}</Card.Title>
         <Card.Subtitle>{staffMember.role}</Card.Subtitle>

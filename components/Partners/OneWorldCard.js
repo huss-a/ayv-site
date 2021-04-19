@@ -13,7 +13,7 @@ const OneWorldCard = () => {
       <Card.Body>
         <>
           <div className="ow-grid">
-            {OneWorldPartners.map((partner) => (
+            {OneWorldPartners.map((partner, idx) => (
               <Card
                 className="p-4 m-2"
                 style={{
@@ -21,6 +21,8 @@ const OneWorldCard = () => {
                   borderTop: `7px solid ${partner.color}`,
                 }}
                 key={partner.website}
+                data-aos="zoom-in"
+                data-aos-delay={`${idx*100}`}
               >
                 <Card.Header style={{ background: "#fff" }}>
                   <Card.Title>

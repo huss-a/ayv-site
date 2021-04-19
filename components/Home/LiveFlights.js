@@ -61,12 +61,13 @@ const LiveFlights = () => {
     };
     fetchFlightInfoOnRender();
 
+    const iframe = document.querySelector("iframe");
+    const mapLoad = document.querySelector(".map-load");
+    const mapLoadH3 = document.querySelector(".map-load h3");
     setTimeout(async () => {
-      document.querySelector("iframe")
-        ? (document.querySelector("iframe").style.display = "block")
-        : null;
-      document.querySelector(".map-load").style.backgroundColor = "transparent";
-      document.querySelector(".map-load h3").style.display = "none";
+      iframe.style.display = "block";
+      mapLoad.style.backgroundColor = "transparent";
+      mapLoadH3.style.display = "none";
     }, 5000);
 
     const pilotTable = document.querySelector("#pilot-table");

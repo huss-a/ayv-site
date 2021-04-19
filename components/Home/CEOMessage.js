@@ -13,7 +13,12 @@ const CEOMessage = () => {
           The CEO's message.
         </h1>
 
-        <p data-aos="slide-left" data-aos-duration="1000" data-aos-once="true">
+        <p
+          data-aos="slide-left"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          data-aos-easing="ease-out"
+        >
           Hello! I’m Gabriel, and I’m the CEO of Finnair Virtual. I’ve been in
           the VA since the start and the CEO since November 2020. I have loved
           aviation since I first saw a plane, 10 years ago. In AYVA, we strive
