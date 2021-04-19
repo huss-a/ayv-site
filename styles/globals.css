@@ -428,7 +428,9 @@ iframe {
     flex-direction: column;
     height: 40vh;
   }
+}
 
+@media screen and (max-width: 1090px) {
   .main-banner,
   .ceo-msg-container {
     background-position: center;
