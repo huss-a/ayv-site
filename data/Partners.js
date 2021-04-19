@@ -66,7 +66,7 @@ export const normalPartners = [
   },
   { name: "Aeroflot Virtual", website: "https://avairlines.weebly.com/" },
   {
-    name: "GOL Virtual",
+    name: "GOL & Varig Virtual (GOL Division)",
     website: "https://g3vaif.wixsite.com/golvirtualairlines/",
   },
   {
