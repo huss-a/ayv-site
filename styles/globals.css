@@ -379,13 +379,6 @@ iframe {
   flex-direction: column;
 }
 
-#sign {
-  stroke-dasharray: 1364.4361572265625;
-  stroke-dashoffset: 1364.4361572265625;
-  animation: sign 6s ease;
-  animation-fill-mode: forwards;
-}
-
 #scroll-up-btn {
   background-color: black;
   border: none;
@@ -397,6 +390,8 @@ iframe {
   width: 48px;
   margin: 10px;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 @media screen and (max-width: 1200px) {
