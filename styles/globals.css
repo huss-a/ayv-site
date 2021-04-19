@@ -3,6 +3,10 @@
   --light-blue: #3a4ac5;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a.nav-link:hover,
 a.dropdown-item {
   cursor: pointer;
