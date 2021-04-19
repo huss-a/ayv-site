@@ -419,9 +419,9 @@ iframe {
     height: 40vh;
   }
 
-  .main-banner {
+  /* .main-banner {
     background-position: center;
-  }
+  } */
 }
 
 @media screen and (max-width: 800px) {
@@ -435,7 +435,7 @@ iframe {
   }
 
   .ceo-msg-container {
-    background-position: -250px 0px;
+    background-position: center;
   }
 
   .contact-form-wrapper {
