@@ -4,9 +4,16 @@ const CEOMessage = () => {
   return (
     <div className="ceo-msg-container my-4">
       <Container>
-        <h1 className="text-center my-4">The CEO's message.</h1>
+        <h1
+          className="text-center my-4"
+          data-aos="flip-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
+          The CEO's message.
+        </h1>
 
-        <p>
+        <p data-aos="slide-left" data-aos-duration="1000" data-aos-once="true">
           Hello! I’m Gabriel, and I’m the CEO of Finnair Virtual. I’ve been in
           the VA since the start and the CEO since November 2020. I have loved
           aviation since I first saw a plane, 10 years ago. In AYVA, we strive
