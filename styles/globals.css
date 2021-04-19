@@ -382,12 +382,12 @@ iframe {
 #scroll-up-btn {
   background-color: black;
   border: none;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  font-size: 2rem;
-  line-height: 48px;
-  width: 48px;
+  font-size: 1.8rem;
   margin: 10px;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
