@@ -67,7 +67,8 @@ const fleet = () => {
   }
   useEffect(() => {
     document.getElementById("nav-fleet").classList.add("active");
-    return () => document.getElementById("nav-fleet").classList.remove("active");
+    return () =>
+      document.getElementById("nav-fleet").classList.remove("active");
   }, []);
 
   return (

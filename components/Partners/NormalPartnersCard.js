@@ -4,7 +4,7 @@ import { normalPartners } from "../../data/Partners";
 const NormalPartnersCard = () => {
   return (
     <>
-      <Card className="my-4" data-aos="slide-left">
+      <Card className="my-4" data-aos="slide-left" data-aos-once="true">
         <Card.Header>
           <Card.Title as="h2">Other Partners</Card.Title>
         </Card.Header>
