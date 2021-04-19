@@ -2,14 +2,14 @@ import { Container } from "react-bootstrap";
 import LiveFlights from "../components/Home/LiveFlights";
 import Head from "next/head";
 import { useEffect } from "react";
-import aos from "aos";
-import "aos/dist/aos.css";
+//import aos from "aos";
+//import "aos/dist/aos.css";
 import Stats from "../components/Home/Stats";
 import CEOMessage from "../components/Home/CEOMessage";
 
 const Home = () => {
   useEffect(() => {
-    aos.init();
+    //aos.init();
     document.getElementById("nav-home").classList.add("active");
     return () => document.getElementById("nav-home").classList.remove("active");
   });
