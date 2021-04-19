@@ -389,9 +389,9 @@ iframe {
   line-height: 48px;
   width: 48px;
   margin: 10px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 
 @media screen and (max-width: 1200px) {
