@@ -80,9 +80,9 @@ const Fleet = [
     role: "Regional & Short Hauls",
     specs: {
       wingspan: 34,
-      maxPax: 239,
-      maxCargo: 10400,
-      range: 3213,
+      maxPax: 136,
+      maxCargo: 8400,
+      range: 3726,
     },
     img: A319,
   },
