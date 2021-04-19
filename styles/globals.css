@@ -25,6 +25,10 @@ html {
   width: 100%;
 }
 
+#__next {
+  width: 100%;
+}
+
 body::before {
   display: block;
   content: "";
