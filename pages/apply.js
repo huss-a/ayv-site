@@ -97,7 +97,7 @@ const apply = () => {
                 Infinite Flight's Official User Guide{" "}
                 <i className="fas fa-link" />
               </a>{" "}
-              for preparation
+              for preparation.
             </Card.Footer>
           </Card>
         </Container>

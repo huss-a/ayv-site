@@ -8,7 +8,13 @@ const OneWorldCard = () => {
     <>
       <Card>
         <Card.Header>
-          <Card.Img alt="OneWorld Banner" src={banner} />
+          <a
+            href="https://community.infiniteflight.com/t/oneworld-virtual-i-bringing-the-va-community-closer-i-official-thread/511704"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Card.Img alt="OneWorld Banner" src={banner} />
+          </a>
         </Card.Header>
         <Card.Body>
           <>

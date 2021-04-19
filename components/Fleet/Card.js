@@ -38,7 +38,7 @@ const FleetCard = ({ aircraft, idx }) => {
           </Accordion.Collapse>
         </Card.Body>
       </Accordion>
-      <Card.Footer>Mainly used for {aircraft.role}</Card.Footer>
+      <Card.Footer>Mainly used for {aircraft.role}.</Card.Footer>
     </Card>
   );
 };

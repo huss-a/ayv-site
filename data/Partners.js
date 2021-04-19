@@ -35,14 +35,14 @@ export const OneWorldPartners = [
       "CXVA (Cathay Pacific Virtual) is an excellent virtual airline for Infinite Flight.It was co-founded by Cathay Pacific enthusiasts,and more enthusiasts will join in the future.",
   },
   {
-    name: "Alaskan Airlines Virtual",
+    name: "Alaska Airlines Virtual",
     website: "https://ifasva.weebly.com/",
     color: "#05ab6e",
     description:
       "Alaska Virtual is a VA created on the aspect, “Creating An Airline People Love”. We made an airline straight from what we thought a VA should be. It’s about what our pilots want.",
   },
   {
-    name: "Iberian Airlines Virtual",
+    name: "Iberia Virtual",
     website: "https://iberiavaif.weebly.com/",
     color: "#a61212",
     description:
@@ -61,10 +61,6 @@ export const normalPartners = [
     website: "https://vietnamairlinesvirtual.weebly.com/",
   },
   {
-    name: "Vistara Virtual",
-    website: "https://vistaravirtual.wixsite.com/website",
-  },
-  {
     name: "Air France - KLM Virtual (Air France division)",
     website: "https://www.if-airfranceklmva.com/",
   },
@@ -72,5 +68,17 @@ export const normalPartners = [
   {
     name: "GOL Virtual",
     website: "https://g3vaif.wixsite.com/golvirtualairlines/",
+  },
+  {
+    name: "Eurowings Virtual",
+    website: "https://eurowings-virtual.weebly.com/",
+  },
+  {
+    name: "Wizzair Virtual",
+    website: "http://www.wizzairvirtualif.com/",
+  },
+  {
+    name: "TAP Virtual Airlines",
+    website: "https://tap-va.weebly.com/",
   },
 ];

@@ -4,7 +4,7 @@ const staffMembers = {
       name: "Hussain Aqeel",
       role: "Founder & Chief Operations Officer",
       desc:
-        "Hi! I'm Hussain! I'm from the country of India, but I live in Kuwait, I'm the COO & Founder of Finnair Virtual! I aim to be as friendly, kind and welcoming as possible to everyone! Feel free to drop me a PM on the IFC @Hardlanding_hussain If you wanna know anything about AYVA, wanna have a chat, or have me escort you! (TS &CS only) This was some basic info about me, if you've got any questions, ya know what to do!",
+        "Hi! I'm Hussain! I'm from the country of India, but I live in Kuwait, I'm the COO & Founder of Finnair Virtual! I aim to be as friendly, kind and welcoming as possible to everyone! Feel free to drop me a PM on the IFC @Hardlanding_hussain If you wanna know anything about AYVA, wanna have a chat, or have me escort you! (TS & CS only) This was some basic info about me, if you've got any questions, ya know what to do!",
       ifcName: "Hardlanding_Hussain",
       location: "Kuwait",
       social: {
