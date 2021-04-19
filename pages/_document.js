@@ -10,6 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta name="viewport" content="width=device-width" />
           {/* google fonts */}
           <link
             rel="preconnect"
@@ -45,7 +46,6 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link rel="shortcut icon" href={logo} type="image/x-icon" />
-
           <meta
             name="keywords"
             content="Finnair, Finnair Virtual, VA, Infinite flight, Virtual Airline, Airline, Finland, IFVARB, Infinite Flight Virtual Airline"
