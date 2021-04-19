@@ -404,7 +404,7 @@ iframe {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .apply-wrapper {
     background-image: none;
   }
@@ -429,7 +429,8 @@ iframe {
     height: 40vh;
   }
 
-  .main-banner {
+  .main-banner,
+  .ceo-msg-container {
     background-position: center;
   }
 }
@@ -503,7 +504,8 @@ iframe {
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-  .main-banner {
+  .main-banner,
+  .ceo-msg-container {
     background-attachment: scroll;
   }
 }
