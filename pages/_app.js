@@ -6,6 +6,7 @@ import Layout from "../components/Layout/Layout";
 import aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Head from "next/head";
 
 NProgress.configure({ showSpinner: false });
 //Binding events (loader)
