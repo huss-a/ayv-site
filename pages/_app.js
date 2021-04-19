@@ -17,6 +17,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     aos.init();
+    console.log(navigator)
   });
   return (
     <>
