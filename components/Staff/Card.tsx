@@ -1,7 +1,14 @@
 import { useRouter } from "next/router";
 import { Button, Card } from "react-bootstrap";
+import { StaffInfo } from "../../data/StaffList";
 
-const StaffCard = ({ staffMember, status, idx }) => {
+interface Props {
+  staffMember: StaffInfo;
+  status: "senior" | "junior";
+  idx: number;
+}
+
+const StaffCard: React.FC<Props> = ({ staffMember, status, idx }) => {
   const cardTitleStyles = {
     fontSize: "2rem",
     fontFamily: "'Caveat', cursive",
