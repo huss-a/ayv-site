@@ -4,7 +4,7 @@ import staffMembers from "../../../data/StaffList";
 import Head from "next/head";
 import { useEffect } from "react";
 
-const staff = () => {
+const staff: React.FC = () => {
   useEffect(() => {
     document.querySelector(".nav-about").classList.add("active");
     return () =>
@@ -27,7 +27,6 @@ const staff = () => {
               <>
                 <StaffCard
                   key={member.name}
-                  className="mb-4"
                   staffMember={member}
                   status="senior"
                   idx={idx}
@@ -41,7 +40,6 @@ const staff = () => {
             {staffMembers.juniorManagement.map((member, idx) => (
               <StaffCard
                 key={member.name}
-                className="mb-4"
                 staffMember={member}
                 status="junior"
                 idx={idx}
@@ -59,7 +57,7 @@ const centerDivStyle = {
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
-};
+} as const;
 
 const hrStyle = { border: "1px solid #000", width: "80%" };
 export default staff;

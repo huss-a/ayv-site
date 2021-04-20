@@ -47,7 +47,9 @@ const LiveFlights = () => {
   }
 
   useEffect(() => {
-    const flightReload = document.querySelector("#flight-reload");
+    const flightReload = document.querySelector<HTMLButtonElement>(
+      "#flight-reload"
+    );
     const fetchFlightInfoOnRender = async () => {
       try {
         flightReload.style.display = "none";
@@ -61,20 +63,24 @@ const LiveFlights = () => {
     };
     fetchFlightInfoOnRender();
 
-    const iframe = document.querySelector("iframe");
-    const mapLoad = document.querySelector(".map-load");
-    const mapLoadH3 = document.querySelector(".map-load h3");
+    const iframe = document.querySelector<HTMLIFrameElement>("iframe");
+    const mapLoad = document.querySelector<HTMLDivElement>(".map-load");
+    const mapLoadH3 = document.querySelector<HTMLHeadingElement>(
+      ".map-load h3"
+    );
     setTimeout(async () => {
       iframe.style.display = "block";
       mapLoad.style.backgroundColor = "transparent";
       mapLoadH3.style.display = "none";
     }, 5000);
 
-    const pilotTable = document.querySelector("#pilot-table");
+    const pilotTable = document.querySelector<HTMLTableElement>("#pilot-table");
     pilotTable.style.display = "none";
     if (!loading) {
       pilotTable.style.display = "inline-table";
-      document.querySelector("#pilot-table-spinner").style.display = "none";
+      document.querySelector<HTMLDivElement>(
+        "#pilot-table-spinner"
+      ).style.display = "none";
     }
 
     if (pilots.length === 0) pilotTable.style.display = "none";
@@ -82,7 +88,7 @@ const LiveFlights = () => {
 
   return (
     <div>
-      <h1 style={{ fontWeight: "600" }}>VA Live Flights</h1>
+      <h1 style={{ fontWeight: 600 } as const}>VA Live Flights</h1>
       <div className="map-load">
         <h3 className="loading">
           <Spinner

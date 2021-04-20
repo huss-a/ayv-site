@@ -1,4 +1,23 @@
-const staffMembers = {
+interface StaffInfo {
+  name: string;
+  role: string;
+  desc: string;
+  ifcName: string;
+  location: string;
+  id?: string;
+  social: {
+    yt?: string;
+    github?: string;
+    ig?: string;
+  };
+}
+
+interface StaffGroups {
+  seniorManagement: StaffInfo[];
+  juniorManagement: StaffInfo[];
+}
+
+const staffMembers: StaffGroups = {
   seniorManagement: [
     {
       name: "Hussain Aqeel",
@@ -9,7 +28,7 @@ const staffMembers = {
       location: "Kuwait",
       social: {
         yt: "https://www.youtube.com/channel/UC0gReEDa4RwNAWfDvjtg6sw",
-        github: "https://github.com/huss-a"
+        github: "https://github.com/huss-a",
       },
     },
     {

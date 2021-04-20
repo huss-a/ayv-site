@@ -17,14 +17,13 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     aos.init();
-    console.log(navigator)
   });
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout style={{ width: "100%" }}>
+      <Layout>
         <Component style={{ width: "100%" }} {...pageProps} />
       </Layout>
     </>

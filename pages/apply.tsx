@@ -6,7 +6,8 @@ import { useEffect } from "react";
 const apply = () => {
   useEffect(() => {
     document.getElementById("nav-apply").classList.add("active");
-    return () => document.getElementById("nav-apply").classList.remove("active");
+    return () =>
+      document.getElementById("nav-apply").classList.remove("active");
   }, []);
   return (
     <>
@@ -35,9 +36,7 @@ const apply = () => {
             <Card.Body>
               <ListGroup className="list-group">
                 {reqs.map((requirement, index) => (
-                  <ListGroup.Item key={Math.random(Math.floor * index)}>
-                    {requirement}
-                  </ListGroup.Item>
+                  <ListGroup.Item key={index}>{requirement}</ListGroup.Item>
                 ))}
               </ListGroup>
             </Card.Body>

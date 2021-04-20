@@ -80,7 +80,7 @@ const fleet = () => {
 
       <Container>
         <h1 className="mt-4">The AYVA Fleet</h1>
-        <span>
+        <div>
           Sort By:{"  "}
           <Form.Control as="select" custom onChange={sortFleet}>
             <option>Range</option>
@@ -88,14 +88,14 @@ const fleet = () => {
             <option>Max Passengers</option>
             <option>Max Cargo</option>
           </Form.Control>
-        </span>
-        <span>
-          {"  "}Order: {"  "}
-          <Form.Control as="select" custom onChange={sortFleetOrder}>
+        </div>
+        <div>
+          {"  "}Order by: {"  "}
+          <Form.Control as="select" className="my-2" custom onChange={sortFleetOrder}>
             <option>Ascending</option>
             <option>Descending</option>
           </Form.Control>
-        </span>
+        </div>
         <p className="text-muted p-2">
           Sorted by {getSort(sort)} in{" "}
           {order[0] === 1 ? "Ascending" : "Descending"}

@@ -28,9 +28,8 @@ const Navbar = () => {
       <div className="container">
         <a
           className="navbar-brand animate__animated animate__flip"
-          style={{ color: "white" }}
+          style={{ color: "white", cursor: "pointer" }}
           onClick={() => router.push("/")}
-          style={{ cursor: "pointer" }}
         >
           <h4>Finnair Virtual</h4>
         </a>

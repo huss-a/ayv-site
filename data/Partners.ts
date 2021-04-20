@@ -1,4 +1,16 @@
-export const OneWorldPartners = [
+interface OWVAPartners {
+  name: string;
+  website: string;
+  color: string;
+  description: string;
+}
+
+interface NormalPartners {
+  name: string;
+  website: string;
+}
+
+export const OneWorldPartners: OWVAPartners[] = [
   {
     name: "Malaysian Airlines Virtual",
     website: "https://mhvaif.com",
@@ -50,7 +62,7 @@ export const OneWorldPartners = [
   },
 ];
 
-export const normalPartners = [
+export const normalPartners: NormalPartners[] = [
   { name: "Air China Virtual", website: "http://airchinavirtualif.com/" },
   {
     name: "American Airlines Virtual",

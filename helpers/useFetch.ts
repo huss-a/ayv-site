@@ -1,4 +1,4 @@
-export default async function useFetch(url) {
+export default async function useFetch(url:string) {
     try {
         const res = await fetch(url);
         const data = await res.json();
