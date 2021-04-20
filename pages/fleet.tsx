@@ -4,13 +4,19 @@ import FleetCard from "../components/Fleet/Card";
 import FleetList from "../data/FleetList";
 import Head from "next/head";
 
-const fleet = () => {
-  const [sort, setSort] = useState("range");
-  const [order, setOrder] = useState([1, -1]);
-  function sortFleet(e) {
+const fleet: React.FC = () => {
+  // Types
+  type Sort = "range" | "maxPax" | "wingspan" | "maxCargo";
+  type SortOnUserEnd = "Range" | "Max Passengers" | "Wingspan" | "Max Cargo";
+  type Order = 1 | -1;
+  // States
+  const [sort, setSort] = useState<Sort>("range");
+  const [order, setOrder] = useState<[Order, Order]>([1, -1]);
+  // Funcs
+  function sortFleet(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const sortDropdownInput = e.target.value;
-    let sortArg;
+    let sortArg: Sort;
     switch (sortDropdownInput) {
       case "Range":
         sortArg = "range";
@@ -30,8 +36,8 @@ const fleet = () => {
     setSort(sortArg);
   }
 
-  function getSort(sortArg) {
-    let sort;
+  function getSort(sortArg: Sort) {
+    let sort: SortOnUserEnd;
     switch (sortArg) {
       case "range":
         sort = "Range";
@@ -52,7 +58,7 @@ const fleet = () => {
     return sort;
   }
 
-  function sortFleetOrder(e) {
+  function sortFleetOrder(e: React.ChangeEvent<HTMLInputElement>) {
     const sortOrder = e.target.value;
     switch (sortOrder) {
       case "Ascending":
@@ -82,7 +88,11 @@ const fleet = () => {
         <h1 className="mt-4">The AYVA Fleet</h1>
         <div>
           Sort By:{"  "}
-          <Form.Control as="select" custom onChange={sortFleet}>
+          <Form.Control
+            as="select"
+            custom
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => sortFleet(e)}
+          >
             <option>Range</option>
             <option>Wingspan</option>
             <option>Max Passengers</option>
@@ -91,7 +101,12 @@ const fleet = () => {
         </div>
         <div>
           {"  "}Order by: {"  "}
-          <Form.Control as="select" className="my-2" custom onChange={sortFleetOrder}>
+          <Form.Control
+            as="select"
+            className="my-2"
+            custom
+            onChange={sortFleetOrder}
+          >
             <option>Ascending</option>
             <option>Descending</option>
           </Form.Control>
