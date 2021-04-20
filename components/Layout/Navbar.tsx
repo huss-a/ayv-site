@@ -1,25 +1,28 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
-    const navLogo = document.querySelector(".navbar-brand");
+    const navLogo = document.querySelector<HTMLAnchorElement>(".navbar-brand");
 
-    const navLinks = document.querySelectorAll(".nav-item");
+    const navLinks = document.querySelectorAll<HTMLLIElement>(".nav-item");
 
-    const dropdownLinks = document.querySelectorAll(".dropdown-item");
-
+    const dropdownLinks = document.querySelectorAll<HTMLLIElement>(
+      ".dropdown-item"
+    );
+    const navbarCollapse = document.querySelector<HTMLDivElement>(
+      ".navbar-collapse"
+    );
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        document.querySelector(".navbar-collapse").classList.remove("show");
-        navLogo.classList.add("animate__flip");
+        navbarCollapse.classList.remove("show");
       });
     });
 
     dropdownLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        document.querySelector(".navbar-collapse").classList.remove("show");
+        navbarCollapse.classList.remove("show");
       });
     });
   });
@@ -28,9 +31,8 @@ const Navbar = () => {
       <div className="container">
         <a
           className="navbar-brand animate__animated animate__flip"
-          style={{ color: "white" }}
+          style={{ color: "white", cursor: "pointer" }}
           onClick={() => router.push("/")}
-          style={{ cursor: "pointer" }}
         >
           <h4>Finnair Virtual</h4>
         </a>

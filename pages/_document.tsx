@@ -36,7 +36,7 @@ class MyDocument extends Document {
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
             crossOrigin="anonymous"
-            rel="preconnect"
+            data-rel="preconnect"
             defer
           ></script>
           {/* font awesome */}
@@ -55,15 +55,15 @@ class MyDocument extends Document {
         </Head>
         <body>
           {/* 
-Learn more about netlify forms in React: 
+      Learn more about netlify forms in React: 
 
-https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+      https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 */}
           <form name="contact-form" data-netlify="true" hidden>
             <input type="text" name="bot-field" hidden />
             <input name="Name" type="text" />
             <input name="Email" type="text" />
-            <textarea name="Message" type="text"></textarea>
+            <textarea name="Message" data-type="text"></textarea>
           </form>
           <Main />
           <NextScript />

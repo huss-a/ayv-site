@@ -4,11 +4,11 @@ import NormalPartnersCard from "../../components/Partners/NormalPartnersCard";
 import Head from "next/head";
 import { useEffect } from "react";
 
-const partners = () => {
+const partners: React.FC = () => {
   useEffect(() => {
-    document.querySelector(".nav-about").classList.add("active");
+    document.querySelector<HTMLAnchorElement>(".nav-about").classList.add("active");
     return () =>
-      document.querySelector(".nav-about").classList.remove("active");
+      document.querySelector<HTMLAnchorElement>(".nav-about").classList.remove("active");
   }, []);
   return (
     <>

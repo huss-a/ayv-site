@@ -1,6 +1,6 @@
 import CountUp from "react-countup";
 
-const Stats = () => {
+const Stats: React.FC = () => {
   return (
     <div
       data-aos="zoom-in"

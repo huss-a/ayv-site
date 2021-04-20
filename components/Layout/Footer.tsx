@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const scrollUp = () => {
     const rootElement = document.documentElement;
     rootElement.scrollTo({
