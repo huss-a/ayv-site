@@ -1,4 +1,4 @@
-interface StaffInfo {
+export interface StaffInfo {
   name: string;
   role: string;
   desc: string;

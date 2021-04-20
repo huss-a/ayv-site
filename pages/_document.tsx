@@ -55,9 +55,9 @@ class MyDocument extends Document {
         </Head>
         <body>
           {/* 
-Learn more about netlify forms in React: 
+      Learn more about netlify forms in React: 
 
-https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+      https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 */}
           <form name="contact-form" data-netlify="true" hidden>
             <input type="text" name="bot-field" hidden />

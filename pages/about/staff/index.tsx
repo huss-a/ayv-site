@@ -6,9 +6,9 @@ import { useEffect } from "react";
 
 const staff: React.FC = () => {
   useEffect(() => {
-    document.querySelector(".nav-about").classList.add("active");
+    document.querySelector<HTMLAnchorElement>(".nav-about").classList.add("active");
     return () =>
-      document.querySelector(".nav-about").classList.remove("active");
+      document.querySelector<HTMLAnchorElement>(".nav-about").classList.remove("active");
   }, []);
   return (
     <>

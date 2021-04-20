@@ -3,7 +3,7 @@ import reqs from "../data/RequirementsList";
 import Head from "next/head";
 import { useEffect } from "react";
 
-const apply = () => {
+const apply: React.FC = () => {
   useEffect(() => {
     document.getElementById("nav-apply").classList.add("active");
     return () =>

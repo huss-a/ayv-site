@@ -2,11 +2,11 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 
-const contact = () => {
+const contact: React.FC = () => {
   useEffect(() => {
-    document.querySelector(".nav-about").classList.add("active");
+    document.querySelector<HTMLAnchorElement>(".nav-about").classList.add("active");
     return () =>
-      document.querySelector(".nav-about").classList.remove("active");
+      document.querySelector<HTMLAnchorElement>(".nav-about").classList.remove("active");
   }, []);
   return (
     <>
