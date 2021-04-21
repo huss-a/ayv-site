@@ -124,4 +124,4 @@ app.post("/register", function (req, res) { return __awaiter(void 0, void 0, voi
 app.get("/user", function (req, res) {
     res.send(req.user);
 });
-app.listen(PORT, function () { return console.log("Server Started on port " + PORT + "!"); });
+app.listen(PORT, function () { return console.log("Server Started on port " + PORT + "!", process.env); });

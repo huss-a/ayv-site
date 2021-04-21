@@ -78,4 +78,4 @@ app.get("/user", (req, res) => {
   res.send(req.user);
 });
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`, process.env));

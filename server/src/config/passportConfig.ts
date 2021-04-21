@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 
 export default function (passport: PassportStatic) {
   async function authUser(email: string, password: string, done: any) {
-    const user = await UsersModel.findOne({ email });
+    const user:any = await UsersModel.findOne({ email });
 
     if (!user) return done(null, false, { msg: "No such user." });
 
