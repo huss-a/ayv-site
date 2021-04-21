@@ -4,7 +4,8 @@
   "description": "",
   "main": "./out/src/server.js",
   "scripts": {
-    "dev": "concurrently \"tsc -w\" \"nodemon out/src/server\""
+    "dev": "concurrently \"tsc -w\" \"nodemon out/src/server\"",
+    "start": "tsc && node out/src/server"
   },
   "author": "Hussain Aqeel",
   "license": "MIT",
