@@ -30,50 +30,52 @@ const register = () => {
       <Head>
         <title>Finnair Virtual | Register</title>
       </Head>
-      <Container className="m-4 p-5 reg-login-form">
-        <h1>Register</h1>
-        <Form className="m-4" onSubmit={(e) => registerUser(e)}>
-          {alert ? <Alert variant={"success"}>{alert}</Alert> : null}
+      <div className="reg-login-wrapper">
+        <Container className="m-4 p-5 reg-login-form">
+          <h1>Register</h1>
+          <Form className="m-4" onSubmit={(e) => registerUser(e)}>
+            {alert ? <Alert variant={"success"}>{alert}</Alert> : null}
 
-          <Form.Group className="mb-4">
-            <Form.Label>IFC Name</Form.Label>
-            <Form.Control
-              type="text"
-              required={true}
-              placeholder="Hardlanding_Hussain"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              required={true}
-              placeholder="example@example.com"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              required={true}
-              placeholder="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-4">
-            <Form.Label>Callsign</Form.Label>
-            <Form.Control
-              type="text"
-              required={true}
-              placeholder="Finnair XXXVA"
-              onChange={(e) => setCallsign(e.target.value)}
-            />
-          </Form.Group>
-          <Button type="submit">Submit</Button>
-        </Form>
-      </Container>
+            <Form.Group className="mb-4">
+              <Form.Label>IFC Name</Form.Label>
+              <Form.Control
+                type="text"
+                required={true}
+                placeholder="Hardlanding_Hussain"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                required={true}
+                placeholder="example@example.com"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                required={true}
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <Form.Label>Callsign</Form.Label>
+              <Form.Control
+                type="text"
+                required={true}
+                placeholder="Finnair XXXVA"
+                onChange={(e) => setCallsign(e.target.value)}
+              />
+            </Form.Group>
+            <Button type="submit">Submit</Button>
+          </Form>
+        </Container>
+      </div>
     </>
   );
 };

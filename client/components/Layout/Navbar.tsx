@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
                     className="dropdown-item"
                     onClick={() => router.push("/pilots/login")}
                   >
-                    Pilot Login
+                    Login
                   </a>
                 </li>
                 <li>
