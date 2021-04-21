@@ -4,12 +4,18 @@ import Head from "next/head";
 import { useEffect } from "react";
 import Stats from "../components/Home/Stats";
 import CEOMessage from "../components/Home/CEOMessage";
+import axios from "axios";
 
 const Home: React.FC = () => {
+  async function getUser() {
+    await axios
+      .get("http://localhost:5000/user", { withCredentials: true })
+      .then((res) => console.log(res.data));
+  }
   useEffect(() => {
     document.getElementById("nav-home").classList.add("active");
     return () => document.getElementById("nav-home").classList.remove("active");
-  },[]);
+  }, []);
   return (
     <>
       <Head>
@@ -25,6 +31,7 @@ const Home: React.FC = () => {
       <CEOMessage />
       <Container>
         <LiveFlights />
+        <button onClick={async () => await getUser()}>get user</button>
       </Container>
     </>
   );

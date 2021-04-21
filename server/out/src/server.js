@@ -38,7 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -46,60 +45,83 @@ var express_1 = __importDefault(require("express"));
 var bcrypt_1 = __importDefault(require("bcrypt"));
 var db_1 = __importDefault(require("./config/db"));
 var Users_1 = require("./models/Users");
-var passport_1 = require("./config/passport");
-var passport_2 = __importDefault(require("passport"));
+var passport_1 = __importDefault(require("passport"));
 var express_session_1 = __importDefault(require("express-session"));
-var express_flash_1 = __importDefault(require("express-flash"));
+var cookie_parser_1 = __importDefault(require("cookie-parser"));
+var cors_1 = __importDefault(require("cors"));
+var passportConfig_1 = __importDefault(require("./config/passportConfig"));
 var app = express_1.default();
-db_1.default();
-passport_1.init(passport_2.default);
+db_1.default("mongodb+srv://huss:uheh@ayva-site.gwp7h.mongodb.net/AYV-Site-DB?retryWrites=true&w=majority");
 var PORT = process.env.PORT || 5000;
+// Middleware
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
-app.use(express_flash_1.default());
-app.use(express_session_1.default({
-    secret: (_a = process === null || process === void 0 ? void 0 : process.env) === null || _a === void 0 ? void 0 : _a.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+app.use(cors_1.default({
+    origin: "http://localhost:3000",
+    credentials: true,
 }));
-app.use(passport_2.default.initialize());
-app.use(passport_2.default.session());
-app.get("/", function (req, res) {
-    res.json({ msg: "HEY!" });
+app.use(express_session_1.default({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+}));
+app.use(cookie_parser_1.default("secretcode"));
+app.use(passport_1.default.initialize());
+app.use(passport_1.default.session());
+passportConfig_1.default(passport_1.default);
+// Routes
+app.post("/login", function (req, res, next) {
+    passport_1.default.authenticate("local", function (err, user, info) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (err)
+                throw err;
+            if (!user)
+                res.status(404).send("No such user");
+            else {
+                req.logIn(user, function (err) {
+                    if (err)
+                        throw err;
+                    res.send("Success!");
+                });
+            }
+            return [2 /*return*/];
+        });
+    }); })(req, res, next);
 });
-// app.get("/login", (req, res) => {});
-// app.get("/register", (req, res) => {});
 app.post("/register", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var hashedPsw, err_1;
+    var userExists, hashedPsw, newUser, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, bcrypt_1.default.hash(req.body.password, 10)];
+                _a.trys.push([0, 4, , 5]);
+                return [4 /*yield*/, Users_1.UsersModel.findOne({ email: req.body.email })];
             case 1:
-                hashedPsw = _a.sent();
-                return [4 /*yield*/, Users_1.UsersModel.insertMany({
-                        name: req.body.name,
-                        email: req.body.email,
-                        password: hashedPsw,
-                    })];
+                userExists = _a.sent();
+                if (userExists)
+                    return [2 /*return*/, res.send("User Already Exists.")];
+                return [4 /*yield*/, bcrypt_1.default.hash(req.body.password, 10)];
             case 2:
-                _a.sent();
-                res.send("User Registered!");
-                return [3 /*break*/, 4];
+                hashedPsw = _a.sent();
+                newUser = new Users_1.UsersModel({
+                    email: req.body.email,
+                    password: hashedPsw,
+                    callsign: req.body.callsign,
+                });
+                return [4 /*yield*/, newUser.save()];
             case 3:
+                _a.sent();
+                res.send("User Created!");
+                return [3 /*break*/, 5];
+            case 4:
                 err_1 = _a.sent();
-                console.log(err_1.message);
-                res.status(500).send("An error occured");
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                console.log(err_1);
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); });
-app.post("/login", passport_2.default.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-    successFlash: "Logged in!",
-}));
-app.listen(PORT, function () { return console.log("Server started on " + PORT + "!"); });
+app.get("/user", function (req, res) {
+    console.log(req.user);
+    res.send(req.user);
+});
+app.listen(PORT, function () { return console.log("Server Started on port " + PORT + "!"); });

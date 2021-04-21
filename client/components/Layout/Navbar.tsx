@@ -113,7 +113,7 @@ const Navbar: React.FC = () => {
                 <li>
                   <a
                     className="dropdown-item"
-                    onClick={() => router.push("/about/staff")}
+                    onClick={() => router.push("/pilots/login")}
                   >
                     Pilot Login
                   </a>
@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
                 <li>
                   <a
                     className="dropdown-item"
-                    onClick={() => router.push("/about/partners")}
+                    onClick={() => router.push("/pilots/register")}
                   >
                     Register
                   </a>

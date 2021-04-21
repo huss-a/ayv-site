@@ -1,15 +1,12 @@
 import mongoose from "mongoose";
 
-async function dbConnect() {
+async function dbConnect(uri:string) {
   try {
-    await mongoose.connect(
-      "mongodb+srv://huss:uheh@ayva-site.gwp7h.mongodb.net/AYV-Site-DB?retryWrites=true&w=majority",
-      {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-        useCreateIndex: true,
-      }
-    );
+    await mongoose.connect(uri, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    });
     console.log("Connected to MongoDB!");
   } catch (err) {
     console.log(err);

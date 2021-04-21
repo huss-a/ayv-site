@@ -394,6 +394,17 @@ iframe {
   appearance: none !important;
 }
 
+.reg-login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reg-login-form > form {
+  width: 80%;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

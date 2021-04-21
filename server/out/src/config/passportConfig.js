@@ -39,30 +39,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var mongoose_1 = __importDefault(require("mongoose"));
-function dbConnect(uri) {
-    return __awaiter(this, void 0, void 0, function () {
-        var err_1;
+var passport_local_1 = require("passport-local");
+var Users_1 = require("../models/Users");
+var bcrypt_1 = __importDefault(require("bcrypt"));
+function default_1(passport) {
+    var _this = this;
+    function authUser(email, password, done) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Users_1.UsersModel.findOne({ email: email })];
+                    case 1:
+                        user = _a.sent();
+                        if (!user)
+                            return [2 /*return*/, done(null, false, { msg: "No such user." })];
+                        return [4 /*yield*/, bcrypt_1.default.compare(password, user.password)];
+                    case 2:
+                        if (_a.sent())
+                            return [2 /*return*/, done(null, user)];
+                        return [2 /*return*/, done(null, false)];
+                }
+            });
+        });
+    }
+    passport.use(new passport_local_1.Strategy({ usernameField: "email" }, authUser));
+    passport.serializeUser(function (user, done) { return done(null, user.id); });
+    passport.deserializeUser(function (id, done) { return __awaiter(_this, void 0, void 0, function () {
+        var user;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, mongoose_1.default.connect(uri, {
-                            useUnifiedTopology: true,
-                            useNewUrlParser: true,
-                            useCreateIndex: true,
-                        })];
+                case 0: return [4 /*yield*/, Users_1.UsersModel.findById(id)];
                 case 1:
-                    _a.sent();
-                    console.log("Connected to MongoDB!");
-                    return [3 /*break*/, 3];
-                case 2:
-                    err_1 = _a.sent();
-                    console.log(err_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    user = _a.sent();
+                    if (user)
+                        return [2 /*return*/, done(null, user)];
+                    return [2 /*return*/];
             }
         });
-    });
+    }); });
 }
-exports.default = dbConnect;
+exports.default = default_1;

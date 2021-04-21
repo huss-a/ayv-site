@@ -5,60 +5,79 @@ import bcrypt from "bcrypt";
 import dbConnect from "./config/db";
 import mongoose from "mongoose";
 import { UsersModel } from "./models/Users";
-import { init } from "./config/passport";
 import passport from "passport";
 import session from "express-session";
-import flash from "express-flash";
+import cookieparser from "cookie-parser";
+import cors from "cors";
+import passportCfg from "./config/passportConfig";
+import passportConfig from "./config/passportConfig";
 
 const app = express();
-dbConnect();
-init(passport);
+dbConnect(
+  "mongodb+srv://huss:uheh@ayva-site.gwp7h.mongodb.net/AYV-Site-DB?retryWrites=true&w=majority"
+);
 const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(flash());
+
 app.use(
-  session({
-    secret: process?.env?.SESSION_SECRET!,
-    resave: false,
-    saveUninitialized: false,
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
   })
 );
+
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(cookieparser("secretcode"));
+
 app.use(passport.initialize());
 app.use(passport.session());
+passportCfg(passport);
 
-app.get("/", (req, res) => {
-  res.json({ msg: "HEY!" });
+// Routes
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", async (err, user, info) => {
+    if (err) throw err;
+    if (!user) res.status(404).send("No such user");
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send("Success!");
+      });
+    }
+  })(req, res, next);
 });
-
-// app.get("/login", (req, res) => {});
-
-// app.get("/register", (req, res) => {});
 
 app.post("/register", async (req, res) => {
   try {
+    const userExists = await UsersModel.findOne({ email: req.body.email });
+    if (userExists) return res.send("User Already Exists.");
     const hashedPsw = await bcrypt.hash(req.body.password, 10);
-    await UsersModel.insertMany({
-      name: req.body.name,
+    const newUser = new UsersModel({
       email: req.body.email,
       password: hashedPsw,
+      callsign: req.body.callsign,
     });
-    res.send("User Registered!");
+
+    await newUser.save();
+    res.send("User Created!");
   } catch (err) {
-    console.log(err.message);
-    res.status(500).send("An error occured");
+    console.log(err);
   }
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
-    successFlash: "Logged in!",
-  })
-);
+app.get("/user", (req, res) => {
+  console.log(req.user);
+  res.send(req.user);
+});
 
-app.listen(PORT, () => console.log(`Server started on ${PORT}!`));
+app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`));
