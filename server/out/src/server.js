@@ -76,12 +76,12 @@ app.post("/login", function (req, res, next) {
             if (err)
                 throw err;
             if (!user)
-                res.status(404).send("No such user");
+                res.send("Incorrect Email and Password combination.");
             else {
                 req.logIn(user, function (err) {
                     if (err)
                         throw err;
-                    res.send("Success!");
+                    res.send("Successfully Logged in!");
                 });
             }
             return [2 /*return*/];
@@ -121,7 +121,6 @@ app.post("/register", function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); });
 app.get("/user", function (req, res) {
-    console.log(req.user);
     res.send(req.user);
 });
 app.listen(PORT, function () { return console.log("Server Started on port " + PORT + "!"); });

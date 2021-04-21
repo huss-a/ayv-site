@@ -9,7 +9,9 @@ export default function (passport: PassportStatic) {
 
     if (!user) return done(null, false, { msg: "No such user." });
 
-    if (await bcrypt.compare(password, user.password)) return done(null, user);
+    const isCorrectPassword = await bcrypt.compare(password, user.password);
+    if(isCorrectPassword) return done(null, user)
+    else return done(null, false, {msg: "Incorrect Password."})
 
     return done(null, false);
   }

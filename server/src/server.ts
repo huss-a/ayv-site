@@ -47,11 +47,11 @@ passportCfg(passport);
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", async (err, user, info) => {
     if (err) throw err;
-    if (!user) res.status(404).send("No such user");
+    if (!user) res.send("Incorrect Email and Password combination.");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Success!");
+        res.send("Successfully Logged in!");
       });
     }
   })(req, res, next);
@@ -76,7 +76,6 @@ app.post("/register", async (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-  console.log(req.user);
   res.send(req.user);
 });
 

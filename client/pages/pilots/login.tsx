@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Form, Container, Button } from "react-bootstrap";
+import { Form, Container, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 
 const login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  function loginUser(e: React.FormEvent<HTMLElement>) {
+  const [alert, setAlert] = useState<string | null>(null);
+  async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
-    axios({
+    const res = await axios({
       method: "POST",
       data: {
         email,
@@ -16,7 +17,9 @@ const login = () => {
       },
       withCredentials: true,
       url: "http://localhost:5000/login",
-    }).then((res) => console.log(res))
+    });
+
+    setAlert(res.data);
   }
   return (
     <>
@@ -26,6 +29,11 @@ const login = () => {
       <Container className="m-4 p-5 reg-login-form">
         <h1>Login</h1>
         <Form className="m-4" onSubmit={(e) => loginUser(e)}>
+          {alert ? (
+            <Alert variant={alert === "Success!" ? "success" : "warning"}>
+              {alert}
+            </Alert>
+          ) : null}
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control

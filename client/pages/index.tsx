@@ -8,9 +8,11 @@ import axios from "axios";
 
 const Home: React.FC = () => {
   async function getUser() {
-    await axios
-      .get("http://localhost:5000/user", { withCredentials: true })
-      .then((res) => console.log(res.data));
+    const user = await axios.get("http://localhost:5000/user", {
+      withCredentials: true,
+    });
+
+    console.table(user.data);
   }
   useEffect(() => {
     document.getElementById("nav-home").classList.add("active");

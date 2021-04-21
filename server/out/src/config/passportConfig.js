@@ -46,7 +46,7 @@ function default_1(passport) {
     var _this = this;
     function authUser(email, password, done) {
         return __awaiter(this, void 0, void 0, function () {
-            var user;
+            var user, isCorrectPassword;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, Users_1.UsersModel.findOne({ email: email })];
@@ -56,8 +56,11 @@ function default_1(passport) {
                             return [2 /*return*/, done(null, false, { msg: "No such user." })];
                         return [4 /*yield*/, bcrypt_1.default.compare(password, user.password)];
                     case 2:
-                        if (_a.sent())
+                        isCorrectPassword = _a.sent();
+                        if (isCorrectPassword)
                             return [2 /*return*/, done(null, user)];
+                        else
+                            return [2 /*return*/, done(null, false, { msg: "Incorrect Password." })];
                         return [2 /*return*/, done(null, false)];
                 }
             });
