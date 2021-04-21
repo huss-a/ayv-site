@@ -103,6 +103,7 @@ app.post("/register", function (req, res) { return __awaiter(void 0, void 0, voi
             case 2:
                 hashedPsw = _a.sent();
                 newUser = new Users_1.UsersModel({
+                    ifcName: req.body.name,
                     email: req.body.email,
                     password: hashedPsw,
                     callsign: req.body.callsign,

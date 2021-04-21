@@ -3,14 +3,12 @@ dotenv.config();
 import express from "express";
 import bcrypt from "bcrypt";
 import dbConnect from "./config/db";
-import mongoose from "mongoose";
 import { UsersModel } from "./models/Users";
 import passport from "passport";
 import session from "express-session";
 import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
-import passportConfig from "./config/passportConfig";
 
 const app = express();
 dbConnect(
@@ -63,6 +61,7 @@ app.post("/register", async (req, res) => {
     if (userExists) return res.send("User Already Exists.");
     const hashedPsw = await bcrypt.hash(req.body.password, 10);
     const newUser = new UsersModel({
+      ifcName: req.body.name,
       email: req.body.email,
       password: hashedPsw,
       callsign: req.body.callsign,

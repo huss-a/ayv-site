@@ -39,7 +39,7 @@ const login = () => {
               {alert}
             </Alert>
           ) : null}
-          <Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
@@ -48,7 +48,7 @@ const login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
-          <Form.Group>
+          <Form.Group className="mb-4">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -57,7 +57,7 @@ const login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button className="mt-3" type="submit">
+          <Button type="submit">
             Submit
           </Button>
         </Form>

@@ -6,15 +6,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersModel = void 0;
 var mongoose_1 = __importDefault(require("mongoose"));
 var Users = new mongoose_1.default.Schema({
-    callsign: {
-        type: String,
-        required: true,
-    },
     email: {
         type: String,
         required: true,
     },
     password: {
+        type: String,
+        required: true,
+    },
+    ifcName: {
+        type: String,
+        required: true,
+    },
+    callsign: {
         type: String,
         required: true,
     },
