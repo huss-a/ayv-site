@@ -1,10 +1,11 @@
-import dotenv from "dotenv";
+if (process.env.NODE_ENV === "dev") {
+  const dotenv = require("dotenv");
 
-dotenv.config({
-  path:
-    "C:\\Users\\Hussain\\OneDrive\\Desktop\\Web development\\ayv-site\\server\\.env.local",
-}),
-  process.env.HELLO;
+  dotenv.config({
+    path:
+      "C:\\Users\\Hussain\\OneDrive\\Desktop\\Web development\\ayv-site\\server\\.env.local",
+  });
+}
 
 import express from "express";
 import bcrypt from "bcrypt";
@@ -15,6 +16,7 @@ import session from "express-session";
 import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
+import chalk from "chalk";
 
 const app = express();
 dbConnect(process.env.DB_CONN_URI!);
@@ -46,8 +48,8 @@ app.use(passport.session());
 passportCfg(passport);
 
 // Routes
-app.get('/', (req, res) => {
-  res.send("Finnair Virtual 2021 ©")
+app.get("/", (req, res) => {
+  res.send("Finnair Virtual 2021 ©");
 });
 
 app.post("/login", (req, res, next) => {
@@ -86,4 +88,4 @@ app.get("/user", (req, res) => {
   res.send(req.user);
 });
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`));
+app.listen(PORT, () => console.log(chalk.bold(chalk.bgBlueBright`Server Started on port ${PORT}!`)));

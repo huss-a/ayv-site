@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import mongoose from "mongoose";
 
 async function dbConnect(uri:string) {
@@ -7,7 +8,7 @@ async function dbConnect(uri:string) {
       useNewUrlParser: true,
       useCreateIndex: true,
     });
-    console.log("Connected to MongoDB!");
+    console.log(chalk.bold(chalk.green`Connected to MongoDB!`));
   } catch (err) {
     console.log(err);
   }

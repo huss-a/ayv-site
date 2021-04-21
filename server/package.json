@@ -4,9 +4,10 @@
   "description": "",
   "main": "./out/src/server.js",
   "scripts": {
-    "dev": "concurrently \"tsc -w\" \"nodemon out/src/server\"",
-    "start": "tsc && node out/src/server",
-    "deploy": "cd .. && git subtree push --prefix server heroku master"
+    "dev": "cross-env NODE_ENV=dev nodemon out/src/server.js",
+    "start": "cross-env NODE_ENV=prod tsc && node out/src/server",
+    "deploy": "cd .. && git subtree push --prefix server heroku master",
+    "env": "cross-env NODE_ENV=dev"
   },
   "author": "Hussain Aqeel",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "@types/passport": "^1.0.6",
     "@types/passport-local": "^1.0.33",
     "bcrypt": "^5.0.1",
+    "chalk": "^4.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -34,6 +36,7 @@
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
