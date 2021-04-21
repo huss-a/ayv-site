@@ -46,6 +46,10 @@ app.use(passport.session());
 passportCfg(passport);
 
 // Routes
+app.get('/', (req, res) => {
+  res.send("Finnair Virtual 2021 ©")
+});
+
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", async (err, user, info) => {
     if (err) throw err;
