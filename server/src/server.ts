@@ -1,5 +1,11 @@
 import dotenv from "dotenv";
-dotenv.config();
+
+dotenv.config({
+  path:
+    "C:\\Users\\Hussain\\OneDrive\\Desktop\\Web development\\ayv-site\\server\\.env.local",
+}),
+  process.env.HELLO;
+
 import express from "express";
 import bcrypt from "bcrypt";
 import dbConnect from "./config/db";
@@ -9,11 +15,11 @@ import session from "express-session";
 import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
+import path from "path";
+var appDir = path.dirname(require.main!.filename);
 
 const app = express();
-dbConnect(
-  "mongodb+srv://huss:uheh@ayva-site.gwp7h.mongodb.net/AYV-Site-DB?retryWrites=true&w=majority"
-);
+dbConnect(process.env.DB_CONN_URI!);
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -22,7 +28,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://finnairvirtual.netlify.app",
     credentials: true,
   })
 );
@@ -78,4 +84,4 @@ app.get("/user", (req, res) => {
   res.send(req.user);
 });
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`, process.env));
+app.listen(PORT, () => console.log(`Server Started on port ${PORT}!`));
