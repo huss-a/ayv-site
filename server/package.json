@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"tsc -w\" \"nodemon out/src/server\"",
     "start": "tsc && node out/src/server",
-    "deploy": "git subtree push --prefix . heroku master"
+    "deploy": "cd .. && git subtree push --prefix server heroku master"
   },
   "author": "Hussain Aqeel",
   "license": "MIT",
