@@ -402,7 +402,15 @@ iframe {
 }
 
 .reg-login-form > form {
-  width: 80%;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.reg-login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 1200px) {

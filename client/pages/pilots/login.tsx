@@ -27,6 +27,8 @@ const login = () => {
       <Head>
         <title>Finnair Virtual | Login</title>
       </Head>
+      <div className="reg-login-wrapper">
+
       <Container className="m-4 p-5 reg-login-form">
         <h1>Login</h1>
         <Form className="m-4" onSubmit={(e) => loginUser(e)}>
@@ -62,6 +64,7 @@ const login = () => {
           </Button>
         </Form>
       </Container>
+      </div>
     </>
   );
 };
