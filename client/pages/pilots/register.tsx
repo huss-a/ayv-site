@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Container, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 
@@ -22,9 +22,16 @@ const register = () => {
         callsign,
       },
       withCredentials: true,
-      url: "http://localhost:5000/register",
+      url: "https://ayv-site.herokuapp.com/register",
     }).then((res) => setAlert(res.data));
   }
+  useEffect(() => {
+    const foo = async () => {
+      const res = await axios.get("https://ayv-site.herokuapp.com");
+      console.log(res);
+    };
+    foo();
+  });
   return (
     <>
       <Head>
