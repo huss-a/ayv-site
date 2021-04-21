@@ -1,4 +1,4 @@
-import { Strategy as LocalStrat, VerifyFunction } from "passport-local";
+import { Strategy as LocalStrat } from "passport-local";
 import { UsersModel } from "../models/Users";
 import { PassportStatic } from "passport";
 import bcrypt from "bcrypt";
