@@ -4,8 +4,6 @@ import React, { useEffect } from "react";
 const Navbar: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
-    const navLogo = document.querySelector<HTMLAnchorElement>(".navbar-brand");
-
     const navLinks = document.querySelectorAll<HTMLLIElement>(".nav-item");
 
     const dropdownLinks = document.querySelectorAll<HTMLLIElement>(
@@ -96,6 +94,36 @@ const Navbar: React.FC = () => {
                     onClick={() => router.push("/about/contact")}
                   >
                     Contact Us
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="dropdown">
+              <a
+                className="nav-link dropdown-toggle nav-about"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Pilots
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/about/staff")}
+                  >
+                    Pilot Login
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/about/partners")}
+                  >
+                    Register
                   </a>
                 </li>
               </ul>
