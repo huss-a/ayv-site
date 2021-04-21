@@ -15,8 +15,6 @@ import session from "express-session";
 import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
-import path from "path";
-var appDir = path.dirname(require.main!.filename);
 
 const app = express();
 dbConnect(process.env.DB_CONN_URI!);
@@ -35,13 +33,13 @@ app.use(
 
 app.use(
   session({
-    secret: "secretcode",
+    secret: process.env.SESSION_SECRET!,
     resave: true,
     saveUninitialized: true,
   })
 );
 
-app.use(cookieparser("secretcode"));
+app.use(cookieparser(process.env.SESSION_SECRET));
 
 app.use(passport.initialize());
 app.use(passport.session());
