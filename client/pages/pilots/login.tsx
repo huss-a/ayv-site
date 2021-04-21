@@ -7,6 +7,7 @@ const login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [alert, setAlert] = useState<string | null>(null);
+  if (alert) setTimeout(() => setAlert(null), 3000);
   async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
     const res = await axios({
@@ -30,7 +31,11 @@ const login = () => {
         <h1>Login</h1>
         <Form className="m-4" onSubmit={(e) => loginUser(e)}>
           {alert ? (
-            <Alert variant={alert === "Success!" ? "success" : "warning"}>
+            <Alert
+              variant={
+                alert === "Successfully Logged in!" ? "success" : "warning"
+              }
+            >
               {alert}
             </Alert>
           ) : null}
