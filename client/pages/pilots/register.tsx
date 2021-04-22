@@ -11,26 +11,32 @@ const register = () => {
   const [alert, setAlert] = useState<string | null>(null);
   if (alert) setTimeout(() => setAlert(null), 3000);
 
-  function registerUser(e: React.FormEvent<HTMLElement>) {
+  async function registerUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
-    axios({
-      method: "POST",
-      data: {
-        name,
-        email,
-        password,
-        callsign,
+    const data = {
+      name,
+      email,
+      password,
+      callsign,
+    };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
       },
       withCredentials: true,
-      url: "https://ayv-site.herokuapp.com/register",
-    }).then((res) => setAlert(res.data));
+    };
+    const res = await axios
+      .post("https://ayv-site.herokuapp.com/register", data, config)
+      .then((res) => setAlert(res.data));
   }
   useEffect(() => {
     const foo = async () => {
-      const res = await axios.get("https://ayv-site.herokuapp.com");
-      console.log(res);
+      const res = await axios.get("https://ayv-site.herokuapp.com/user", {
+        withCredentials: true,
+      });
+      console.log(res.data);
     };
-    foo();
+    (async () => await foo())();
   });
   return (
     <>

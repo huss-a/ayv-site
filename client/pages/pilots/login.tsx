@@ -10,15 +10,23 @@ const login = () => {
   if (alert) setTimeout(() => setAlert(null), 3000);
   async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
-    const res = await axios({
-      method: "POST",
-      data: {
-        email,
-        password,
+    const data = {
+      email,
+      password,
+    };
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
       },
       withCredentials: true,
-      url: "https://ayv-site.herokuapp.com/login",
-    });
+    };
+
+    const res = await axios.post(
+      "https://ayv-site.herokuapp.com/login",
+      data,
+      config
+    );
 
     setAlert(res.data);
   }
