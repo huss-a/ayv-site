@@ -34,6 +34,14 @@ const register = () => {
     );
     setLoading(false);
     setAlert(res.data);
+
+    const clearInputs = () => {
+      setName("");
+      setEmail("");
+      setPassword("");
+      setCallsign("");
+    };
+    clearInputs();
   }
   useEffect(() => {
     const foo = async () => {

@@ -30,6 +30,12 @@ const login = () => {
     );
     setLoading(false);
     setAlert(res.data);
+
+    const clearInputs = () => {
+      setEmail("");
+      setPassword("");
+    };
+    clearInputs();
   }
   return (
     <>
