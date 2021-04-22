@@ -34,7 +34,7 @@ const PlanFlight = () => {
         value={arr}
       />{" "}
       <iframe
-        className="mt-4"
+        className="my-4"
         src="https://fpltoif.com/simbrief"
         height="600px"
         width="100%"

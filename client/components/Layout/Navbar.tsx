@@ -126,6 +126,14 @@ const Navbar: React.FC = () => {
                     Register
                   </a>
                 </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/pilots/briefing")}
+                  >
+                    Briefing
+                  </a>
+                </li>
               </ul>
             </li>
             <li className="nav-item">
