@@ -49,9 +49,7 @@ const LiveFlights = () => {
       const data = await useFetch(url);
 
       const ayvFlights: FlightInfo[] = await data.result.filter(
-        (flight: FlightInfo) =>
-          flight.callsign.startsWith("Finnair") &&
-          flight.callsign.search("VA") > 0
+        (flight: FlightInfo) => flight.callsign.match(/Finnair....VA*/g)
       );
 
       await ayvFlights.forEach((flight) =>
