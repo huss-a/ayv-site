@@ -413,6 +413,14 @@ iframe {
   flex-direction: column;
 }
 
+.plan-flight-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  width: 100%;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

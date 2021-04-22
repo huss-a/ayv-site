@@ -69,8 +69,8 @@ const EFHKStatus: React.FC = () => {
         )}
         {metar && (
           <p>
-            <strong>EFHK METAR: </strong>
-            {metar}
+            <strong>EFHK METAR:  </strong>
+            <code>{metar}</code>
           </p>
         )}
       </div>
