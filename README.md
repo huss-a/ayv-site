@@ -2,12 +2,12 @@
 
 # Brand New Finnair Virtual Website made with React & Next.js.
 
-###Technologies used on the frontend:
+### Technologies used on the frontend:
 * TypeScript
 * React
 * Next.js
 
-###Technologies used on the backend:
+### Technologies used on the backend:
 * TypeScript
 * NodeJS
 * MongoDB
