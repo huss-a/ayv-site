@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Form, Container, Button, Alert } from "react-bootstrap";
+import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 
 const login = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [alert, setAlert] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   if (alert) setTimeout(() => setAlert(null), 3000);
   async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
@@ -14,7 +15,6 @@ const login = () => {
       email,
       password,
     };
-
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -22,12 +22,13 @@ const login = () => {
       withCredentials: true,
     };
 
+    setLoading(true);
     const res = await axios.post(
       "https://ayv-site.herokuapp.com/login",
       data,
       config
     );
-
+    setLoading(false);
     setAlert(res.data);
   }
   return (
@@ -55,6 +56,7 @@ const login = () => {
                 required={true}
                 placeholder="example@example.com"
                 onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </Form.Group>
             <Form.Group className="mb-4">
@@ -64,9 +66,21 @@ const login = () => {
                 required={true}
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                minLength={6}
               />
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">
+              {loading && (
+                <Spinner
+                  animation="grow"
+                  style={{ position: "relative", bottom: "5px" }}
+                  variant="primary"
+                  size="sm"
+                />
+              )}{" "}
+              Submit
+            </Button>
           </Form>
         </Container>
       </div>

@@ -88,4 +88,6 @@ app.get("/user", (req, res) => {
   res.send(req.user);
 });
 
-app.listen(PORT, () => console.log(chalk.bold(chalk.bgBlueBright`Server Started on port ${PORT}!`)));
+app.listen(PORT, () =>
+  console.log(chalk.bold(chalk.bgBlueBright`Server Started on port ${PORT}!`))
+);

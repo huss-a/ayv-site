@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { Form, Container, Button, Alert } from "react-bootstrap";
+import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 
 const register = () => {
@@ -9,6 +9,7 @@ const register = () => {
   const [password, setPassword] = useState<string>("");
   const [callsign, setCallsign] = useState<string>("");
   const [alert, setAlert] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   if (alert) setTimeout(() => setAlert(null), 3000);
 
   async function registerUser(e: React.FormEvent<HTMLElement>) {
@@ -25,9 +26,14 @@ const register = () => {
       },
       withCredentials: true,
     };
-    const res = await axios
-      .post("https://ayv-site.herokuapp.com/register", data, config)
-      .then((res) => setAlert(res.data));
+    setLoading(true);
+    const res = await axios.post(
+      "https://ayv-site.herokuapp.com/register",
+      data,
+      config
+    );
+    setLoading(false);
+    setAlert(res.data);
   }
   useEffect(() => {
     const foo = async () => {
@@ -54,8 +60,9 @@ const register = () => {
               <Form.Control
                 type="text"
                 required={true}
-                placeholder="Hardlanding_Hussain"
+                placeholder="Ex: Hardlanding_Hussain"
                 onChange={(e) => setName(e.target.value)}
+                value={name}
               />
             </Form.Group>
             <Form.Group className="mb-4">
@@ -65,6 +72,7 @@ const register = () => {
                 required={true}
                 placeholder="example@example.com"
                 onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </Form.Group>
             <Form.Group className="mb-4">
@@ -74,6 +82,8 @@ const register = () => {
                 required={true}
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                minLength={6}
               />
             </Form.Group>
             <Form.Group className="mb-4">
@@ -83,9 +93,20 @@ const register = () => {
                 required={true}
                 placeholder="Finnair XXXVA"
                 onChange={(e) => setCallsign(e.target.value)}
+                value={callsign}
               />
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">
+              {loading && (
+                <Spinner
+                  animation="grow"
+                  style={{ position: "relative", bottom: "5px" }}
+                  variant="primary"
+                  size="sm"
+                />
+              )}{" "}
+              Submit
+            </Button>
           </Form>
         </Container>
       </div>
