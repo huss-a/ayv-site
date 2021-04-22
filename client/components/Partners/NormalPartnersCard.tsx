@@ -15,7 +15,7 @@ const NormalPartnersCard: React.FC = () => (
         <div>
           <ListGroup>
             {normalPartners.sort().map((partner) => (
-              <ListGroup.Item>
+              <ListGroup.Item key={partner.name}>
                 <a href={partner.website}>{partner.name}</a>
               </ListGroup.Item>
             ))}
