@@ -28,7 +28,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://ayv-dev.netlify.app",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );

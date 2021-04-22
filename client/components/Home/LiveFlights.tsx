@@ -52,7 +52,7 @@ const LiveFlights = () => {
         (flight: FlightInfo) => flight.callsign.match(/Finnair....VA*/g)
       );
 
-      await ayvFlights.forEach((flight) =>
+      ayvFlights.forEach((flight) =>
         flight.username === null ? (flight.username = "Username Not Set") : null
       );
 
