@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState, useCallback } from "react";
 import { Spinner, Button } from "react-bootstrap";
 import useFetch from "../../helpers/useFetch";
@@ -44,19 +45,8 @@ const LiveFlights = () => {
   // Funcs
   const getFlights = useCallback(async () => {
     try {
-      const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
-
-      const data = await useFetch(url);
-
-      const ayvFlights: FlightInfo[] = await data.result.filter(
-        (flight: FlightInfo) => flight.callsign.match(/Finnair....VA*/g)
-      );
-
-      ayvFlights.forEach((flight) =>
-        flight.username === null ? (flight.username = "Username Not Set") : null
-      );
-
-      return ayvFlights;
+      const res = await axios.get(`https://ayv-site.herokuapp.com/if/getallvaflights`);
+      return res.data;
     } catch (err) {
       console.log(err);
     }

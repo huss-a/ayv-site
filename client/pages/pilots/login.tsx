@@ -18,13 +18,14 @@ const login = () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        "token": process.env.NEXT_PUBLIC_AUTH_TOKEN
       },
       withCredentials: true,
     };
 
     setLoading(true);
     const res = await axios.post(
-      "https://ayv-site.herokuapp.com/login",
+      "https://ayv-site.herokuapp.com/login"/*http://localhost:5000/login"*/,
       data,
       config
     );

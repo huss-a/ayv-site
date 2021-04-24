@@ -12,16 +12,13 @@ const EFHKStatus: React.FC = () => {
   const [atis, setAtis] = useState<string | null>("");
   const [metar, setMetar] = useState("");
   const getAtis = async () => {
-    const BASE_URL = "https://api.infiniteflight.com/public/v2";
     try {
-      const res = await axios.get<ApiResponseIf<string>>(
-        `${BASE_URL}/airport/EFHK/atis/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`
+      const res = await axios.get<string | null>(
+        "https://ayv-site.herokuapp.com/if/getEFHKatis"
       );
-      return res.data.result;
+      return res.data;
     } catch (err) {
-      if (err.statusCode == 404) {
-        console.log("EFHK inactive");
-      }
+      console.log(err);
     }
   };
 
@@ -69,7 +66,7 @@ const EFHKStatus: React.FC = () => {
         )}
         {metar && (
           <p>
-            <strong>EFHK METAR:  </strong>
+            <strong>EFHK METAR: </strong>
             <code>{metar}</code>
           </p>
         )}
