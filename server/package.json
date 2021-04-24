@@ -30,7 +30,6 @@
     "express-bearer-token": "^2.4.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
-    "heroku-logger": "^0.3.3",
     "mongoose": "^5.12.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
