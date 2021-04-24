@@ -8,6 +8,7 @@ const apiKey = process.env.API_KEY_IF;
 
 router.get("/getAllVaFlights", async (req, res) => {
   try {
+    console.log(req.headers.referer);
     if (req.headers.referer !== "https://ayv-dev.netlify.app/")
       return res.status(401).send("Unauthorized request!");
     const apiRes = await axios.get(
