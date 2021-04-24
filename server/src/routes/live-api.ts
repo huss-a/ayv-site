@@ -8,7 +8,7 @@ const apiKey = process.env.API_KEY_IF;
 
 router.get("/getAllVaFlights", async (req, res) => {
   try {
-    console.log(req.originalUrl);
+    console.log(req.headers.origin /*"https://ayv-dev.netlify.app"*/);
     const apiRes = await axios.get(
       `${BASE_URL}/flights/${sessionId}?apikey=${apiKey}`
     );
