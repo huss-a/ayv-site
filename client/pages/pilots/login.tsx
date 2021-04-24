@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 
-const login = () => {
+const login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState<string | null>(null);

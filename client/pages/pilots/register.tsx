@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
 
-const register = () => {
+const register: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
