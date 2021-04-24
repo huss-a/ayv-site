@@ -1,8 +1,18 @@
+import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const getUser = async () => {
+    const user = await axios.get("https://ayv-site.herokuapp.com/user");
+    return user.data;
+  };
+
+  (async () => {
+    if (await getUser()) setIsLoggedIn(true);
+  })();
   useEffect(() => {
     const navLinks = document.querySelectorAll<HTMLLIElement>(".nav-item");
 
@@ -110,14 +120,25 @@ const Navbar: React.FC = () => {
                 Pilots
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a
-                    className="dropdown-item"
-                    onClick={() => router.push("/pilots/login")}
-                  >
-                    Login
-                  </a>
-                </li>
+                {!isLoggedIn ? (
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => router.push("/pilots/login")}
+                    >
+                      Login
+                    </a>
+                  </li>
+                ) : (
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      onClick={() => router.push("/pilots/login")}
+                    >
+                      Logout
+                    </a>
+                  </li>
+                )}
                 <li>
                   <a
                     className="dropdown-item"

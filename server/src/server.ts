@@ -17,7 +17,6 @@ import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
 import chalk from "chalk";
-import bearerToken from "express-bearer-token";
 import liveApi from "./routes/live-api";
 import auth from "./middleware/auth";
 
@@ -28,15 +27,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(
-  bearerToken({
-    cookie: {
-      signed: true,
-      secret: process.env.SESSION_SECRET!,
-      key: "access_token",
-    },
-  })
-);
+
 app.use(
   cors({
     origin: "https://ayv-dev.netlify.app",
@@ -66,6 +57,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", auth, (req, res, next) => {
+
   passport.authenticate("local", async (err, user, info) => {
     if (err) throw err;
     if (!user) res.send("Incorrect Email and Password combination.");
