@@ -12,3 +12,5 @@
 * NodeJS
 * MongoDB
 * Express
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/627a9045-e582-421e-86e3-b883e24f03db/deploy-status)](https://app.netlify.com/sites/ayv-dev/deploys)
