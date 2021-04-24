@@ -19,6 +19,7 @@ import passportCfg from "./config/passportConfig";
 import chalk from "chalk";
 import bearerToken from "express-bearer-token";
 import liveApi from "./routes/live-api";
+import auth from "./middleware/auth";
 
 const app = express();
 dbConnect(process.env.DB_CONN_URI!);
@@ -64,7 +65,7 @@ app.get("/", (req, res) => {
   res.send("Finnair Virtual 2021 ©");
 });
 
-app.post("/login", (req, res, next) => {
+app.post("/login", auth, (req, res, next) => {
   passport.authenticate("local", async (err, user, info) => {
     if (err) throw err;
     if (!user) res.send("Incorrect Email and Password combination.");
@@ -77,7 +78,7 @@ app.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-app.post("/register", async (req, res) => {
+app.post("/register", auth, async (req, res) => {
   try {
     const userExists = await UsersModel.findOne({ email: req.body.email });
     if (userExists) return res.send("User Already Exists.");
@@ -96,7 +97,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.get("/user", (req, res) => {
+app.get("/user", auth, (req, res) => {
   res.send(req.user);
 });
 

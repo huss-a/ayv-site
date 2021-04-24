@@ -27,7 +27,7 @@ router.get("/getAllVaFlights", auth, async (req, res) => {
   }
 });
 
-router.get("/getEFHKatis", async (req, res) => {
+router.get("/getEFHKatis",auth, async (req, res) => {
   try {
     if (req.hostname !== "https://ayv-dev.netlify.app")
       return res.status(401).send("Unauthorized request!");
