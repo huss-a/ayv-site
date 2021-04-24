@@ -1,12 +1,13 @@
 import express from "express";
 const router = express.Router();
 import axios from "axios";
+import auth from "../middleware/auth";
 
 const BASE_URL = `https://api.infiniteflight.com/public/v2`;
 const sessionId = process.env.SESSION_ID;
 const apiKey = process.env.API_KEY_IF;
 
-router.get("/getAllVaFlights", async (req, res) => {
+router.get("/getAllVaFlights", auth, async (req, res) => {
   try {
     console.log("Ref: " + req.headers.referer);
     if (req.headers.referer !== "https://ayv-dev.netlify.app/")
