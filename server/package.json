@@ -30,6 +30,7 @@
     "express-bearer-token": "^2.4.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
+    "heroku-logger": "^0.3.3",
     "mongoose": "^5.12.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
+    "@types/heroku-logger": "^1.0.0",
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
