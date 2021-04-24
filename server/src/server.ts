@@ -17,7 +17,6 @@ import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
 import chalk from "chalk";
-import auth from "./middleware/auth";
 import bearerToken from "express-bearer-token";
 import liveApi from "./routes/live-api";
 
@@ -65,7 +64,7 @@ app.get("/", (req, res) => {
   res.send("Finnair Virtual 2021 ©");
 });
 
-app.post("/login", auth, (req, res, next) => {
+app.post("/login", (req, res, next) => {
   passport.authenticate("local", async (err, user, info) => {
     if (err) throw err;
     if (!user) res.send("Incorrect Email and Password combination.");
@@ -78,7 +77,7 @@ app.post("/login", auth, (req, res, next) => {
   })(req, res, next);
 });
 
-app.post("/register", auth, async (req, res) => {
+app.post("/register", async (req, res) => {
   try {
     const userExists = await UsersModel.findOne({ email: req.body.email });
     if (userExists) return res.send("User Already Exists.");
@@ -97,7 +96,7 @@ app.post("/register", auth, async (req, res) => {
   }
 });
 
-app.get("/user", auth, (req, res) => {
+app.get("/user", (req, res) => {
   res.send(req.user);
 });
 
