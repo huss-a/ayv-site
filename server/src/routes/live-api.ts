@@ -10,7 +10,7 @@ const apiKey = process.env.API_KEY_IF;
 router.get("/getAllVaFlights", auth, async (req, res) => {
   try {
     console.log("Ref: " + req.headers.referer);
-    if (req.headers.referer !== "https://ayv-dev.netlify.app/")
+    if (req.headers.referer !== `${process.env.CORS_URL}/`)
       return res.status(401).send("Unauthorized request!");
     const apiRes = await axios.get(
       `${BASE_URL}/flights/${sessionId}?apikey=${apiKey}`
@@ -27,7 +27,7 @@ router.get("/getAllVaFlights", auth, async (req, res) => {
   }
 });
 
-router.get("/getEFHKatis",auth, async (req, res) => {
+router.get("/getEFHKatis", auth, async (req, res) => {
   try {
     const apiRes = await axios.get(
       `${BASE_URL}/airport/EFHK/atis/${sessionId}?apikey=${apiKey}`

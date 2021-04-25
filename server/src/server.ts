@@ -30,7 +30,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://ayv-dev.netlify.app",
+    origin: process.env.CORS_URL,
     credentials: true,
   })
 );
@@ -56,15 +56,18 @@ app.get("/", (req, res) => {
   res.send("Finnair Virtual 2021 ©");
 });
 
-app.post("/login", auth, (req, res, next) => {
-
-  passport.authenticate("local", async (err, user, info) => {
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("Incorrect Email and Password combination.");
+    if (!user) res.send("No such User Exists");
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Successfully Logged in!");
+        res.send({
+          msg: "Successfully Logged in!",
+          ...req.user,
+        });
+        console.log(req.user);
       });
     }
   })(req, res, next);
@@ -89,8 +92,16 @@ app.post("/register", auth, async (req, res) => {
   }
 });
 
+app.get("/logout", auth, (req, res) => {
+  if (req.user) {
+    req.logOut();
+    res.send("done");
+  } else res.send("Not logged in");
+});
+
 app.get("/user", auth, (req, res) => {
-  res.send(req.user);
+  if (!req.user) return res.send("Not logged in");
+  return res.send(req.user);
 });
 
 app.listen(PORT, () =>

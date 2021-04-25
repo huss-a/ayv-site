@@ -14,7 +14,7 @@ const EFHKStatus: React.FC = () => {
   const getAtis = async () => {
     try {
       const res = await axios.get<string | null>(
-        "https://ayv-site.herokuapp.com/if/getEFHKatis"
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getEFHKatis`
       );
       return res.data;
     } catch (err) {

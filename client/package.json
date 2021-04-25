@@ -28,6 +28,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/aos": "^3.0.3",
     "css-loader": "^5.2.4",
     "file-loader": "^6.2.0",
     "netlify-plugin-cache-nextjs": "^1.6.0",

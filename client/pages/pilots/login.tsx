@@ -18,19 +18,18 @@ const login: React.FC = () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        "token": process.env.NEXT_PUBLIC_AUTH_TOKEN
       },
       withCredentials: true,
     };
 
     setLoading(true);
     const res = await axios.post(
-      "https://ayv-site.herokuapp.com/login"/*http://localhost:5000/login"*/,
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/login",
       data,
       config
     );
     setLoading(false);
-    setAlert(res.data);
+    setAlert(res.data.msg);
 
     const clearInputs = () => {
       setEmail("");

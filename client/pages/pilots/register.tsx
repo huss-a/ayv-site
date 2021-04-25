@@ -28,7 +28,7 @@ const register: React.FC = () => {
     };
     setLoading(true);
     const res = await axios.post(
-      "https://ayv-site.herokuapp.com/register",
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/register`,
       data,
       config
     );
@@ -43,15 +43,6 @@ const register: React.FC = () => {
     };
     clearInputs();
   }
-  useEffect(() => {
-    const foo = async () => {
-      const res = await axios.get("https://ayv-site.herokuapp.com/user", {
-        withCredentials: true,
-      });
-      console.log(res.data);
-    };
-    (async () => await foo())();
-  });
   return (
     <>
       <Head>

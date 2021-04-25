@@ -45,7 +45,9 @@ const LiveFlights = () => {
   // Funcs
   const getFlights = useCallback(async () => {
     try {
-      const res = await axios.get(`https://ayv-site.herokuapp.com/if/getallvaflights`);
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getallvaflights`
+      );
       return res.data;
     } catch (err) {
       console.log(err);

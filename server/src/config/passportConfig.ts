@@ -13,7 +13,6 @@ export default function (passport: PassportStatic) {
     if(isCorrectPassword) return done(null, user)
     else return done(null, false, {msg: "Incorrect Password."})
 
-    return done(null, false);
   }
   passport.use(new LocalStrat({ usernameField: "email" }, authUser));
 

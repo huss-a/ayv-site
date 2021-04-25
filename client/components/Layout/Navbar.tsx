@@ -1,18 +1,14 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { authContext } from "../../contexts/AuthContext";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const getUser = async () => {
-    const user = await axios.get("https://ayv-site.herokuapp.com/user");
-    return user.data;
+  const userObject = useContext(authContext);
+  const logoutUser = async () => {
+    await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logout`);
   };
-
-  (async () => {
-    if (await getUser()) setIsLoggedIn(true);
-  })();
   useEffect(() => {
     const navLinks = document.querySelectorAll<HTMLLIElement>(".nav-item");
 
@@ -33,7 +29,7 @@ const Navbar: React.FC = () => {
         navbarCollapse.classList.remove("show");
       });
     });
-  });
+  }, []);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">
@@ -120,25 +116,15 @@ const Navbar: React.FC = () => {
                 Pilots
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {!isLoggedIn ? (
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      onClick={() => router.push("/pilots/login")}
-                    >
-                      Login
-                    </a>
-                  </li>
-                ) : (
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      onClick={() => router.push("/pilots/login")}
-                    >
-                      Logout
-                    </a>
-                  </li>
-                )}
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => router.push("/pilots/login")}
+                  >
+                    Login
+                  </a>
+                </li>
+
                 <li>
                   <a
                     className="dropdown-item"

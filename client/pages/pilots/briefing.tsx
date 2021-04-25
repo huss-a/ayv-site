@@ -25,7 +25,7 @@ const briefing: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const getLoggedInUser = async () => {
     try {
-      const res = await axios.get("https://ayv-site.herokuapp.com/user", {
+      const res = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + "/user", {
         withCredentials: true,
       });
       return res.data;
@@ -66,7 +66,7 @@ const briefing: React.FC = () => {
               </h6>
             </div>
             <EFHKStatus />
-            <PlanFlight/>
+            <PlanFlight />
           </Container>
         ) : (
           <Spinner animation="grow" variant="primary" />
