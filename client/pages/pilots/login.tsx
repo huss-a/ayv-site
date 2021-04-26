@@ -6,7 +6,7 @@ import axios from "axios";
 const login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [alert, setAlert] = useState<string | null>(null);
+  const [alert, setAlert] = useState<string>(null);
   const [loading, setLoading] = useState(false);
   if (alert) setTimeout(() => setAlert(null), 3000);
   async function loginUser(e: React.FormEvent<HTMLElement>) {
