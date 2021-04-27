@@ -6,8 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "gitad": "git add .",
-    "gitph": "git push -u origin master",
     "export": "next export"
   },
   "dependencies": {

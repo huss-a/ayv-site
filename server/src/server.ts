@@ -97,6 +97,7 @@ app.get("/logout", auth, (req, res) => {
     req.logOut();
     res.json({ msg: "Done" });
   }
+  else res.json({msg: "Not logged in"})
 });
 
 app.get("/user", auth, (req, res) => {
