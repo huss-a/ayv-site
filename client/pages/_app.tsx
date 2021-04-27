@@ -25,8 +25,7 @@ function MyApp({ Component, pageProps }) {
   };
   useEffect(() => {
     aos.init();
-    (async () => await getUser())();
-  });
+  }, []);
   return (
     <>
       <Head>

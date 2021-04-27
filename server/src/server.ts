@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No such User Exists");
+    if (!user) res.json({ msg: "No such User Exists" });
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
@@ -95,12 +95,12 @@ app.post("/register", auth, async (req, res) => {
 app.get("/logout", auth, (req, res) => {
   if (req.user) {
     req.logOut();
-    res.send("done");
-  } else res.send("Not logged in");
+    res.json({ msg: "Done" });
+  }
 });
 
 app.get("/user", auth, (req, res) => {
-  if (!req.user) return res.send("Not logged in");
+  if (!req.user) return res.json({msg: "Not logged in"});
   return res.send(req.user);
 });
 

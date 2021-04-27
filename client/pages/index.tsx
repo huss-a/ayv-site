@@ -13,11 +13,6 @@ const Home: React.FC = () => {
     return () => document.getElementById("nav-home").classList.remove("active");
   }, []);
 
-  useEffect(() => {
-    setLoggedUser("wassup");
-    console.log(loggedUser);
-  }, [loggedUser]);
-
   return (
     <>
       <Head>
@@ -33,6 +28,7 @@ const Home: React.FC = () => {
       <CEOMessage />
       <Container>
         <LiveFlights />
+        {loggedUser && <h1>{loggedUser.callsign}</h1>}
       </Container>
     </>
   );

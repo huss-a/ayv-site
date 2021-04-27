@@ -1,14 +1,17 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
 import axios from "axios";
+import { authContext } from "../../contexts/AuthContext";
 
 const login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState<string>(null);
   const [loading, setLoading] = useState(false);
+  const [loggedUser, setLoggedUser] = useContext(authContext);
   if (alert) setTimeout(() => setAlert(null), 3000);
+
   async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
     const data = {
@@ -36,6 +39,17 @@ const login: React.FC = () => {
       setPassword("");
     };
     clearInputs();
+  }
+
+  async function logoutUser() {
+    const res = await axios.get(
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/logout",
+      {
+        withCredentials: true,
+      }
+    );
+    setLoggedUser(null);
+    setAlert(res.data.msg);
   }
   return (
     <>
@@ -88,6 +102,7 @@ const login: React.FC = () => {
               Submit
             </Button>
           </Form>
+          <button onClick={logoutUser}>logout</button>
         </Container>
       </div>
     </>
