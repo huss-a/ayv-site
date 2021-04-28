@@ -421,6 +421,19 @@ iframe {
   width: 100%;
 }
 
+.info-card {
+  border-top: 7px solid var(--primary-blue);
+  border-radius: 1px 1px 10px 10px;
+  box-shadow: 0px 5px 20px grey;
+  transition: 0.2s ease-out !important;
+
+}
+
+.info-card:hover {
+  transition: 0.1s ease-out !important;
+  box-shadow: 0px 10px 20px grey;
+}
+
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;

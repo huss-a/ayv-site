@@ -7,6 +7,15 @@ const BASE_URL = `https://api.infiniteflight.com/public/v2`;
 const sessionId = process.env.SESSION_ID;
 const apiKey = process.env.API_KEY_IF;
 
+// types
+interface ApiResponseIf<T> {
+  result: T;
+}
+
+interface ApiResponseMetar<T> {
+  data: T;
+}
+
 router.get("/getAllVaFlights", auth, async (req, res) => {
   try {
     console.log("Ref: " + req.headers.referer);
@@ -29,16 +38,33 @@ router.get("/getAllVaFlights", auth, async (req, res) => {
 
 router.get("/getEFHKatis", auth, async (req, res) => {
   try {
-    const apiRes = await axios.get(
+    const apiRes = await axios.get<ApiResponseIf<string>>(
       `${BASE_URL}/airport/EFHK/atis/${sessionId}?apikey=${apiKey}`
     );
 
-    console.dir(`Hostname: ${req.hostname.toString()}`);
     res.send(apiRes.data);
   } catch (err) {
-    console.dir(`Hostname: ${req.hostname.toString()}`);
-
     res.send(null);
+  }
+});
+
+router.get("/getEFHKmetar", auth, async (req, res) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": process.env.METAR_API_KEY,
+      },
+    };
+    const apiRes = await axios.get<ApiResponseMetar<string[]>>(
+      "https://api.checkwx.com/metar/EFHK",
+      config
+    );
+
+    return res.send(apiRes.data.data[0]);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server error");
   }
 });
 

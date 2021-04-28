@@ -17,7 +17,7 @@ import cookieparser from "cookie-parser";
 import cors from "cors";
 import passportCfg from "./config/passportConfig";
 import chalk from "chalk";
-import liveApi from "./routes/live-api";
+import liveApi from "./routes/api-calls";
 import auth from "./middleware/auth";
 
 const app = express();
@@ -67,7 +67,6 @@ app.post("/login", (req, res, next) => {
           msg: "Successfully Logged in!",
           ...req.user,
         });
-        console.log(req.user);
       });
     }
   })(req, res, next);

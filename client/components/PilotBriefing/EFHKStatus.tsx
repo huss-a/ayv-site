@@ -3,21 +3,14 @@ import React, { useEffect, useState } from "react";
 import { Card, Container } from "react-bootstrap";
 
 const EFHKStatus: React.FC = () => {
-  interface ApiResponseIf<T> {
-    result: T;
-  }
-
-  interface ApiResponseMetar<T> {
-    data: T;
-  }
   const [atis, setAtis] = useState<string | null>("");
   const [metar, setMetar] = useState("");
   const getAtis = async () => {
     try {
-      const res = await axios.get<string | null>(
+      const res = await axios.get<{ result: string }>(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getEFHKatis`
       );
-      return res.data;
+      return res.data.result;
     } catch (err) {
       console.log(err);
     }
@@ -28,15 +21,14 @@ const EFHKStatus: React.FC = () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": process.env.NEXT_PUBLIC_METAR_API_KEY,
         },
       };
-      const res = await axios.get<ApiResponseMetar<string[]>>(
-        "https://api.checkwx.com/metar/EFHK",
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getefhkmetar`,
         config
       );
 
-      return res.data.data[0];
+      return res.data;
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +44,7 @@ const EFHKStatus: React.FC = () => {
     tasksOnRender();
   }, []);
   return (
-    <Card className="m-4 p-3">
+    <Card className="m-4 p-2 info-card">
       <Card.Header>
         <Card.Title as="h3">Our Hub: Helsinki Vantaa Airport (EFHK)</Card.Title>
       </Card.Header>
@@ -63,13 +55,13 @@ const EFHKStatus: React.FC = () => {
             : "Helsinki Vantaa Airport (EFHK) is active! 😄"}
         </h3>
         {atis && (
-          <p>
+          <p className="my-4">
             <strong>EFHK ATIS: </strong>
             {atis}
           </p>
         )}
         {metar && (
-          <p>
+          <p className="my-4">
             <strong>EFHK METAR: </strong>
             <code>{metar}</code>
           </p>

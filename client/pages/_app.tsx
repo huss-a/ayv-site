@@ -5,7 +5,7 @@ import Router from "next/router";
 import Layout from "../components/Layout/Layout";
 import aos from "aos";
 import "aos/dist/aos.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
 import User from "../Types/User";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Card } from "react-bootstrap";
 
 const PlanFlight = () => {
   const iframeStyles = {
@@ -10,9 +10,9 @@ const PlanFlight = () => {
   const [dep, setDep] = useState("");
   const [arr, setArr] = useState("");
   return (
-    <div
+    <Card
       style={{ display: "grid", placeItems: "center" }}
-      className="plan-flight"
+      className="plan-flight info-card m-4 p-2"
     >
       <h2 className="mb-4">Planning a flight?</h2>
       <Form.Control
@@ -40,7 +40,7 @@ const PlanFlight = () => {
         width="100%"
         style={iframeStyles}
       />
-    </div>
+    </Card>
   );
 };
 
