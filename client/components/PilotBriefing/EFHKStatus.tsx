@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Card, Container } from "react-bootstrap";
 
 const EFHKStatus: React.FC = () => {
   interface ApiResponseIf<T> {
@@ -51,8 +52,11 @@ const EFHKStatus: React.FC = () => {
     tasksOnRender();
   }, []);
   return (
-    <>
-      <div className="efhk p-4">
+    <Card className="m-4 p-3">
+      <Card.Header>
+        <Card.Title as="h3">Our Hub: Helsinki Vantaa Airport (EFHK)</Card.Title>
+      </Card.Header>
+      <div className="p-4">
         <h3>
           {!atis
             ? "Helsinki Vantaa Airport (EFHK) is currently inactive 😬"
@@ -71,7 +75,7 @@ const EFHKStatus: React.FC = () => {
           </p>
         )}
       </div>
-    </>
+    </Card>
   );
 };
 

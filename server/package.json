@@ -4,7 +4,7 @@
   "description": "",
   "main": "./out/src/server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon out/src/server.js",
+    "dev": "cross-env NODE_ENV=dev concurrently \"nodemon out/src/server.js\" \"tsc -w\"",
     "start": "tsc && node out/src/server",
     "deploy": "cd .. && git subtree push --prefix server heroku master",
     "env": "cross-env NODE_ENV=dev"

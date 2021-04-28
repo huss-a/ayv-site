@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.json({ msg: "No such User Exists" });
+    if (!user) res.json({ msg: "Invalid Password - Email combination" });
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
@@ -95,14 +95,13 @@ app.post("/register", auth, async (req, res) => {
 app.get("/logout", auth, (req, res) => {
   if (req.user) {
     req.logOut();
-    res.json({ msg: "Done" });
-  }
-  else res.json({msg: "Not logged in"})
+    res.json({ msg: "Logged out" });
+  } else res.json({ msg: "Not logged in" });
 });
 
 app.get("/user", auth, (req, res) => {
-  if (!req.user) return res.json({msg: "Not logged in"});
-  return res.send(req.user);
+  if (!req.user) return res.json({ msg: "Not logged in" });
+  return res.json(req.user);
 });
 
 app.listen(PORT, () =>

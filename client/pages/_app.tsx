@@ -5,10 +5,10 @@ import Router from "next/router";
 import Layout from "../components/Layout/Layout";
 import aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import AuthProvider from "../contexts/AuthContext";
+import AuthProvider, { authContext } from "../contexts/AuthContext";
 import User from "../Types/User";
 
 NProgress.configure({ showSpinner: false });
@@ -19,13 +19,16 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState<User>(null);
-  const getUser = async () => {
+  const getCurrentUser = async () => {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`);
     setUser(res.data);
   };
   useEffect(() => {
+    console.log("render");
     aos.init();
-  }, []);
+    if (!user) return;
+    (async () => await getCurrentUser())();
+  }, [getCurrentUser, user]);
   return (
     <>
       <Head>

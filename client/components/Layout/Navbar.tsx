@@ -5,7 +5,7 @@ import { authContext } from "../../contexts/AuthContext";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
-  const userObject = useContext(authContext);
+  // const userObject = useContext(authContext);
   const logoutUser = async () => {
     await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logout`);
   };
@@ -121,7 +121,7 @@ const Navbar: React.FC = () => {
                     className="dropdown-item"
                     onClick={() => router.push("/pilots/login")}
                   >
-                    Login
+                    Login / Logout
                   </a>
                 </li>
 
