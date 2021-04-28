@@ -8,7 +8,6 @@ import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import AuthProvider, { authContext } from "../contexts/AuthContext";
 import User from "../Types/User";
 
 NProgress.configure({ showSpinner: false });
@@ -34,11 +33,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <AuthProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </AuthProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
