@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState, useContext } from "react";
-import { authContext } from "../../contexts/AuthContext";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
