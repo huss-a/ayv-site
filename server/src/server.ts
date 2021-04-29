@@ -91,7 +91,7 @@ app.post("/register", auth, async (req, res) => {
   }
 });
 
-app.get("/logout", auth, (req, res) => {
+app.post("/logout", auth, (req, res) => {
   if (req.user) {
     req.logOut();
     res.json({ msg: "Logged out" });

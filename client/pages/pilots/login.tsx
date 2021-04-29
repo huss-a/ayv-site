@@ -40,7 +40,7 @@ const login: React.FC = () => {
 
   async function logoutUser() {
     setLoading(true);
-    const res = await axios.get(
+    const res = await axios.post(
       process.env.NEXT_PUBLIC_BACKEND_URL + "/logout",
       {
         withCredentials: true,
@@ -49,7 +49,6 @@ const login: React.FC = () => {
     setLoading(false);
     setAlert(res.data.msg);
   }
-
 
   useEffect(() => {
     if (alert) setTimeout(() => setAlert(null), 3000);
