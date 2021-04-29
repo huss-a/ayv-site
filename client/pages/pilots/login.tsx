@@ -31,11 +31,8 @@ const login: React.FC = () => {
     setLoading(false);
     setAlert(res.data.msg);
 
-    const clearInputs = () => {
-      setEmail("");
-      setPassword("");
-    };
-    clearInputs();
+    setEmail("");
+    setPassword("");
   }
 
   async function logoutUser() {
