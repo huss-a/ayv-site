@@ -41,6 +41,7 @@ const briefing: React.FC = () => {
       setLoading(true);
       const p = await getLoggedInUser();
       if (p.msg === "Not logged in") return router.push("/pilots/login");
+      console.log(p);
       setPilot(p);
       setLoading(false);
     };

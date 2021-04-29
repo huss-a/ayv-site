@@ -46,7 +46,8 @@ const LiveFlights = () => {
   const getFlights = useCallback(async () => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getallvaflights`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getallvaflights`,
+        { withCredentials: true }
       );
       return res.data;
     } catch (err) {

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
 import { Card, Container } from "react-bootstrap";
 
@@ -7,8 +7,15 @@ const EFHKStatus: React.FC = () => {
   const [metar, setMetar] = useState("");
   const getAtis = async () => {
     try {
+      const config: AxiosRequestConfig = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      };
       const res = await axios.get<{ result: string }>(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getEFHKatis`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getEFHKatis`,
+        config
       );
       return res.data.result;
     } catch (err) {
@@ -18,10 +25,11 @@ const EFHKStatus: React.FC = () => {
 
   const getMetar = async () => {
     try {
-      const config = {
+      const config: AxiosRequestConfig = {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       };
       const res = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/if/getefhkmetar`,

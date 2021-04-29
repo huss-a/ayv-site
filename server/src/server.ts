@@ -92,14 +92,13 @@ app.post("/register", auth, async (req, res) => {
 });
 
 app.post("/logout", auth, (req, res) => {
-  if (req.user) {
-    req.logOut();
-    res.json({ msg: "Logged out" });
-  } else res.json({ msg: "Not logged in" });
+  req.logOut();
+  return res.json({ msg: "Logged out" });
 });
 
 app.get("/user", auth, (req, res) => {
   if (!req.user) return res.json({ msg: "Not logged in" });
+  res.setHeader("Cache-Control", "no-cache");
   return res.json(req.user);
 });
 

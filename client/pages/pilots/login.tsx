@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { Form, Container, Button, Alert, Spinner } from "react-bootstrap";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 const login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -15,9 +15,10 @@ const login: React.FC = () => {
       email,
       password,
     };
-    const config = {
+    const config: AxiosRequestConfig = {
       headers: {
         "Content-Type": "application/json",
+        
       },
       withCredentials: true,
     };
@@ -37,11 +38,16 @@ const login: React.FC = () => {
 
   async function logoutUser() {
     setLoading(true);
+    const config: AxiosRequestConfig = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    };
     const res = await axios.post(
       process.env.NEXT_PUBLIC_BACKEND_URL + "/logout",
-      {
-        withCredentials: true,
-      }
+      null,
+      config,
     );
     setLoading(false);
     setAlert(res.data.msg);
