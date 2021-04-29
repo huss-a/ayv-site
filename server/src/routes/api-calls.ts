@@ -18,7 +18,6 @@ interface ApiResponseMetar<T> {
 
 router.get("/getAllVaFlights", auth, async (req, res) => {
   try {
-    console.log("Ref: " + req.headers.referer);
     if (req.headers.referer !== `${process.env.CORS_URL}/`)
       return res.status(401).send("Unauthorized request!");
     const apiRes = await axios.get(
