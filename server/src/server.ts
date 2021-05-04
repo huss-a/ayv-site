@@ -35,6 +35,9 @@ app.use(
   })
 );
 
+// heroku trust setting for cookie 🍪
+app.set("trust proxy", 1);
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET!,
