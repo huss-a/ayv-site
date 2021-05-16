@@ -437,6 +437,16 @@ iframe {
   box-shadow: 0px 10px 20px grey;
 }
 
+.not-pilot-container {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* #region <Media Queries and junk> */
 @media screen and (max-width: 1200px) {
   nav ul {
     width: 60% !important;
@@ -556,3 +566,4 @@ iframe {
     stroke-dashoffset: 0;
   }
 }
+/* #endregion */

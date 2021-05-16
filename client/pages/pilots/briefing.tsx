@@ -10,8 +10,8 @@ const briefing: React.FC = () => {
   const router = useRouter();
   const [pilot, setPilot] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isPilot, setIsPilot] = useState(false);
   const AYV_GUILD_ID = "789506130350833664";
-  let isPilot:boolean;
 
   const getLoggedInUser = async () => {
     try {
@@ -41,8 +41,16 @@ const briefing: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    pilot.guilds.fi
-  }, [pilot])
+    if (pilot) {
+      for (const g of pilot?.guilds) {
+        if (g.id === AYV_GUILD_ID) {
+          setIsPilot(true);
+          break;
+        }
+        setIsPilot(false);
+      }
+    }
+  }, [pilot]);
 
   return (
     <>
@@ -56,7 +64,7 @@ const briefing: React.FC = () => {
         </title>
       </Head>
       <div className="mt-4">
-        {!loading && pilot?.guilds?.filter((g) => g.id === AYV_GUILD_ID) ? (
+        {!loading && isPilot ? (
           <Container className="mt-2">
             <div className="pilot">
               <img
@@ -80,8 +88,19 @@ const briefing: React.FC = () => {
             <EFHKStatus />
             <PlanFlight />
           </Container>
-        ) : !loading && !pilot?.guilds?.filter((g) => g.id === AYV_GUILD_ID) ? (
-          <h1>{"Not an AYVA Pilot. :("}</h1>
+        ) : !loading && !isPilot ? (
+          <div className="not-pilot-container container">
+            <h1 className="text-center">
+              {"Only AYVA Pilots allowed! :("}
+            </h1>
+            <h2 className="text-center">
+              You can{" "}
+              <a href="https://forms.gle/cMUA1B2hcHeH7DYh6" className="link">
+                become one
+              </a>{" "}
+              today though!
+            </h2>
+          </div>
         ) : (
           <Spinner animation="grow" variant="primary" />
         )}
