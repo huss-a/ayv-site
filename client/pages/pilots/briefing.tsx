@@ -17,21 +17,8 @@ const briefing: React.FC = () => {
   }
   const [pilot, setPilot] = useState(null);
   const [loading, setLoading] = useState(false);
-  // const getLoggedInUser = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       process.env.NEXT_PUBLIC_BACKEND_URL + "/user",
-  //       {
-  //         withCredentials: true,
-  //       }
-  //     );
-  //     return res.data;
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  const _getLoggedInUser = async () => {
+  
+  const getLoggedInUser = async () => {
     try {
       const res = await axios.get(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/user",
@@ -48,7 +35,7 @@ const briefing: React.FC = () => {
   useEffect(() => {
     const getLoggedInUserOnRender = async () => {
       setLoading(true);
-      const p = await _getLoggedInUser();
+      const p = await getLoggedInUser();
       if (!p) return router.push("/pilots/login");
       console.log(p);
       setPilot(p);
