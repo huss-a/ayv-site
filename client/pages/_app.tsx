@@ -11,23 +11,16 @@ import axios from "axios";
 import User from "../Types/User";
 
 NProgress.configure({ showSpinner: false });
+
 //Binding events (loader)
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useState<User>(null);
-  const getCurrentUser = async () => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user`);
-    setUser(res.data);
-  };
   useEffect(() => {
-    console.log("render");
     aos.init();
-    if (!user) return;
-    (async () => await getCurrentUser())();
-  }, [getCurrentUser, user]);
+  }, []);
   return (
     <>
       <Head>

@@ -8,16 +8,10 @@ import PlanFlight from "../../components/PilotBriefing/PlanFlight";
 
 const briefing: React.FC = () => {
   const router = useRouter();
-  interface Pilot {
-    _id: string;
-    ifcName: string;
-    email: string;
-    callsign: string;
-    password: string;
-  }
   const [pilot, setPilot] = useState(null);
   const [loading, setLoading] = useState(false);
-  
+  const AYV_GUILD_ID = "789506130350833664";
+
   const getLoggedInUser = async () => {
     try {
       const res = await axios.get(
@@ -44,6 +38,7 @@ const briefing: React.FC = () => {
 
     getLoggedInUserOnRender(); // i suck at naming these
   }, []);
+
   return (
     <>
       <Head>
@@ -56,7 +51,7 @@ const briefing: React.FC = () => {
         </title>
       </Head>
       <div className="mt-4">
-        {!loading ? (
+        {!loading && pilot?.guilds?.filter((g) => g.id === AYV_GUILD_ID) ? (
           <Container className="mt-2">
             <div className="pilot">
               <img
@@ -70,7 +65,8 @@ const briefing: React.FC = () => {
                 <i className="fas fa-plane" /> Welcome back, {pilot?.username}!
               </h1>
               <h6 className="text-muted">
-                <i className="fas fa-phone" /> {pilot?.callsign ?? "Callsign not set"}
+                <i className="fas fa-phone" />{" "}
+                {pilot?.callsign ?? "Callsign not set"}
               </h6>
               <h6 className="text-muted">
                 <i className="fas fa-envelope" /> {pilot?.email}
