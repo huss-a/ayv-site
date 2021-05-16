@@ -1,6 +1,7 @@
 :root {
   --primary-blue: #0b1560;
   --light-blue: #3a4ac5;
+  --pfp-size: 150px;
 }
 
 * {
@@ -318,6 +319,8 @@ iframe {
 
 .pfp {
   border-radius: 50%;
+  height: var(--pfp-size);
+  width: var(--pfp-size);
 }
 
 .social-icons {

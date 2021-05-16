@@ -9,6 +9,10 @@ const login: React.FC = () => {
   const [alert, setAlert] = useState<string>(null);
   const [loading, setLoading] = useState(false);
 
+  const _loginUser = () => {
+    window.location.href = process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/login";
+  };
+
   async function loginUser(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
     const data = {
@@ -18,7 +22,6 @@ const login: React.FC = () => {
     const config: AxiosRequestConfig = {
       headers: {
         "Content-Type": "application/json",
-        
       },
       withCredentials: true,
     };
@@ -47,7 +50,7 @@ const login: React.FC = () => {
     const res = await axios.post(
       process.env.NEXT_PUBLIC_BACKEND_URL + "/logout",
       null,
-      config,
+      config
     );
     setLoading(false);
     setAlert(res.data.msg);
@@ -123,6 +126,7 @@ const login: React.FC = () => {
               Logout
             </Button>
           </Form>
+          <button onClick={_loginUser}>login w dcord</button>
         </Container>
       </div>
     </>

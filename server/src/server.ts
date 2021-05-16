@@ -1,9 +1,6 @@
 if (process.env.NODE_ENV === "dev") {
-  const dotenv = require("dotenv");
-
-  dotenv.config({
-    path:
-      "C:\\Users\\Hussain\\OneDrive\\Desktop\\Web development\\ayv-site\\server\\.env.local",
+  require("dotenv").config({
+    path: "C:\\Users\\Hussain\\OneDrive\\Desktop\\webdev\\ayv-site\\server\\.env.local",
   });
 }
 
@@ -19,10 +16,17 @@ import passportCfg from "./config/passportConfig";
 import chalk from "chalk";
 import liveApi from "./routes/api-calls";
 import auth from "./middleware/auth";
+import "./strategies/discord";
 
 const app = express();
 dbConnect(process.env.DB_CONN_URI!);
 const PORT = process.env.PORT || 5000;
+
+/* 
+some https option i got from stackoverflow
+idk how it works but it does lmao
+*/
+require("https").globalAgent.options.rejectUnauthorized = false;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -44,10 +48,8 @@ app.use(
     resave: true,
     saveUninitialized: true,
     cookie: {
-      path: "/",
-      httpOnly: true,
-      sameSite: "none",
-    }
+      sameSite: "strict",
+    },
   })
 );
 
@@ -103,11 +105,41 @@ app.post("/logout", auth, (req, res) => {
   req.logOut();
   return res.json({ msg: "Logged out" });
 });
+const scope = ["identify", "guilds", "guilds.join"];
+const prompt = "consent";
+
+app.get("/auth/login", passport.authenticate("discord", { scope, prompt }));
+app.get(
+  "/auth/callback",
+  passport.authenticate("discord", { failureRedirect: "/" }),
+  (req, res) => {
+    try {
+      res.redirect("http://localhost:3000/pilots/briefing");
+    } catch (err) {
+      console.log("In try-catch line 110 server.ts", err);
+    }
+  } // auth success
+);
 
 app.get("/user", auth, (req, res) => {
   if (!req.user) return res.json({ msg: "Not logged in" });
   res.setHeader("Cache-Control", "no-cache");
   return res.json(req.user);
+});
+
+app.get(
+  "/auth/user",
+  (req, res, next) => {
+    if (req.isAuthenticated()) return next();
+    res.redirect("/auth/login");
+  },
+  (req, res) => {
+    res.json(req.user);
+  }
+);
+
+app.get("/auth/logout", (req, res) => {
+  req.logOut();
 });
 
 app.listen(PORT, () =>
