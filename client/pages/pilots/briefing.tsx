@@ -11,6 +11,7 @@ const briefing: React.FC = () => {
   const [pilot, setPilot] = useState(null);
   const [loading, setLoading] = useState(false);
   const AYV_GUILD_ID = "789506130350833664";
+  let isPilot:boolean;
 
   const getLoggedInUser = async () => {
     try {
@@ -38,6 +39,10 @@ const briefing: React.FC = () => {
 
     getLoggedInUserOnRender(); // i suck at naming these
   }, []);
+
+  useEffect(() => {
+    pilot.guilds.fi
+  }, [pilot])
 
   return (
     <>
@@ -75,6 +80,8 @@ const briefing: React.FC = () => {
             <EFHKStatus />
             <PlanFlight />
           </Container>
+        ) : !loading && !pilot?.guilds?.filter((g) => g.id === AYV_GUILD_ID) ? (
+          <h1>{"Not an AYVA Pilot. :("}</h1>
         ) : (
           <Spinner animation="grow" variant="primary" />
         )}

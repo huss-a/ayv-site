@@ -7,8 +7,6 @@ import aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import axios from "axios";
-import User from "../Types/User";
 
 NProgress.configure({ showSpinner: false });
 
