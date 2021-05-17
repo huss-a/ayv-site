@@ -77,10 +77,10 @@ const briefing: React.FC = () => {
               <h1>
                 <i className="fas fa-plane" /> Welcome back, {pilot?.username}!
               </h1>
-              <h6 className="text-muted">
+              {/* <h6 className="text-muted">
                 <i className="fas fa-phone" />{" "}
                 {pilot?.callsign ?? "Callsign not set"}
-              </h6>
+              </h6> */}
               <h6 className="text-muted">
                 <i className="fas fa-envelope" /> {pilot?.email}
               </h6>
