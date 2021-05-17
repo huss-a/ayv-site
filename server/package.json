@@ -30,7 +30,9 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.12.5",
     "passport": "^0.4.1",
+    "passport-discord": "^0.1.4",
     "passport-local": "^1.0.0",
+    "passport-oauth2": "^1.5.0",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
