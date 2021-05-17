@@ -47,6 +47,7 @@ const register: React.FC = () => {
     <>
       <Head>
         <title>Finnair Virtual | Register</title>
+        <meta name="description" content="" />
       </Head>
       <div className="reg-login-wrapper">
         <Container className="m-4 p-5 reg-login-form">

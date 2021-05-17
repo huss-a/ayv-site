@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const EFHKStatus: React.FC = () => {
-  const [atis, setAtis] = useState<string | null>("");
+  const [atis, setAtis] = useState("");
   const [metar, setMetar] = useState("");
   const getAtis = async () => {
     try {

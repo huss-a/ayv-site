@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "*.js": "javascriptreact"
+        "*.local": "env"
     },
     "discord.enabled": true
 }

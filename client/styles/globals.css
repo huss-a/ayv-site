@@ -429,7 +429,6 @@ iframe {
   border-radius: 1px 1px 10px 10px;
   box-shadow: 0px 5px 20px grey;
   transition: 0.2s ease-out !important;
-
 }
 
 .info-card:hover {
@@ -444,6 +443,20 @@ iframe {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 100%;
+}
+
+.login-card {
+  max-width: 800px;
+  width: 80%;
 }
 
 /* #region <Media Queries and junk> */

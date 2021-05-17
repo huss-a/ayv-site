@@ -1,21 +1,29 @@
-import axios from "axios";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { Spinner, Container } from "react-bootstrap";
+
+import { useRouter } from "next/router";
 import Head from "next/head";
-import EFHKStatus from "../../components/PilotBriefing/EFHKStatus";
-import PlanFlight from "../../components/PilotBriefing/PlanFlight";
+
+import axios from "axios";
+
+import EFHKStatus from "@components/PilotBriefing/EFHKStatus";
+import PlanFlight from "@components/PilotBriefing/PlanFlight";
+
+import { DiscordUser } from "@typedefs/DiscordUser";
 
 const briefing: React.FC = () => {
-  const router = useRouter();
-  const [pilot, setPilot] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const router = useRouter(); //router
+  // states
+  const [pilot, setPilot] = useState<DiscordUser>(null);
   const [isPilot, setIsPilot] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const AYV_GUILD_ID = "789506130350833664";
 
+  // Funcs
   const getLoggedInUser = async () => {
     try {
-      const res = await axios.get(
+      const res = await axios.get<DiscordUser>(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/user",
         {
           withCredentials: true,
@@ -27,17 +35,15 @@ const briefing: React.FC = () => {
     }
   };
 
+  // Effects
   useEffect(() => {
-    const getLoggedInUserOnRender = async () => {
+    (async () => {
       setLoading(true);
       const p = await getLoggedInUser();
       if (!p) return router.push("/pilots/login");
-      console.log(p);
       setPilot(p);
       setLoading(false);
-    };
-
-    getLoggedInUserOnRender(); // i suck at naming these
+    })();
   }, []);
 
   useEffect(() => {
@@ -52,6 +58,7 @@ const briefing: React.FC = () => {
     }
   }, [pilot]);
 
+  // JSX
   return (
     <>
       <Head>
@@ -90,9 +97,7 @@ const briefing: React.FC = () => {
           </Container>
         ) : !loading && !isPilot ? (
           <div className="not-pilot-container container">
-            <h1 className="text-center">
-              {"Only AYVA Pilots allowed! :("}
-            </h1>
+            <h1 className="text-center">{"Only AYVA Pilots allowed! :("}</h1>
             <h2 className="text-center">
               You can{" "}
               <a href="https://forms.gle/cMUA1B2hcHeH7DYh6" className="link">

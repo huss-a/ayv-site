@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV === "dev") {
   require("dotenv").config({
-    path: "C:\\Users\\Hussain\\OneDrive\\Desktop\\webdev\\ayv-site\\server\\.env.local",
+    path: require("path").join(process.cwd(), ".env.local"),
   });
 }
 
@@ -108,27 +108,26 @@ app.post("/logout", auth, (req, res) => {
 const scope = ["identify", "guilds", "guilds.join"];
 const prompt = "consent";
 
-app.get("/auth/login", passport.authenticate("discord", { scope, prompt }));
+app.get(
+  "/auth/login",
+  auth,
+  passport.authenticate("discord", { scope, prompt })
+);
 app.get(
   "/auth/callback",
   passport.authenticate("discord", { failureRedirect: "/" }),
   (req, res) => {
     try {
-      res.redirect("http://localhost:3000/pilots/briefing");
+      res.redirect(`${process.env.CORS_URL}/pilots/briefing`);
     } catch (err) {
       console.log("In try-catch line 110 server.ts", err);
     }
   } // auth success
 );
 
-app.get("/user", auth, (req, res) => {
-  if (!req.user) return res.json({ msg: "Not logged in" });
-  res.setHeader("Cache-Control", "no-cache");
-  return res.json(req.user);
-});
-
 app.get(
   "/auth/user",
+  auth,
   (req, res, next) => {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/login");
@@ -138,8 +137,9 @@ app.get(
   }
 );
 
-app.get("/auth/logout", (req, res) => {
+app.get("/auth/logout", auth, (req, res) => {
   req.logOut();
+  res.status(200).json({ msg: "Logged Out" });
 });
 
 app.listen(PORT, () =>
