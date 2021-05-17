@@ -34,8 +34,8 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
     credentials: true,
+    origin: "https://ayv-dev.netlify.app",
   })
 );
 
