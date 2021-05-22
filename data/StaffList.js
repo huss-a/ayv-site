@@ -60,6 +60,23 @@ const staffMembers = {
         yt: "https://www.youtube.com/channel/UCDeirxl0-YT-yh_veHJ0KOA",
       },
     },
+    {
+      name: "Erick A.",
+      role: "Events Manager",
+      desc: "Hi! I am Erick I am 17 years old I am located at New Jersey or new KEWR I part of the AYVA or the (Finnair VA) I am also part of the ACVA (Air Canada VA) I am Staff at the AYVA and my staff position Events manager also with the callsign AYVA 128 but what I basically do is create Events for the AYVA but stay in mind that when I am creating The events I need to stay Creative because with the creative mind takes you to the beyond of awesomeness",
+      ifcName: "infinite7779x",
+      location: "United States",
+      social: {
+        yt: "https://www.youtube.com/channel/UCXBgQbexInz4QVJgSOnMcVQ",
+      },
+    },
+    {
+      name: "Ari Aaltonen",
+      role: "Flight Supervisor",
+      desc: "Hey! I am Ari and I’ve been in the VA since autumn 2020 as a pilot and as Flight Supervisor since May 2021. My background consist of many years of work experience in Airline business in the Nordic market. I've been flying in IF about 2 years now and enjoy the like-minded community at IFC and Finnair Virtual. I also appreciate how the simulator has evolved during these years. I try to fly every day even a short hop from the Helsinki base, but most likely you will find me flying the evening hours or weekends inbound or outbound EFHK. Keeping my Grade 5 now is one of my challenges. Looking forward to fly together with you.",
+      ifcName: "Pilot_Aaltonen",
+      location: "Finland",
+    },
   ],
 };
 
