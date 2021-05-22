@@ -52,10 +52,10 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
               <div className="social my-4">
                 <h4>Social Links</h4>
                 <div className="social-icons">
-                  {singleMember.social.yt && (
+                  {singleMember.social?.yt && (
                     <a
                       className="link"
-                      href={singleMember.social.yt}
+                      href={singleMember.social?.yt}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -67,7 +67,7 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
                       </h4>
                     </a>
                   )}
-                  {singleMember.social.ig && (
+                  {singleMember.social?.ig && (
                     <a
                       className="link"
                       href={singleMember.social.ig}
@@ -82,7 +82,7 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
                       </h4>
                     </a>
                   )}
-                  {singleMember.social.github && (
+                  {singleMember.social?.github && (
                     <a
                       className="link"
                       href={singleMember.social.github}
