@@ -2,20 +2,30 @@ import staffList from "../../../../data/StaffList";
 import Head from "next/head";
 import { Container, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { StaffInfo } from "../../../../data/StaffList";
 
-const staffMember = ({ member, memberAvatar }) => {
-  member = member[0];
+interface Props {
+  member: [StaffInfo];
+  memberAvatar: string;
+}
+
+const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
+  let singleMember = member[0];
   const router = useRouter();
   useEffect(() => {
-    document.querySelector(".nav-about").classList.add("active");
+    document
+      .querySelector<HTMLAnchorElement>(".nav-about")
+      .classList.add("active");
     return () =>
-      document.querySelector(".nav-about").classList.remove("active");
+      document
+        .querySelector<HTMLAnchorElement>(".nav-about")
+        .classList.remove("active");
   }, []);
   return (
     <>
       <Head>
-        <title>Finnair Virtual | Staff - {member.name}</title>
+        <title>Finnair Virtual | Staff - {singleMember.name}</title>
       </Head>
 
       <Container>
@@ -23,19 +33,21 @@ const staffMember = ({ member, memberAvatar }) => {
           <div className="staff-member-container">
             <img src={memberAvatar} className="pfp my-3" />
 
-            <h1 className="text-center">{member.name}</h1>
+            <h1 className="text-center">{singleMember.name}</h1>
             <h6 className="text-muted text-center">
-              <i className="fas fa-map-marker-alt" /> {member.location}
+              <i className="fas fa-map-marker-alt" /> {singleMember.location}
             </h6>
             <h6 className="text-center" style={{ color: "#0b1560" }}>
               <i className="fas fa-check" /> Junior Management
             </h6>
             <h6 className="text-center" style={{ color: "#0b1560" }}>
-              <i className="fas fa-check" /> {member.role}
+              <i className="fas fa-check" /> {singleMember.role}
             </h6>
-            <p className="text-center staff-member-bio my-2">{member.desc}</p>
+            <p className="text-center staff-member-bio my-2">
+              {singleMember.desc}
+            </p>
             <a
-              href={`https://community.infinitelflight.com/u/${member.ifcName}`}
+              href={`https://community.infinitelflight.com/u/${singleMember.ifcName}`}
               className="link"
             >
               <h6>IFC Profile</h6>
@@ -43,10 +55,10 @@ const staffMember = ({ member, memberAvatar }) => {
             <div className="social my-4">
               <h4>Social Links</h4>
               <div className="social-icons">
-                {member.social.yt && (
+                {singleMember.social.yt && (
                   <a
                     className="link"
-                    href={member.social.yt}
+                    href={singleMember.social.yt}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -58,10 +70,10 @@ const staffMember = ({ member, memberAvatar }) => {
                     </h4>
                   </a>
                 )}
-                {member.social.ig && (
+                {singleMember.social.ig && (
                   <a
                     className="link"
-                    href={member.social.ig}
+                    href={singleMember.social.ig}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -93,7 +105,9 @@ export default staffMember;
 export async function getStaticProps({ params }) {
   //Filter the junior management array and return it as a prop
 
-  let member = staffList.juniorManagement.filter((mem) => mem.id == params.id);
+  let member: StaffInfo[] = staffList.juniorManagement.filter(
+    (mem) => mem.id == params.id
+  )!;
   const res = await fetch(
     `https://community.infiniteflight.com/u/${member[0].ifcName}.json`
   );

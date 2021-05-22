@@ -3,12 +3,17 @@ import StaffCard from "../../../components/Staff/Card";
 import staffMembers from "../../../data/StaffList";
 import Head from "next/head";
 import { useEffect } from "react";
+import { StaffInfo } from "../../../data/StaffList";
 
-const staff = () => {
+const staff: React.FC = () => {
   useEffect(() => {
-    document.querySelector(".nav-about").classList.add("active");
+    document
+      .querySelector<HTMLAnchorElement>(".nav-about")
+      .classList.add("active");
     return () =>
-      document.querySelector(".nav-about").classList.remove("active");
+      document
+        .querySelector<HTMLAnchorElement>(".nav-about")
+        .classList.remove("active");
   }, []);
   return (
     <>
@@ -23,11 +28,10 @@ const staff = () => {
         <div style={centerDivStyle}>
           <h2>Senior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.seniorManagement.map((member, idx) => (
+            {staffMembers.seniorManagement.map((member: StaffInfo, idx) => (
               <>
                 <StaffCard
                   key={member.name}
-                  className="mb-4"
                   staffMember={member}
                   status="senior"
                   idx={idx}
@@ -38,10 +42,9 @@ const staff = () => {
           <hr style={hrStyle} />
           <h2>Junior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.juniorManagement.map((member, idx) => (
+            {staffMembers.juniorManagement.map((member: StaffInfo, idx) => (
               <StaffCard
                 key={member.name}
-                className="mb-4"
                 staffMember={member}
                 status="junior"
                 idx={idx}
@@ -59,7 +62,8 @@ const centerDivStyle = {
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
-};
+} as const;
 
-const hrStyle = { border: "1px solid #000", width: "80%" };
+const hrStyle = { border: "1px solid #000", width: "80%" } as const;
+
 export default staff;

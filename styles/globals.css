@@ -177,6 +177,9 @@ nav ul li:hover {
   background-image: url("../images/a350_depart.jpg");
   background-attachment: fixed;
   background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,23 +379,19 @@ iframe {
   flex-direction: column;
 }
 
-#sign {
-  stroke-dasharray: 1364.4361572265625;
-  stroke-dashoffset: 1364.4361572265625;
-  animation: sign 6s ease;
-  animation-fill-mode: forwards;
-}
-
 #scroll-up-btn {
   background-color: black;
   border: none;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  font-size: 2rem;
-  line-height: 48px;
-  width: 48px;
+  font-size: 1.8rem;
   margin: 10px;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -401,7 +400,7 @@ iframe {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .apply-wrapper {
     background-image: none;
   }
@@ -425,8 +424,11 @@ iframe {
     flex-direction: column;
     height: 40vh;
   }
+}
 
-  .main-banner {
+@media screen and (max-width: 1090px) {
+  .main-banner,
+  .ceo-msg-container {
     background-position: center;
   }
 }
@@ -496,6 +498,13 @@ iframe {
 @media screen and (max-width: 400px) {
   .not-found-left h1 {
     font-size: 3.6rem;
+  }
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  .main-banner,
+  .ceo-msg-container {
+    background-attachment: scroll;
   }
 }
 

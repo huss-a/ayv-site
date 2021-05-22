@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 
-const CEOMessage = () => {
+const CEOMessage: React.FC = () => {
   return (
     <div className="ceo-msg-container my-4">
       <Container>

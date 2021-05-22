@@ -12,42 +12,73 @@ In order to keep server-only secrets safe, Next.js replaces process.env.* with t
 "
 By default all environment variables loaded through .env.local are only available in the Node.js environment, meaning they won't be exposed to the browser.
 
-In order to expose a variable to the browser you have to prefix the variable with NEXT_PUBLIC_.
+In order to expose a variable to the browser you have to prefix the variable with `NEXT_PUBLIC_`.
 "
 */
 
 const LiveFlights = () => {
-  const [pilots, setPilots] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [reloading, setReloading] = useState(false);
+  // Types
+  interface FlightInfo {
+    username: string;
+    callsign: string;
+    latitude: number;
+    longitude: number;
+    altitude: number;
+    speed: number;
+    verticalSpeed: number;
+    track: number;
+    lastReport: Date;
+    flightId: string;
+    userId: string;
+    aircraftId: string;
+    liveryId: string;
+    heading: number;
+    virtualOrganization: string | null;
+  }
 
+  // States
+  const [pilots, setPilots] = useState<FlightInfo[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [reloading, setReloading] = useState<boolean>(false);
+
+  // Funcs
   const getFlights = useCallback(async () => {
-    const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
+    try {
+      const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
 
-    const data = await useFetch(url);
+      const data = await useFetch(url);
 
-    const ayvFlights = await data.result.filter(
-      (flight) =>
-        flight.callsign.startsWith("Finnair") &&
-        flight.callsign.search("VA") > 0
-    );
+      const ayvFlights: FlightInfo[] = await data.result.filter(
+        (flight: FlightInfo) =>
+          flight.callsign.startsWith("Finnair") &&
+          flight.callsign.search("VA") > 0
+      );
 
-    await ayvFlights.forEach((flight) =>
-      flight.username === null ? (flight.username = "Username Not Set") : null
-    );
+      await ayvFlights.forEach((flight) =>
+        flight.username === null ? (flight.username = "Username Not Set") : null
+      );
 
-    return ayvFlights;
+      return ayvFlights;
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   async function reloadFlights() {
-    setReloading(true);
-    const ayvFlights = await getFlights();
-    setPilots(ayvFlights);
-    setReloading(false);
+    try {
+      setReloading(true);
+      const ayvFlights = await getFlights();
+      setPilots(ayvFlights);
+      setReloading(false);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
-    const flightReload = document.querySelector("#flight-reload");
+    const flightReload = document.querySelector<HTMLButtonElement>(
+      "#flight-reload"
+    );
     const fetchFlightInfoOnRender = async () => {
       try {
         flightReload.style.display = "none";
@@ -61,20 +92,25 @@ const LiveFlights = () => {
     };
     fetchFlightInfoOnRender();
 
-    const iframe = document.querySelector("iframe");
-    const mapLoad = document.querySelector(".map-load");
-    const mapLoadH3 = document.querySelector(".map-load h3");
+    const iframe = document.querySelector<HTMLIFrameElement>("iframe");
+    const mapLoad = document.querySelector<HTMLDivElement>(".map-load");
+    const mapLoadH3 = document.querySelector<HTMLHeadingElement>(
+      ".map-load h3"
+    );
+
     setTimeout(async () => {
       iframe.style.display = "block";
       mapLoad.style.backgroundColor = "transparent";
       mapLoadH3.style.display = "none";
     }, 5000);
 
-    const pilotTable = document.querySelector("#pilot-table");
+    const pilotTable = document.querySelector<HTMLTableElement>("#pilot-table");
     pilotTable.style.display = "none";
     if (!loading) {
       pilotTable.style.display = "inline-table";
-      document.querySelector("#pilot-table-spinner").style.display = "none";
+      document.querySelector<HTMLDivElement>(
+        "#pilot-table-spinner"
+      ).style.display = "none";
     }
 
     if (pilots.length === 0) pilotTable.style.display = "none";
@@ -82,7 +118,7 @@ const LiveFlights = () => {
 
   return (
     <div>
-      <h1 style={{ fontWeight: "600" }}>VA Live Flights</h1>
+      <h1 style={{ fontWeight: 600 } as const}>VA Live Flights</h1>
       <div className="map-load">
         <h3 className="loading">
           <Spinner

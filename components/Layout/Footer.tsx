@@ -1,4 +1,6 @@
-const Footer = () => {
+import { Button } from "react-bootstrap";
+
+const Footer: React.FC = () => {
   const scrollUp = () => {
     const rootElement = document.documentElement;
     rootElement.scrollTo({
@@ -88,9 +90,9 @@ const Footer = () => {
           &copy; Finnair Virtual 2021
         </h6>
         <div className="scroll-up">
-          <button id="scroll-up-btn" onClick={() => scrollUp()}>
+          <Button className="text-center" id="scroll-up-btn" onClick={() => scrollUp()}>
             ☝
-          </button>
+          </Button>
         </div>
       </div>
     </footer>

@@ -1,19 +1,26 @@
 import { useRouter } from "next/router";
 import { Button, Card } from "react-bootstrap";
+import { StaffInfo } from "../../data/StaffList";
 
-const StaffCard = ({ staffMember, status, idx }) => {
+interface Props {
+  staffMember: StaffInfo;
+  status: "senior" | "junior";
+  idx: number;
+}
+
+const StaffCard: React.FC<Props> = ({ staffMember, status, idx }) => {
   const cardTitleStyles = {
     fontSize: "2rem",
     fontFamily: "'Caveat', cursive",
-    fontWeight: "700",
-  };
+    fontWeight: 700,
+  } as const;
 
   const btnStyles = {
     padding: "4px 7px",
     marginLeft: "10px",
     backgroundColor: "#0b1560",
     border: "4px #0b1560",
-  };
+  } as const;
   const router = useRouter();
   return (
     <Card
@@ -33,7 +40,7 @@ const StaffCard = ({ staffMember, status, idx }) => {
         <h6>
           <Button
             target="_blank"
-            rel="noreferrer"
+            data-rel="noreferrer"
             href={`https://community.infiniteflight.com/u/${staffMember.ifcName}`}
             style={btnStyles}
           >
@@ -41,7 +48,7 @@ const StaffCard = ({ staffMember, status, idx }) => {
           </Button>
           <Button
             target="_blank"
-            rel="noreferrer"
+            data-rel="noreferrer"
             onClick={() =>
               router.push(`/about/staff/${status}/${staffMember.id}`)
             }

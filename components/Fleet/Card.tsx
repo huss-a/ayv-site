@@ -1,6 +1,6 @@
 import { Card, Accordion, Button, ListGroup } from "react-bootstrap";
 
-const FleetCard = ({ aircraft, idx }) => {
+const FleetCard = ({ aircraft }) => {
   return (
     <Card className="my-4" data-aos="zoom-in" data-aos-once="true">
       <Card.Img variant="top" src={aircraft.img} />

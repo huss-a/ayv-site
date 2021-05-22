@@ -1,4 +1,4 @@
-const Requirements = [
+const Requirements: string[] = [
   "At Least 13 years of age",
   "Valid Infinite Flight Pro subscription",
   "At Least Grade 3 in Infinite Flight",
