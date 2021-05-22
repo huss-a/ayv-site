@@ -5,7 +5,7 @@ export interface StaffInfo {
   ifcName: string;
   location: string;
   id?: string;
-  social: {
+  social?: {
     yt?: string;
     github?: string;
     ig?: string;
