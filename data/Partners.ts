@@ -63,7 +63,10 @@ export const OneWorldPartners: OWVAPartners[] = [
 ];
 
 export const normalPartners: NormalPartners[] = [
-  { name: "Air China Virtual", website: "http://airchinavirtualif.com/" },
+  {
+    name: "Air China Virtual",
+    website: "http://airchinavirtualif.com/",
+  },
   {
     name: "American Airlines Virtual",
     website: "https://ifamericanvirtual.com/",

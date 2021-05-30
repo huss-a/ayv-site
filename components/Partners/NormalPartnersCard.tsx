@@ -14,11 +14,13 @@ const NormalPartnersCard: React.FC = () => (
         </Card.Text>
         <div>
           <ListGroup>
-            {normalPartners.sort().map((partner) => (
-              <ListGroup.Item>
-                <a href={partner.website}>{partner.name}</a>
-              </ListGroup.Item>
-            ))}
+            {normalPartners
+              .sort((a, b) => (a.name > b.name ? 1 : -1))
+              .map((partner) => (
+                <ListGroup.Item key={partner.website}>
+                  <a href={partner.website}>{partner.name}</a>
+                </ListGroup.Item>
+              ))}
           </ListGroup>
         </div>
       </Card.Body>
