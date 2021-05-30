@@ -93,4 +93,16 @@ export const normalPartners: NormalPartners[] = [
     name: "TAP Virtual Airlines",
     website: "https://tap-va.weebly.com/",
   },
+  {
+    name: "Airbus Industry Virtual",
+    website: "https://airbusindustryva.wixsite.com/aibva",
+  },
+  {
+    name: "Ethiopian Virtual",
+    website: "https://ethiopianvirtualif.crewsystem.net/",
+  },
+  {
+    name: "El Al Virtual",
+    website: "https://www.ifelalvirtual.com/",
+  },
 ];
