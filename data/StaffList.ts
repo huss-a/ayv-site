@@ -80,7 +80,7 @@ const staffMembers: StaffGroups = {
       },
     },
     {
-      name: "Erick A.",
+      name: "Erick Adorno",
       role: "Events Manager",
       desc: "Hi! I am Erick I am 17 years old I am located at New Jersey or new KEWR I part of the AYVA or the (Finnair VA) I am also part of the ACVA (Air Canada VA) I am Staff at the AYVA and my staff position Events manager also with the callsign AYVA 128 but what I basically do is create Events for the AYVA but stay in mind that when I am creating The events I need to stay Creative because with the creative mind takes you to the beyond of awesomeness",
       ifcName: "infinite7779x",
