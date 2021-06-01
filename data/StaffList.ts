@@ -1,23 +1,6 @@
-export interface StaffInfo {
-  name: string;
-  role: string;
-  desc: string;
-  ifcName: string;
-  location: string;
-  id?: string;
-  social?: {
-    yt?: string;
-    github?: string;
-    ig?: string;
-  };
-}
+import { StaffList } from "../types/StaffList";
 
-interface StaffGroups {
-  seniorManagement: StaffInfo[];
-  juniorManagement: StaffInfo[];
-}
-
-const staffMembers: StaffGroups = {
+const staffMembers: StaffList = {
   seniorManagement: [
     {
       name: "Hussain Aqeel",

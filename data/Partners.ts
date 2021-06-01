@@ -1,14 +1,4 @@
-interface OWVAPartners {
-  name: string;
-  website: string;
-  color: string;
-  description: string;
-}
-
-interface NormalPartners {
-  name: string;
-  website: string;
-}
+import { OWVAPartners, NormalPartners } from "../types/Partners";
 
 export const OneWorldPartners: OWVAPartners[] = [
   {

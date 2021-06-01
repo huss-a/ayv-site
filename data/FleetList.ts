@@ -8,17 +8,7 @@ import DH8D from "../images/fleet-img/DH8D.jpg";
 import E190 from "../images/fleet-img/E190.jpg";
 import _757 from "../images/fleet-img/757.jpg";
 
-interface Fleet {
-  name: string;
-  role: string;
-  specs: {
-    wingspan: number;
-    maxPax:number;
-    maxCargo: number;
-    range: number;
-  };
-  img: string;
-}
+import { Fleet } from "../types/FleetList";
 
 const fleet: Fleet[] = [
   {

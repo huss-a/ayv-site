@@ -16,6 +16,7 @@ const contact: React.FC = () => {
       </Head>
 
       <div className="contact-form-wrapper">
+        <div id="black-tint"/>
         <Container
           style={{ height: "100vh" }}
           className="contact-form-container"

@@ -1,5 +1,6 @@
 :root {
   --primary-blue: #0b1560;
+  --primary-blue-transparent: #0b156080;
   --light-blue: #3a4ac5;
 }
 
@@ -139,7 +140,28 @@ nav ul li:hover {
 
 .form-card {
   transition: 0.5s ease;
-  border-top: 6px solid var(--primary-blue);
+  color: white;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.card-body {
+  background-color: transparent;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card input:focus,
+.form-card textarea:focus,
+form[name="contact-form"] button {
+  background-color: transparent;
+  color: white;
+  font-weight: 300;
+  border: 1.5px solid rgba(255, 255, 255, 0.125);
+}
+
+form[name="contact-form"] button:hover {
+  background-color: var(--primary-blue-transparent);
 }
 
 .footer-container {
@@ -237,8 +259,6 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative;
-  bottom: 150px; */
 }
 
 .contact-form-header {
@@ -392,6 +412,14 @@ iframe {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
+}
+
+#black-tint {
+  position: absolute;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  opacity: 0.37;
 }
 
 @media screen and (max-width: 1200px) {

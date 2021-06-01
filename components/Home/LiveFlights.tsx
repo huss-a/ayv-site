@@ -38,8 +38,8 @@ const LiveFlights = () => {
 
   // States
   const [pilots, setPilots] = useState<FlightInfo[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [reloading, setReloading] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
+  const [reloading, setReloading] = useState(false);
 
   // Funcs
   const getFlights = useCallback(async () => {
@@ -76,9 +76,8 @@ const LiveFlights = () => {
   }
 
   useEffect(() => {
-    const flightReload = document.querySelector<HTMLButtonElement>(
-      "#flight-reload"
-    );
+    const flightReload =
+      document.querySelector<HTMLButtonElement>("#flight-reload");
     const fetchFlightInfoOnRender = async () => {
       try {
         flightReload.style.display = "none";
@@ -94,9 +93,8 @@ const LiveFlights = () => {
 
     const iframe = document.querySelector<HTMLIFrameElement>("iframe");
     const mapLoad = document.querySelector<HTMLDivElement>(".map-load");
-    const mapLoadH3 = document.querySelector<HTMLHeadingElement>(
-      ".map-load h3"
-    );
+    const mapLoadH3 =
+      document.querySelector<HTMLHeadingElement>(".map-load h3");
 
     setTimeout(async () => {
       iframe.style.display = "block";
