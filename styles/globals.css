@@ -149,18 +149,15 @@ nav ul li:hover {
   background-color: transparent;
 }
 
-.form-card input,
-.form-card textarea,
-.form-card input:focus,
-.form-card textarea:focus,
-form[name="contact-form"] button {
+.white-trans,
+.white-trans:focus {
   background-color: transparent;
   color: white;
   font-weight: 300;
   border: 1.5px solid rgba(255, 255, 255, 0.125);
 }
 
-form[name="contact-form"] button:hover {
+button.white-trans:hover {
   background-color: var(--primary-blue-transparent);
 }
 

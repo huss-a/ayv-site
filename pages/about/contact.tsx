@@ -4,9 +4,13 @@ import { Container, Card, Form, Button } from "react-bootstrap";
 
 const contact: React.FC = () => {
   useEffect(() => {
-    document.querySelector<HTMLAnchorElement>(".nav-about").classList.add("active");
+    document
+      .querySelector<HTMLAnchorElement>(".nav-about")
+      .classList.add("active");
     return () =>
-      document.querySelector<HTMLAnchorElement>(".nav-about").classList.remove("active");
+      document
+        .querySelector<HTMLAnchorElement>(".nav-about")
+        .classList.remove("active");
   }, []);
   return (
     <>
@@ -16,7 +20,7 @@ const contact: React.FC = () => {
       </Head>
 
       <div className="contact-form-wrapper">
-        <div id="black-tint"/>
+        <div id="black-tint" />
         <Container
           style={{ height: "100vh" }}
           className="contact-form-container"
@@ -43,13 +47,25 @@ const contact: React.FC = () => {
                   <Form.Label htmlFor="Name">
                     IFC Name / Real Name <i className="fas fa-at"></i>
                   </Form.Label>
-                  <Form.Control id="Name" name="Name" type="text" required />
+                  <Form.Control
+                    className="white-trans"
+                    id="Name"
+                    name="Name"
+                    type="text"
+                    required
+                  />
                 </Form.Group>
                 <Form.Group className="mt-3">
                   <Form.Label htmlFor="Email">
                     Email <i className="fas fa-inbox"></i>
                   </Form.Label>
-                  <Form.Control id="Email" name="Email" type="email" required />
+                  <Form.Control
+                    className="white-trans"
+                    id="Email"
+                    name="Email"
+                    type="email"
+                    required
+                  />
                 </Form.Group>
                 <Form.Group className="mt-3">
                   <Form.Label htmlFor="Message">
@@ -57,12 +73,12 @@ const contact: React.FC = () => {
                   </Form.Label>
                   <textarea
                     id="Message"
-                    className="form-control"
+                    className="form-control white-trans"
                     name="Message"
                     required
                   />
                 </Form.Group>
-                <Button type="submit" className="mt-4">
+                <Button type="submit" className="mt-4 white-trans">
                   Send
                 </Button>
               </Form>
