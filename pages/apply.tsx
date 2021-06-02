@@ -17,10 +17,9 @@ const apply: React.FC = () => {
       </Head>
 
       <div className="apply-wrapper">
-        <div id="black-tint" />
-        <div className="apply-container">
-          <Card className="animate__animated animate__fadeInLeft m-4 white-trans ">
-            <Card.Header style={{ border: "none" }}>
+        <Container className="apply-container my-4">
+          <Card className="animate__animated animate__fadeInLeft m-4 white-trans">
+            <Card.Header style={{border: "none"}}>
               <Card.Title>
                 <h2>Requirements</h2>
                 <Card.Subtitle className="mt-2">
@@ -32,7 +31,7 @@ const apply: React.FC = () => {
               </Card.Title>
             </Card.Header>
             <Card.Body>
-              <ListGroup className="list-group ">
+              <ListGroup className="list-group">
                 {reqs.map((requirement, index) => (
                   <ListGroup.Item key={index} className="white-trans">
                     {requirement}
@@ -42,7 +41,7 @@ const apply: React.FC = () => {
             </Card.Body>
           </Card>
           <Card className="animate__animated animate__fadeInRight m-4 white-trans">
-            <Card.Header style={{ border: "none" }}>
+            <Card.Header style={{border: "none"}}>
               <Card.Title>
                 <h2>Application & Upon Joining</h2>
               </Card.Title>
@@ -96,7 +95,7 @@ const apply: React.FC = () => {
               for preparation.
             </Card.Footer>
           </Card>
-        </div>
+        </Container>
       </div>
     </>
   );
