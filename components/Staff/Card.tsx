@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { Button, Card } from "react-bootstrap";
-import { StaffInfo } from "../../data/StaffList";
+import { Staff } from "../../types/StaffList";
 
 interface Props {
-  staffMember: StaffInfo;
+  staffMember: Staff;
   status: "senior" | "junior";
   idx: number;
 }
