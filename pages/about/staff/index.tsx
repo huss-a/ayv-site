@@ -3,7 +3,7 @@ import StaffCard from "../../../components/Staff/Card";
 import staffMembers from "../../../data/StaffList";
 import Head from "next/head";
 import { useEffect } from "react";
-import { StaffInfo } from "../../../data/StaffList";
+import { Staff } from "../../../types/StaffList";
 
 const staff: React.FC = () => {
   useEffect(() => {
@@ -28,7 +28,7 @@ const staff: React.FC = () => {
         <div style={centerDivStyle}>
           <h2>Senior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.seniorManagement.map((member: StaffInfo, idx) => (
+            {staffMembers.seniorManagement.map((member: Staff, idx) => (
               <>
                 <StaffCard
                   key={member.name}
@@ -42,7 +42,7 @@ const staff: React.FC = () => {
           <hr style={hrStyle} />
           <h2>Junior Management</h2>
           <div className="staff-card-container">
-            {staffMembers.juniorManagement.map((member: StaffInfo, idx) => (
+            {staffMembers.juniorManagement.map((member: Staff, idx) => (
               <StaffCard
                 key={member.name}
                 staffMember={member}

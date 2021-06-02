@@ -2,11 +2,11 @@ import staffList from "../../../../data/StaffList";
 import Head from "next/head";
 import { Container, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import { StaffInfo } from "../../../../data/StaffList";
+import { Staff } from "../../../../types/StaffList";
+import { useEffect } from "react";
 
 interface Props {
-  member: [StaffInfo];
+  member: [Staff];
   memberAvatar: string;
 }
 
@@ -118,17 +118,16 @@ export default staffMember;
 export async function getStaticProps({ params }) {
   //Filter the senior management array and return it as a prop
 
-  let member: StaffInfo[] = staffList.seniorManagement.filter(
-    (mem) => mem.id == params.id
-  )!;
+  let member = staffList.seniorManagement.filter((mem) => mem.id == params.id)!;
   const res = await fetch(
     `https://community.infiniteflight.com/u/${member[0].ifcName}.json`
   );
   const data = await res.json();
-  const memberAvatar = `https://sjc6.discourse-cdn.com/infiniteflight${data.user.avatar_template}`.replace(
-    "{size}",
-    "150"
-  );
+  const memberAvatar =
+    `https://sjc6.discourse-cdn.com/infiniteflight${data.user.avatar_template}`.replace(
+      "{size}",
+      "150"
+    );
 
   return {
     props: {
