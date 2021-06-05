@@ -19,7 +19,6 @@ In order to expose a variable to the browser you have to prefix the variable wit
 */
 
 const LiveFlights = () => {
-
   // States
   const [pilots, setPilots] = useState<FlightInfo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -28,8 +27,26 @@ const LiveFlights = () => {
   // Funcs
   const getFlights = useCallback(async () => {
     try {
-      const data = await axios.get<FlightInfo[]>("/api/getAllVaFlights");
-      return data.data;
+      const callsignRegex = /^Finnair \d{3}VA$/g;
+      const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}`;
+
+      const data = await useFetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY_IF}`,
+        },
+      });
+
+      const ayvFlights: FlightInfo[] = await data.result.filter(
+        (flight: FlightInfo) => callsignRegex.test(flight.callsign)
+      );
+
+      ayvFlights.forEach(
+        (flight) =>
+          flight.username === null && (flight.username = "Username Not Set")
+      );
+
+      return ayvFlights;
     } catch (err) {
       console.log(err);
     }
