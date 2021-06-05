@@ -44,14 +44,13 @@ const LiveFlights = () => {
   // Funcs
   const getFlights = useCallback(async () => {
     try {
+      const callsignRegex = /^Finnair \d{3}VA$/g;
       const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
 
       const data = await useFetch(url);
 
       const ayvFlights: FlightInfo[] = await data.result.filter(
-        (flight: FlightInfo) =>
-          flight.callsign.startsWith("Finnair") &&
-          flight.callsign.search("VA") > 0
+        (flight: FlightInfo) => callsignRegex.test(flight.callsign)
       );
 
       await ayvFlights.forEach((flight) =>
