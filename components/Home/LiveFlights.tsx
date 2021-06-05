@@ -45,9 +45,14 @@ const LiveFlights = () => {
   const getFlights = useCallback(async () => {
     try {
       const callsignRegex = /^Finnair \d{3}VA$/g;
-      const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}?apikey=${process.env.NEXT_PUBLIC_API_KEY_IF}`;
+      const url = `https://api.infiniteflight.com/public/v2/flights/${process.env.NEXT_PUBLIC_SESSION_ID}`;
 
-      const data = await useFetch(url);
+      const data = await useFetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY_IF}`,
+        },
+      });
 
       const ayvFlights: FlightInfo[] = await data.result.filter(
         (flight: FlightInfo) => callsignRegex.test(flight.callsign)
