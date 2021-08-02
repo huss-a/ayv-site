@@ -4,6 +4,7 @@ import { Container, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { Staff } from "../../../../types/StaffList";
+import scrollUp from "../../../../helpers/scrollUp";
 
 interface Props {
   member: [Staff];
@@ -14,9 +15,11 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
   let singleMember = member[0];
   const router = useRouter();
   useEffect(() => {
+    scrollUp();
     document
       .querySelector<HTMLAnchorElement>(".nav-about")
       .classList.add("active");
+    
     return () =>
       document
         .querySelector<HTMLAnchorElement>(".nav-about")
@@ -31,7 +34,7 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
       <Container>
         <div className="staff-member-wrapper my-4">
           <div className="staff-member-container">
-            <img src={memberAvatar} className="pfp my-3" />
+            {memberAvatar ? <img src={memberAvatar} className="pfp my-3" /> : <p>Loading...</p>}
 
             <h1 className="text-center">{singleMember.name}</h1>
             <h6 className="text-muted text-center">

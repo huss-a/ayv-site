@@ -15,6 +15,6 @@ export interface Staff {
 
 interface Social {
     yt?:     string;
-    github?: string;
+    gh?: string;
     ig?:     string;
 }

@@ -33,5 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# testing
+# misc
 /testing
+/todos.txt

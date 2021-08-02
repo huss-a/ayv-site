@@ -10,8 +10,8 @@ const staffMembers: StaffList = {
       ifcName: "Hardlanding_Hussain",
       location: "Kuwait",
       social: {
-        yt: "https://www.youtube.com/channel/UC0gReEDa4RwNAWfDvjtg6sw",
-        github: "https://github.com/huss-a",
+        yt: "https://youtube.com/channel/UC0gReEDa4RwNAWfDvjtg6sw",
+        gh: "https://github.com/huss-a",
       },
     },
     {
@@ -22,8 +22,9 @@ const staffMembers: StaffList = {
       ifcName: "GBKarp",
       location: "Brazil",
       social: {
-        yt: "https://www.youtube.com/channel/UCfOmgUsAMiiDMSrmX9K9J7w",
-        ig: "https://www.instagram.com/gbkarp_aviation/",
+        yt: "https://youtube.com/channel/UCfOmgUsAMiiDMSrmX9K9J7w",
+        ig: "https://instagram.com/gbkarp_aviation/",
+        gh: "https://github.com/GBKarp",
       },
     },
     {
@@ -34,7 +35,7 @@ const staffMembers: StaffList = {
       ifcName: "That_guy14",
       location: "United States",
       social: {
-        ig: "https://www.instagram.com/that_guy_over_yonder/",
+        ig: "https://instagram.com/that_guy_over_yonder/",
       },
     },
   ],
@@ -48,7 +49,7 @@ const staffMembers: StaffList = {
       ifcName: "airbus7447skyhawk",
       location: "United Kingdom",
       social: {
-        ig: "https://www.instagram.com/wcrane001/",
+        ig: "https://instagram.com/wcrane001/",
       },
     },
     {
@@ -59,7 +60,7 @@ const staffMembers: StaffList = {
       ifcName: "ECOFRIENDLY_TIME",
       location: "United Arab Emirates",
       social: {
-        yt: "https://www.youtube.com/channel/UCDeirxl0-YT-yh_veHJ0KOA",
+        yt: "https://youtube.com/channel/UCDeirxl0-YT-yh_veHJ0KOA",
       },
     },
     {
@@ -69,7 +70,7 @@ const staffMembers: StaffList = {
       ifcName: "infinite7779x",
       location: "United States",
       social: {
-        yt: "https://www.youtube.com/channel/UCXBgQbexInz4QVJgSOnMcVQ",
+        yt: "https://youtube.com/channel/UCXBgQbexInz4QVJgSOnMcVQ",
       },
     },
     {

@@ -4,6 +4,7 @@ import { Container, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
 import { Staff } from "../../../../types/StaffList";
 import { useEffect } from "react";
+import scrollUp from "../../../../helpers/scrollUp";
 
 interface Props {
   member: [Staff];
@@ -14,6 +15,7 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
   let singleMember = member[0];
   const router = useRouter();
   useEffect(() => {
+    scrollUp();
     document.querySelector(".nav-about").classList.add("active");
     return () =>
       document.querySelector(".nav-about").classList.remove("active");
@@ -82,10 +84,10 @@ const staffMember: React.FC<Props> = ({ member, memberAvatar }) => {
                       </h4>
                     </a>
                   )}
-                  {singleMember.social?.github && (
+                  {singleMember.social?.gh && (
                     <a
                       className="link"
-                      href={singleMember.social.github}
+                      href={singleMember.social.gh}
                       target="_blank"
                       rel="noreferrer"
                     >

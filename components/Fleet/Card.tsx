@@ -12,7 +12,6 @@ const FleetCard = ({ aircraft }) => {
       <Accordion> {/* Accordions enable toggling */}
         <Card.Body>
           <Accordion.Toggle
-            style={{ display: "grid", placeItems: "center" }}
             as={Button}
             variant="link"
             eventKey="0"

@@ -18,7 +18,7 @@ const Stats: React.FC = () => {
             <CountUp
               duration={1.5}
               start={0}
-              end={3000}
+              end={3950}
               suffix="+"
               separator=","
             />
@@ -29,7 +29,7 @@ const Stats: React.FC = () => {
             Pilots <i className="fas fa-address-card" />
           </h4>
           <h5>
-            <CountUp duration={1.5} start={0} end={40} suffix="+" delay={1.5} />
+            <CountUp duration={1.5} start={0} end={45} suffix="+" delay={1.5} />
           </h5>
         </div>
         <div className="total-miles">
@@ -40,7 +40,7 @@ const Stats: React.FC = () => {
             <CountUp
               duration={1.5}
               start={0}
-              end={854000}
+              end={1202600}
               suffix="+"
               delay={3}
               separator=","
@@ -55,7 +55,7 @@ const Stats: React.FC = () => {
             <CountUp
               duration={1.5}
               start={0}
-              end={1850}
+              end={2200}
               suffix="+"
               delay={4.5}
               separator=","

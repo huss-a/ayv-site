@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Head from "next/head";
+import {useRouter} from "next/router";
 
 const NotFound = () => {
+  const router = useRouter();
   useEffect(() => {
-    setTimeout(() => (window.location.href = "/"), 2000);
+    setTimeout(() => router.push("/"), 2000);
   }, []);
   return (
     <>
